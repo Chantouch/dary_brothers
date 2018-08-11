@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
@@ -39,7 +40,11 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebRoutes();
 
-        //
+        $this->mapAdminRoutes();
+
+        $this->mapAuthRoutes();
+
+        $this->mapCustomerRoutes();
     }
 
     /**
@@ -51,9 +56,78 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapWebRoutes()
     {
-        Route::middleware('web')
-             ->namespace($this->namespace)
-             ->group(base_path('routes/web.php'));
+//        Route::middleware('web')
+//            ->namespace($this->namespace)
+//            ->group(base_path('routes/web.php'));
+
+        $locale = Request::segment(1);
+
+        Route::group([
+            'middleware' => 'web',
+            'namespace' => $this->namespace,
+            'prefix' => $locale
+        ], function ($router) {
+            require base_path('routes/web.php');
+        });
+    }
+
+    /**
+     * Define the "web" routes for the application.
+     *
+     * These routes all receive session state, CSRF protection, etc.
+     *
+     * @return void
+     */
+    protected function mapAuthRoutes()
+    {
+        $locale = Request::segment(1);
+
+        Route::group([
+            'middleware' => 'web',
+            'namespace' => $this->namespace . '\Admin',
+            'prefix' => $locale . '/admin',
+            'as' => 'admin.'
+        ], function ($router) {
+            require base_path('routes/auth.php');
+        });
+    }
+
+    /**
+     * Define the "admin" routes for the application.
+     *
+     * These routes are typically stateless.
+     */
+    protected function mapAdminRoutes(): void
+    {
+        $locale = Request::segment(1);
+
+        Route::group([
+            'middleware' => ['web', 'auth:admin'], //, 'role:admin'
+            'namespace' => $this->namespace . '\Admin',
+            'prefix' => $locale . '/admin',
+            'as' => 'admin.'
+        ], function ($router) {
+            require base_path('routes/admin.php');
+        });
+    }
+
+    /**
+     * Define the "admin" routes for the application.
+     *
+     * These routes are typically stateless.
+     */
+    protected function mapCustomerRoutes(): void
+    {
+        $locale = Request::segment(1);
+
+        Route::group([
+            'middleware' => ['web', 'auth:customer'], //, 'role:admin'
+            'namespace' => $this->namespace . '\Customer',
+            'prefix' => $locale . '/customer',
+            'as' => 'customer.'
+        ], function ($router) {
+            require base_path('routes/customer.php');
+        });
     }
 
     /**
@@ -66,8 +140,8 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapApiRoutes()
     {
         Route::prefix('api')
-             ->middleware('api')
-             ->namespace($this->namespace)
-             ->group(base_path('routes/api.php'));
+            ->middleware('api')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/api.php'));
     }
 }
