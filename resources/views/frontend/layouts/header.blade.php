@@ -13,7 +13,7 @@
 
             <!-- Logo2 -->
             <a href="{{ route('frontend.home') }}" class="logo2">
-                <img src="{!! asset('images/icons/logo.png') !!}" alt="IMG-LOGO">
+                <img src="{!! asset('images/icons/logo.png') !!}" alt="{{ config('app.name', 'Dary') }}">
             </a>
 
             <div class="topbar-child2">
@@ -23,15 +23,18 @@
                     </span>
                 @endauth
                 <div class="topbar-language rs1-select2">
-                    <select class="selection-1" name="time">
-                        <option>USD</option>
-                        <option>EUR</option>
+                    <select class="selection-1" name="lang">
+                        <option>KH</option>
+                        <option>EN</option>
                     </select>
                 </div>
 
-                <!--  -->
-                <a href="{!! route('login') !!}" class="header-wrapicon1 dis-block m-l-30">
+                <a href="{!! route('customer.carts.index') !!}" class="header-wrapicon1 dis-block m-l-30">
                     <img src="{{ asset('images/icons/icon-header-01.png') }}" class="header-icon1" alt="ICON">
+                </a>
+
+                <a href="{!! route('customer.wish-lists.index') !!}" class="header-wrapicon1 dis-block m-l-30">
+                    <i class="fa fa-heart-o"></i>
                 </a>
 
                 <span class="linedivide1"></span>
@@ -39,79 +42,57 @@
                 <div class="header-wrapicon2 m-r-13">
                     <img src="{!! asset('images/icons/icon-header-02.png') !!}"
                          class="header-icon1 js-show-header-dropdown" alt="ICON">
-                    <span class="header-icons-noti">0</span>
+                    <span class="header-icons-noti">{!! count(Cart::content()) !!}</span>
 
-                    <!-- Header cart noti -->
                     <div class="header-cart header-dropdown">
-                        <ul class="header-cart-wrapitem">
-                            <li class="header-cart-item">
-                                <div class="header-cart-item-img">
-                                    <img src="{!! asset('images/item-cart-01.jpg') !!}" alt="IMG">
-                                </div>
+                        @if (sizeof(Cart::content()) > 0)
+                            <ul class="header-cart-wrapitem">
+                                @foreach (Cart::content() as $index => $product)
+                                    <li class="header-cart-item">
+                                        <div class="header-cart-item-img">
+                                            @if($product->model->hasMedia('product-images'))
+                                                {{ Html::image($product->model->getMedia('product-images')->first()->getUrl('feature-product'), $product->model->getMedia('product-images')->first()->name) }}
+                                            @else
+                                                <img src="{{ asset('images/item-cart-01.jpg') }}"
+                                                     alt="{{ $product->model->name }}"
+                                                     width="40px">
+                                            @endif
 
-                                <div class="header-cart-item-txt">
-                                    <a href="#" class="header-cart-item-name">
-                                        White Shirt With Pleat Detail Back
-                                    </a>
+                                        </div>
 
-                                    <span class="header-cart-item-info">
-											1 x $19.00
+                                        <div class="header-cart-item-txt">
+                                            <a href="#" class="header-cart-item-name">
+                                                {!! $product->name !!}
+                                            </a>
+                                            <span class="header-cart-item-info">
+											{!! $product->qty !!} x ${!! $product->price !!}
 										</span>
-                                </div>
-                            </li>
-
-                            <li class="header-cart-item">
-                                <div class="header-cart-item-img">
-                                    <img src="{!! asset('images/item-cart-02.jpg') !!}" alt="IMG">
-                                </div>
-
-                                <div class="header-cart-item-txt">
-                                    <a href="#" class="header-cart-item-name">
-                                        Converse All Star Hi Black Canvas
-                                    </a>
-
-                                    <span class="header-cart-item-info">
-											1 x $39.00
-										</span>
-                                </div>
-                            </li>
-
-                            <li class="header-cart-item">
-                                <div class="header-cart-item-img">
-                                    <img src="{!! asset('images/item-cart-03.jpg') !!}" alt="IMG">
-                                </div>
-
-                                <div class="header-cart-item-txt">
-                                    <a href="#" class="header-cart-item-name">
-                                        Nixon Porter Leather Watch In Tan
-                                    </a>
-
-                                    <span class="header-cart-item-info">
-											1 x $17.00
-										</span>
-                                </div>
-                            </li>
-                        </ul>
-
-                        <div class="header-cart-total">
-                            Total: $75.00
-                        </div>
-
-                        <div class="header-cart-buttons">
-                            <div class="header-cart-wrapbtn">
-                                <!-- Button -->
-                                <a href="cart.html" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
-                                    View Cart
-                                </a>
+                                        </div>
+                                    </li>
+                                @endforeach
+                            </ul>
+                            <div class="header-cart-total">
+                                Total: ${!! Cart::total() !!}
                             </div>
+                            <div class="header-cart-buttons">
+                                <div class="header-cart-wrapbtn">
+                                    <!-- Button -->
+                                    <a href="{!! route('customer.carts.index') !!}"
+                                       class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+                                        View Cart
+                                    </a>
+                                </div>
 
-                            <div class="header-cart-wrapbtn">
-                                <!-- Button -->
-                                <a href="#" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
-                                    Check Out
-                                </a>
+                                <div class="header-cart-wrapbtn">
+                                    <!-- Button -->
+                                    <a href="#" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+                                        Check Out
+                                    </a>
+                                </div>
                             </div>
-                        </div>
+                        @else
+                            <p>There is no item in cart</p>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -138,10 +119,6 @@
 
                         <li class="sale-noti">
                             <a href="product.html">Sale</a>
-                        </li>
-
-                        <li>
-                            <a href="cart.html">Features</a>
                         </li>
 
                         <li>
@@ -181,10 +158,15 @@
                     <img src="{!! asset('images/icons/icon-header-01.png') !!}" class="header-icon1" alt="ICON">
                 </a>
 
+                <a href="{!! route('customer.wish-lists.index') !!}" class="header-wrapicon1 dis-block m-l-30">
+                    <i class="fa fa-heart-o"></i>
+                </a>
+
                 <span class="linedivide2"></span>
 
                 <div class="header-wrapicon2">
-                    <img src="{!! asset('images/icons/icon-header-02.png') !!}" class="header-icon1 js-show-header-dropdown" alt="ICON">
+                    <img src="{!! asset('images/icons/icon-header-02.png') !!}"
+                         class="header-icon1 js-show-header-dropdown" alt="ICON">
                     <span class="header-icons-noti">0</span>
 
                     <!-- Header cart noti -->

@@ -9,14 +9,11 @@ use Illuminate\View\View;
 
 class DashboardController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth:customer');
-    }
-
     public function index(): View
     {
         $productCarts = Cart::content();
+
+        // dd($productCarts);
 
         return view('customer.cart', [
             'carts' => $productCarts

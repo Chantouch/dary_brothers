@@ -55,6 +55,7 @@ class ShoppingCartController extends Controller
                     'message' => 'Thanks! Item was added to your wishlist!',
                     'alert-type' => 'success'
                 ];
+                alert()->success('Product has been added to wishlist.', 'Good bye!')->autoclose();
                 return redirect()->back()->with($notification);
                 break;
             case "cart":
@@ -73,6 +74,7 @@ class ShoppingCartController extends Controller
                     'message' => 'Thanks! Item was added to your cart!',
                     'alert-type' => 'success'
                 ];
+                alert()->success('Product has been added to cart', 'Nice job.')->autoclose();
                 return redirect()->back()->with($notification);
                 break;
             default:
@@ -133,7 +135,6 @@ class ShoppingCartController extends Controller
             'alert-type' => 'success'
         ];
         return redirect('products/carts')->with($notification);
-        //return redirect('products/carts')->withSuccessMessage('Your cart has been cleared!');
     }
 
     /**

@@ -21,5 +21,6 @@ return [
         'code' => 'Coupon Code',
         'apply' => 'Apply Coupon'
     ],
-    'update' => 'Update Cart'
+    'update' => 'Update Cart',
+    'empty' => 'Empty Cart'
 ];

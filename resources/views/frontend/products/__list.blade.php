@@ -12,22 +12,28 @@
                         @endif
 
                         <div class="block2-overlay trans-0-4">
-                            <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
+                            {!! Form::open(['route' => ['carts.store'], 'method' => 'POST']) !!}
+                            <button class="block2-btn-addwishlist hov-pointer trans-0-4"
+                                    name="submit"
+                                    type="submit"
+                                    value="wishlist">
                                 <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-                                <i class="icon-wishlist icon_heart dis-none"
-                                   aria-hidden="true"></i>
-                            </a>
+                                <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
+                            </button>
                             <div class="block2-btn-addcart w-size1 trans-0-4">
-                                {!! Form::open(['route' => ['carts.store'], 'method' => 'POST']) !!}
                                 <input type="hidden" name="id" value="{{ $product->id }}">
                                 <input type="hidden" name="name" value="{{ $product->name }}">
                                 <input type="hidden" name="price" value="{{ $product->price }}">
                                 <input type="hidden" name="qty" value="1" id="sub_qty">
-                                <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" name="submit" type="submit" value="cart">
+                                <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4"
+                                        name="submit"
+                                        type="submit"
+                                        value="cart"
+                                >
                                     <span>Add to cart</span>
                                 </button>
-                                {!! Form::close() !!}
                             </div>
+                            {!! Form::close() !!}
                         </div>
                     </div>
 

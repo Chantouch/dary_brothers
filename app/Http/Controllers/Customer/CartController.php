@@ -1,0 +1,86 @@
+<?php
+
+namespace App\Http\Controllers\Customer;
+
+use App\Models\Product;
+use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\View\View;
+
+class CartController extends Controller
+{
+
+    public function index(): View
+    {
+        $productCarts = Cart::content();
+
+        // dd($productCarts);
+
+        return view('customer.cart', [
+            'carts' => $productCarts
+        ]);
+    }
+
+    /**
+     * Remove the resource from storage.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function emptyCart()
+    {
+        Cart::destroy();
+        $notification = [
+            'message' => 'Thanks! Item was cleared from cart!',
+            'alert-type' => 'success'
+        ];
+        return redirect()->route('customer.dashboard')->with($notification);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        Cart::remove($id);
+        $notification = [
+            'message' => 'Thanks! Item has been removed!',
+            'alert-type' => 'success'
+        ];
+        alert()->success('Product has been remove from cart', 'Good bye!')->autoclose();
+        return redirect()->route('customer.dashboard')->with($notification);
+    }
+
+
+    /**
+     * Switch item from shopping cart to wishlist.
+     *
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function switchToWishlist($id)
+    {
+        $item = Cart::get($id);
+        Cart::remove($id);
+        $duplicates = Cart::instance('wishlist')->search(function ($cartItem, $rowId) use ($id) {
+            return $cartItem->id === $id;
+        });
+        if (!$duplicates->isEmpty()) {
+            $notification = [
+                'message' => 'Thanks! Item is already in your Wishlist!',
+                'alert-type' => 'success'
+            ];
+            return redirect('products/carts')->with($notification);
+        }
+        Cart::instance('wishlist')->add($item->id, $item->name, $item->qty, $item->price)
+            ->associate(Product::class);
+        $notification = [
+            'message' => 'Thanks! Item was removed from your Wishlist!',
+            'alert-type' => 'success'
+        ];
+        return redirect()->with($notification);
+    }
+}

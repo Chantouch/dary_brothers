@@ -18,3 +18,5 @@ Auth::routes();
 Route::get('/', 'Frontend\HomeController@index')->name('frontend.home');
 
 Route::resource('carts', 'Frontend\ShoppingCartController');
+
+Route::get('products/list', 'Frontend\ProductController@index')->name('products.index');

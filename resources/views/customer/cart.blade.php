@@ -23,8 +23,9 @@
                             <th class="column-3">{{ __('cart.product.price') }}</th>
                             <th class="column-4 p-l-70">{{ __('cart.product.qty') }}</th>
                             <th class="column-5">{{ __('cart.product.total') }}</th>
+                            <th class="column-5"></th>
                         </tr>
-                        @if(count($carts))
+                        @if(count($carts) > 0)
                             @foreach($carts as $index => $product)
                                 <tr class="table-row">
                                     <td class="column-1">
@@ -55,6 +56,14 @@
                                         </div>
                                     </td>
                                     <td class="column-5">{!! number_format($product->price * $product->qty, 2) !!}</td>
+                                    <td>
+                                        {!! Form::open(['route' => ['customer.carts.destroy', $product->rowId], 'method' => 'DELETE']) !!}
+                                        <button class="btn btn-outline-danger"
+                                                name="submit" type="submit" value="cart">
+                                            <i class="fa fa-trash-o"></i>
+                                        </button>
+                                        {!! Form::close() !!}
+                                    </td>
                                 </tr>
                             @endforeach
                         @endif
@@ -78,11 +87,18 @@
                 </div>
 
                 <div class="size10 trans-0-4 m-t-10 m-b-10">
-                    <!-- Button -->
                     <button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
                         {{ __('cart.update') }}
                     </button>
                 </div>
+
+                {!! Form::open(['route' => ['customer.carts.empty'], 'method' => 'DELETE']) !!}
+                <div class="size10 trans-0-4 m-t-10 m-b-10">
+                    <button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
+                        {{ __('cart.empty') }}
+                    </button>
+                </div>
+                {!! Form::close() !!}
             </div>
 
             <!-- Total -->
@@ -165,15 +181,5 @@
                 </div>
             </div>
         </div>
-        <div id="dropDownSelect2"></div>
     </section>
-@endsection
-
-@section('scripts')
-    <script type="text/javascript">
-        $(".selection-2").select2({
-            minimumResultsForSearch: 20,
-            dropdownParent: $('#dropDownSelect2')
-        });
-    </script>
 @endsection
