@@ -10,18 +10,33 @@ use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\Models\Media;
+use Spatie\Sluggable\HasSlug;
+use Spatie\Sluggable\SlugOptions;
 
 class Product extends Model implements HasMedia
 {
-    use  Translatable, HasMediaTrait;
+    use  Translatable, HasMediaTrait, HasSlug;
 
-    public $translatedAttributes = ['name', 'description', 'slug'];
+    public $translatedAttributes = ['name', 'description'];
 
     public $registerMediaConversionsUsingModelInstance = true;
 
-    protected $fillable = ['status', 'cost', 'price', 'discount', 'qty', 'type_id'];
+    protected $fillable = ['status', 'cost', 'price', 'discount', 'qty', 'type_id', 'slug'];
 
     protected $casts = ['status' => 'boolean'];
+
+
+    /**
+     * Get the options for generating the slug.
+     */
+    public function getSlugOptions(): SlugOptions
+    {
+        return SlugOptions::create()
+            ->generateSlugsFrom('name')
+            ->saveSlugsTo('slug')
+            ->usingLanguage('en')
+            ->doNotGenerateSlugsOnUpdate();
+    }
 
     /**
      * @return BelongsToMany

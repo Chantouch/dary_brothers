@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Customer;
 
+use App\Http\Requests\Cart\UpdateRequest;
 use App\Models\Product;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\View\View;
 
 class CartController extends Controller
@@ -20,6 +22,19 @@ class CartController extends Controller
         return view('customer.cart', [
             'carts' => $productCarts
         ]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  UpdateRequest $request
+     * @param  int $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function update(UpdateRequest $request, $id)
+    {
+        Cart::update($id, $request->quantity);
+        return response()->json(['message' => 'Cart has been updated successful.']);
     }
 
     /**
@@ -81,6 +96,6 @@ class CartController extends Controller
             'message' => 'Thanks! Item was removed from your Wishlist!',
             'alert-type' => 'success'
         ];
-        return redirect()->with($notification);
+        return redirect()->back()->with($notification);
     }
 }

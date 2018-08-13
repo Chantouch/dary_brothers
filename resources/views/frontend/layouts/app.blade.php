@@ -16,8 +16,8 @@
 
     <!-- Styles -->
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
-    <!--===============================================================================================-->
+{{--    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">--}}
+<!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/fonts/themify/themify-icons.css') }}">
@@ -42,7 +42,10 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/frontend/util.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/frontend/main.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
     <!--===============================================================================================-->
+
+    @yield('style')
 </head>
 <body>
 <div id="app" class="animsition">
@@ -86,7 +89,7 @@
 <!--===============================================================================================-->
 <script type="text/javascript" src="{{ asset('vendor/lightbox2/js/lightbox.min.js') }}"></script>
 <!--===============================================================================================-->
-<script type="text/javascript" src="{{ asset('vendor/sweetalert/sweetalert.min.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.26.11/dist/sweetalert2.all.min.js"></script>
 <script type="text/javascript">
     $('.block2-btn-addcart').each(function () {
         var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
@@ -106,8 +109,15 @@
 <script type="text/javascript" src="{{ asset('vendor/parallax100/parallax100.js') }}"></script>
 <script type="text/javascript">
     $('.parallax100').parallax100();
+    (function () {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+    })();
 </script>
-
+@include('sweet::alert')
 @yield('scripts')
 
 <!--===============================================================================================-->

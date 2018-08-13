@@ -9,9 +9,9 @@ $factory->define(Product::class, function (Faker $faker) {
         'name:kh' => $faker->name,
         'description:en' => $faker->text,
         'description:kh' => $faker->text,
-        'status' => $faker->boolean,
-        'price' => 594,
-        'cost' => 434,
+        'status' => 1,
+        'price' => rand(40, 300),
+        'cost' => rand(50, 210),
         'discount' => 12,
         'qty' => 3424,
         'type_id' => rand(1, 50)

@@ -1,9 +1,14 @@
 @extends('frontend.layouts.app')
 
+@section('style')
+    <link rel="stylesheet" type="text/css" href="{!! asset('vendor/noui/nouislider.min.css') !!}">
+@endsection
+
 @section('content')
-    <section class="bg-title-page p-t-50 p-b-40 flex-col-c-m" style="background-image: url({!! asset('images/heading-pages-02.jpg') !!});">
+    <section class="bg-title-page p-t-50 p-b-40 flex-col-c-m"
+             style="background-image: url({!! asset('images/heading-pages-02.jpg') !!});">
         <h2 class="l-text2 t-center">
-            Women
+            All
         </h2>
         <p class="m-text13 t-center">
             New Arrivals Women Collection 2018
@@ -26,33 +31,17 @@
                                     All
                                 </a>
                             </li>
-
-                            <li class="p-t-4">
-                                <a href="#" class="s-text13">
-                                    Women
-                                </a>
-                            </li>
-
-                            <li class="p-t-4">
-                                <a href="#" class="s-text13">
-                                    Men
-                                </a>
-                            </li>
-
-                            <li class="p-t-4">
-                                <a href="#" class="s-text13">
-                                    Kids
-                                </a>
-                            </li>
-
-                            <li class="p-t-4">
-                                <a href="#" class="s-text13">
-                                    Accesories
-                                </a>
-                            </li>
+                            @if(count($categories))
+                                @foreach($categories as $index => $category)
+                                    <li class="p-t-4">
+                                        <a href="{!! route('categories.show', $category->slug) !!}" class="s-text13">
+                                            {!! $category->name !!}
+                                        </a>
+                                    </li>
+                                @endforeach
+                            @endif
                         </ul>
 
-                        <!--  -->
                         <h4 class="m-text14 p-b-32">
                             Filters
                         </h4>
@@ -68,7 +57,6 @@
 
                             <div class="flex-sb-m flex-w p-t-16">
                                 <div class="w-size11">
-                                    <!-- Button -->
                                     <button class="flex-c-m size4 bg7 bo-rad-15 hov1 s-text14 trans-0-4">
                                         Filter
                                     </button>
@@ -142,7 +130,7 @@
                 </div>
 
                 <div class="col-sm-6 col-md-8 col-lg-9 p-b-50">
-                    <!--  -->
+
                     <div class="flex-sb-m flex-w p-b-35">
                         <div class="flex-w">
                             <div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10">
@@ -168,13 +156,11 @@
                         </div>
 
                         <span class="s-text8 p-t-5 p-b-5">
-							Showing 1–12 of 16 results
+							Showing 1–12 of {!! $products->total() !!} results
 						</span>
                     </div>
 
                     @include('frontend.products.__list')
-
-                    <!-- Pagination -->
                     <div class="pagination flex-m flex-w p-t-26">
                         {!! $products->render() !!}
                     </div>
@@ -183,4 +169,33 @@
         </div>
     </section>
 
+@endsection
+
+@section('scripts')
+    <script type="text/javascript" src="{!! asset('vendor/daterangepicker/moment.min.js') !!}"></script>
+    <script type="text/javascript" src="{!! asset('vendor/daterangepicker/daterangepicker.js') !!}"></script>
+    <script type="text/javascript" src="{!! asset('vendor/noui/nouislider.min.js') !!}"></script>
+    <script type="text/javascript">
+        /*[ No ui ]
+        ===========================================================*/
+        var filterBar = document.getElementById('filter-bar');
+
+        noUiSlider.create(filterBar, {
+            start: [50, 200],
+            connect: true,
+            range: {
+                'min': 50,
+                'max': 200
+            }
+        });
+
+        var skipValues = [
+            document.getElementById('value-lower'),
+            document.getElementById('value-upper')
+        ];
+
+        filterBar.noUiSlider.on('update', function (values, handle) {
+            skipValues[handle].innerHTML = Math.round(values[handle]);
+        });
+    </script>
 @endsection

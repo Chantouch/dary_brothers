@@ -17,3 +17,30 @@ if (!function_exists("status")) {
         }
     }
 }
+
+
+if (!function_exists("active_class")) {
+    function active_class($url)
+    {
+        return Request::url() == $url ? 'active' : '';
+    }
+}
+
+if (!function_exists("html_class")) {
+    function html_class(array $array)
+    {
+        $classes = [];
+
+        foreach ($array as $key => $value) {
+            if (is_int($key) and $value) {
+                $classes[] = $value;
+            } else if ($value) {
+                $classes[] = $key;
+            }
+        }
+
+        if ($classes) {
+            return 'class="' . implode(' ', $classes) . '"';
+        }
+    }
+}

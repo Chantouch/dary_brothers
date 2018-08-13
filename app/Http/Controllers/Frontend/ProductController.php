@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -21,8 +22,11 @@ class ProductController extends Controller
 
         $products = (new Product())->newQuery()->where('status', 1)->paginate(20);
 
+        $categories = (new Category())->newQuery()->where('status', 1)->get();
+
         return view('frontend.products.index', [
-            'products' => $products
+            'products' => $products,
+            'categories' => $categories
         ]);
     }
 }

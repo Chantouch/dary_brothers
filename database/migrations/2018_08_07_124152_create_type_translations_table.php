@@ -19,7 +19,6 @@ class CreateTypeTranslationsTable extends Migration
             $table->unsignedInteger('type_id');
             $table->string('locale')->index();
             $table->string('name', 255)->nullable();
-            $table->string('slug')->unique()->nullable();
             $table->text('description')->nullable();
             $table->unique(['type_id', 'locale']);
             $table->timestamps();

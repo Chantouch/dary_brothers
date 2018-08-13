@@ -10471,9 +10471,114 @@ a.text-dark:focus {
   }
 }
 
-.navbar-laravel {
-  background-color: #fff;
-  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+.leftbar > ul > li > a.active {
+  color: #ff0000;
+}
+
+@font-face {
+  font-family: Montserrat-Regular;
+  src: url(/fonts/Montserrat-Regular.ttf?9c46095118380d38f12e67c916b427f9);
+}
+
+@font-face {
+  font-family: Montserrat-Medium;
+  src: url(/fonts/Montserrat-Medium.ttf?a98626e1aef6ceba5dfc1ee7112e235a);
+}
+
+@font-face {
+  font-family: Montserrat-Bold;
+  src: url(/fonts/Montserrat-Bold.ttf?88932dadc42e1bba93b21a76de60ef7a);
+}
+
+@font-face {
+  font-family: Montserrat-Italic;
+  src: url(/fonts/Montserrat-Italic.ttf?6786546363c0261228fd66d68bbf27e9);
+}
+
+@font-face {
+  font-family: Montserrat-Black;
+  src: url(/fonts/Montserrat-Black.ttf?6d1796a9f798ced8961baf3c79f894b6);
+}
+
+@font-face {
+  font-family: Linearicons;
+  src: url(/fonts/Linearicons-Free.ttf?2f3e9f80fff7d699dd3de6904d7d1647);
+}
+
+@font-face {
+  font-family: Poppins-Bold;
+  src: url(/fonts/Poppins-Bold.ttf?7940efc40d8e3b477e16cc41b0287139);
+}
+
+@font-face {
+  font-family: Poppins-Black;
+  src: url(/fonts/Poppins-Black.ttf?8971d1710cbf4c91bca1b460aec154d7);
+}
+
+/* ------------------------------------ */
+
+input {
+  outline: none;
+  border: none !important;
+}
+
+textarea {
+  outline: none;
+}
+
+/* textarea:focus, input:focus {
+  border-color: transparent !important;
+} */
+
+input:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+
+input:focus:-moz-placeholder {
+  color: transparent;
+}
+
+input:focus::-moz-placeholder {
+  color: transparent;
+}
+
+input:focus:-ms-input-placeholder {
+  color: transparent;
+}
+
+textarea:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+
+textarea:focus:-moz-placeholder {
+  color: transparent;
+}
+
+textarea:focus::-moz-placeholder {
+  color: transparent;
+}
+
+textarea:focus:-ms-input-placeholder {
+  color: transparent;
+}
+
+/* ------------------------------------ */
+
+button {
+  outline: none !important;
+  border: none;
+  background: transparent;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+iframe {
+  border: none !important;
+}
+
+.container-menu-header-v2 {
+  background: #ffffff;
 }
 
