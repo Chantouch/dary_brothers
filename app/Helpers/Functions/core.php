@@ -1,5 +1,33 @@
 <?php
 
+if (!function_exists("payment_status")) {
+    /**
+     * @param $input
+     * @return string
+     */
+    function payment_status($input)
+    {
+        switch ($input) {
+            case 1:
+                return '<span class="badge badge-success">Awaiting payment</span>';
+            case 2:
+                return '<span class="badge badge-danger">Canceled</span>';
+            case 3:
+                return '<span class="badge badge-danger">Delivered</span>';
+            case 4:
+                return '<span class="badge badge-danger">Payment accepted</span>';
+            case 5:
+                return '<span class="badge badge-danger">Processing in progress</span>';
+            case 6:
+                return '<span class="badge badge-danger">Shipped</span>';
+            default:
+                return '<span class="badge badge-danger">Default</span>';
+                break;
+        }
+    }
+}
+
+
 if (!function_exists("status")) {
     /**
      * @param $input

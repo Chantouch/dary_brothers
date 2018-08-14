@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Customer;
 
 use App\Http\Requests\CheckOut\StoreRequest;
 use App\Jobs\SendNewOrderedEmail;
-use App\Mail\NewOrdered;
 use App\Models\Customer;
 use App\Models\Purchase;
 use App\Models\PurchaseOrder;
@@ -12,7 +11,6 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class CheckOutController extends Controller

@@ -7,17 +7,26 @@ return [
             'name' => 'ឈ្មោះ',
             'description' => 'ការបរិយាយ',
             'status' => 'ស្ថានភាព',
-            'new' => 'បន្ថែម'
+            'new' => 'បន្ថែម',
         ],
         'types' => [
             'title' => 'តារាង ប្រភេទ',
             'name' => 'ឈ្មោះ',
             'description' => 'ការបរិយាយ',
             'status' => 'ស្ថានភាព',
-            'new' => 'បន្ថែម'
+            'new' => 'បន្ថែម',
         ],
         'actions' => [
-            'action' => 'ដំណើរការ'
-        ]
+            'action' => 'ដំណើរការ',
+        ],
+        'orders' => [
+            'title' => 'Order table',
+            'total' => 'Total',
+            'customer_name' => 'Customer name',
+            'payment_method' => 'Payment method',
+            'order_reference' => 'Order reference',
+            'status' => 'Status',
+            'new' => 'New',
+        ],
     ],
 ];

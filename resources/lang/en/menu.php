@@ -5,4 +5,5 @@ return [
     'dashboard' => 'Dashboard',
     'types' => 'Types',
     'products' => 'Products',
+    'orders' => 'Orders'
 ];

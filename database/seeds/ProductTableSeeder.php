@@ -17,7 +17,7 @@ class ProductTableSeeder extends Seeder
         (new Product)->truncate();
         (new ProductTranslation)->truncate();
 
-        factory(Product::class, 50)->create();
+        factory(Product::class, 500)->create();
 
         $categories = Category::all();
 

@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 return [
     'attributes' => [
@@ -19,5 +19,22 @@ return [
             'status' => 'Status',
             'new' => 'New',
         ],
+        'orders' => [
+            'title' => 'Order table',
+            'total' => 'Total',
+            'customer_name' => 'Customer name',
+            'payment_method' => 'Payment method',
+            'order_reference' => 'Order reference',
+            'status' => 'Status',
+            'new' => 'New',
+        ],
+        'customers' => [
+            'title' => 'Customers table',
+            'name' => 'Name'
+        ],
+        'users' => [
+            'title' => 'User table',
+            'name' => 'Name'
+        ]
     ],
 ];

@@ -73,7 +73,7 @@ try {
     throw new $e;
 }
 
-// Admin > Dashboard > Type
+// Admin > Dashboard > Products
 try {
     Breadcrumbs::register('admin.products.index', function (BreadcrumbsGenerator $breadcrumbs) {
         $breadcrumbs->parent('admin.dashboard');
@@ -82,7 +82,8 @@ try {
 } catch (DuplicateBreadcrumbException $e) {
     throw new $e;
 }
-// Admin > Dashboard > Type > Create
+
+// Admin > Dashboard > Products > Create
 try {
     Breadcrumbs::register('admin.products.create', function (BreadcrumbsGenerator $breadcrumbs) {
         $breadcrumbs->parent('admin.products.index');
@@ -92,11 +93,44 @@ try {
     throw new $e;
 }
 
-// Admin > Dashboard > Type > Edit
+// Admin > Dashboard > Products > Edit
 try {
     Breadcrumbs::register('admin.products.edit', function (BreadcrumbsGenerator $breadcrumbs, Product $product) {
         $breadcrumbs->parent('admin.products.index');
         $breadcrumbs->push($product->name, route('admin.products.edit', $product->id));
+    });
+} catch (DuplicateBreadcrumbException $e) {
+    throw new $e;
+}
+
+
+// Admin > Dashboard > Orders
+try {
+    Breadcrumbs::register('admin.orders.index', function (BreadcrumbsGenerator $breadcrumbs) {
+        $breadcrumbs->parent('admin.dashboard');
+        $breadcrumbs->push(trans('fields.attributes.orders.title'), route('admin.orders.index'));
+    });
+} catch (DuplicateBreadcrumbException $e) {
+    throw new $e;
+}
+
+
+// Admin > Dashboard > Orders
+try {
+    Breadcrumbs::register('admin.users.index', function (BreadcrumbsGenerator $breadcrumbs) {
+        $breadcrumbs->parent('admin.dashboard');
+        $breadcrumbs->push(trans('fields.attributes.users.title'), route('admin.users.index'));
+    });
+} catch (DuplicateBreadcrumbException $e) {
+    throw new $e;
+}
+
+
+// Admin > Dashboard > Orders
+try {
+    Breadcrumbs::register('admin.customers.index', function (BreadcrumbsGenerator $breadcrumbs) {
+        $breadcrumbs->parent('admin.dashboard');
+        $breadcrumbs->push(trans('fields.attributes.customers.title'), route('admin.customers.index'));
     });
 } catch (DuplicateBreadcrumbException $e) {
     throw new $e;

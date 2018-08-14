@@ -10,5 +10,8 @@ $factory->define(Customer::class, function (Faker $faker) {
         'email' => $faker->unique()->safeEmail,
         'password' => bcrypt('secret'),
         'remember_token' => str_random(10),
+        'address' => $faker->address,
+        'date_of_birth' => $faker->date('Y-m-d'),
+        'phone_number' => $faker->phoneNumber
     ];
 });
