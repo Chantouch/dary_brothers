@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Customer;
 
 use App\Http\Requests\CheckOut\StoreRequest;
 use App\Jobs\SendNewOrderedEmail;
+use App\Jobs\SendOrderCompleteEmail;
 use App\Models\Customer;
 use App\Models\Purchase;
 use App\Models\PurchaseOrder;
@@ -56,6 +57,7 @@ class CheckOutController extends Controller
                 }
             }
             dispatch(new SendNewOrderedEmail($customer, $products));
+            dispatch(new SendOrderCompleteEmail($customer, $products));
             Cart::destroy();
         }
         DB::commit();

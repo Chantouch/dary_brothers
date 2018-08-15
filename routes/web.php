@@ -15,10 +15,20 @@ Route::get('lang/{language}', 'LanguageController@switchLang')->name('lang.switc
 
 Auth::routes();
 
-Route::get('/', 'Frontend\HomeController@index')->name('frontend.home');
 
-Route::resource('carts', 'Frontend\ShoppingCartController');
+Route::middleware('web')->namespace('Frontend')->group(function () {
 
-Route::get('products/list', 'Frontend\ProductController@index')->name('products.index');
+    Route::get('/', 'HomeController@index')->name('frontend.home');
 
-Route::get('categories/{slug}', 'Frontend\CategoryController@show')->name('categories.show');
+    Route::resource('carts', 'ShoppingCartController');
+
+    Route::get('products/list', 'ProductController@index')->name('products.index');
+
+    Route::get('products/{slug}', 'ProductController@show')->name('products.show');
+
+    Route::get('categories/{slug}', 'CategoryController@show')->name('categories.show');
+
+    Route::resource('about', 'AboutController', ['only' => ['index']]);
+
+});
+

@@ -67,13 +67,10 @@ class NewOrdered extends Mailable implements ShouldQueue
             //->bcc($address, $name)
             //->replyTo($address, $name)
             ->subject($subject)
-            ->with(
-                [
-                    'testVarOne' => '1',
-                    'testVarTwo' => '2',
-                    'customer' => $this->customer,
-                    'products' => $this->products
-                ]);
+            ->with([
+                'customer' => $this->customer,
+                'products' => $this->products
+            ]);
 //            ->attach(asset('images/shop-item-09.jpg'), [
 //                'as' => 'item.jpg',
 //                'mime' => 'image/jpeg',

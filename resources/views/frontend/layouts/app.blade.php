@@ -9,15 +9,11 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Dary Brothers') }}</title>
 
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
-    <!-- Styles -->
-    <!--===============================================================================================-->
-{{--    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">--}}
-<!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/fonts/themify/themify-icons.css') }}">
@@ -51,7 +47,7 @@
 <div id="app" class="animsition">
     @include('frontend.layouts.header-fixed')
     @include('frontend.layouts.top-noti')
-    <main>
+    <main class="main">
         @include('frontend.layouts.header')
         @yield('content')
         @include('frontend.layouts.footer')

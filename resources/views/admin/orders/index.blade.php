@@ -87,7 +87,7 @@
                 var id = $(this).attr('data-id');
                 $.ajax({
                     type: "PUT",
-                    url: '/{!! app()->getLocale()!!}/admin/orders/' + id,
+                    url: '/admin/api/orders/' + id,
                     data: {
                         'status': this.value,
                     },

@@ -27,7 +27,7 @@
 
                         <ul class="p-b-54">
                             <li class="p-t-4">
-                                <a href="#" class="s-text13 active1">
+                                <a href="{!! route('products.index') !!}" class="s-text13 active1">
                                     All
                                 </a>
                             </li>

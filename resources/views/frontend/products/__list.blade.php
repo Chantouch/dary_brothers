@@ -2,7 +2,6 @@
     <div class="row">
         @foreach ($chunk as $product)
             <div class="col-sm-6 col-md-4 col-lg-3 p-b-50">
-                <!-- Block2 -->
                 <div class="block2">
                     <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
                         @if($product->hasMedia('product-images'))
@@ -11,8 +10,8 @@
                             <img src="{{ asset('images/item-02.jpg') }}" alt="{{ $product->name }}">
                         @endif
 
+                        {!! Form::open(['route' => ['carts.store'], 'method' => 'POST']) !!}
                         <div class="block2-overlay trans-0-4">
-                            {!! Form::open(['route' => ['carts.store'], 'method' => 'POST']) !!}
                             <button class="block2-btn-addwishlist hov-pointer trans-0-4"
                                     name="submit"
                                     type="submit"
@@ -33,16 +32,15 @@
                                     <span>Add to cart</span>
                                 </button>
                             </div>
-                            {!! Form::close() !!}
                         </div>
+                        {!! Form::close() !!}
                     </div>
 
                     <div class="block2-txt p-t-20">
-                        <a href="product-detail.html"
+                        <a href="{{ route('products.show', $product->slug) }}"
                            class="block2-name dis-block s-text3 p-b-5">
                             {{ $product->name }}
                         </a>
-
                         <span class="block2-price m-text6 p-r-5">
                             ${{ $product->price }}
                         </span>

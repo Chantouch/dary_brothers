@@ -1,7 +1,9 @@
 Hello <i>{{ $customer->full_name }}</i>,
-<p>New order has been completed.</p>
+<p>Thanks for order our product.</p>
 
-<p>Product summary:</p>
+<p>Your product is processing to delivery soon.</p>
+
+<p>Below is your product:</p>
 
 <table class="table">
     <thead>
@@ -19,7 +21,7 @@ Hello <i>{{ $customer->full_name }}</i>,
             <td>{!! $product->name !!}</td>
             <td>
                 @if($product->model->hasMedia('product-images'))
-                    {{ Html::image($product->model->getMedia('product-images')->first()->getUrl('feature-product'), $product->model->getMedia('product-images')->first()->name, ['width' => '30px]) }}
+                    {{ Html::image($product->model->getMedia('product-images')->first()->getUrl('feature-product'), $product->model->getMedia('product-images')->first()->name, ['width' => '30px']) }}
                 @else
                     <img src="{{ asset('images/item-02.jpg') }}" alt="{{ $product->name }}" width="30px">
                 @endif

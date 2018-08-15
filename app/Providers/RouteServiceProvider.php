@@ -24,8 +24,6 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
-
         parent::boot();
     }
 
@@ -42,6 +40,8 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapAdminRoutes();
 
+        $this->mapAdminApiRoutes();
+
         $this->mapAuthRoutes();
 
         $this->mapCustomerRoutes();
@@ -56,10 +56,6 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapWebRoutes()
     {
-//        Route::middleware('web')
-//            ->namespace($this->namespace)
-//            ->group(base_path('routes/web.php'));
-
         $locale = Request::segment(1);
 
         Route::group([
@@ -108,6 +104,23 @@ class RouteServiceProvider extends ServiceProvider
             'as' => 'admin.'
         ], function ($router) {
             require base_path('routes/admin.php');
+        });
+    }
+
+    /**
+     * Define the "admin" routes for the application.
+     *
+     * These routes are typically stateless.
+     */
+    protected function mapAdminApiRoutes(): void
+    {
+        Route::group([
+            'middleware' => ['web', 'auth:admin'], //'role:admin'
+            'namespace' => $this->namespace . '\Admin\Api',
+            'prefix' => '/api/admin',
+            'as' => 'admin.'
+        ], function ($router) {
+            require base_path('routes/admin-api.php');
         });
     }
 

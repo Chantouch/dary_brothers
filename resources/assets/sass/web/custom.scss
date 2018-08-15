@@ -1,3 +1,14 @@
 .container-menu-header-v2 {
     background: $container-menu-header-v2;
 }
+
+#app {
+    main {
+        background: $white;
+
+        .category-title, .type-title {
+            color: $red;
+            font-size: $font-size-lg;
+        }
+    }
+}

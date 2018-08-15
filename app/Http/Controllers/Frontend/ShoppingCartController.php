@@ -21,8 +21,6 @@ class ShoppingCartController extends Controller
 
         $productCarts = Cart::content();
 
-        dd($productCarts);
-
         return view('frontend.carts.index', [
             'carts' => $productCarts
         ]);

@@ -8,8 +8,5 @@ Demo Two: Product 2
 
 Values passed by With method:
 
-testVarOne: {{ $testVarOne }}
-testVarOne: {{ $testVarOne }}
-
 Thank You,
 {{ config('app.name', 'Dary Brothers') }}

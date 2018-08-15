@@ -10582,3 +10582,13 @@ iframe {
   background: #ffffff;
 }
 
+#app main {
+  background: #fff;
+}
+
+#app main .category-title,
+#app main .type-title {
+  color: #e3342f;
+  font-size: 1.125rem;
+}
+
