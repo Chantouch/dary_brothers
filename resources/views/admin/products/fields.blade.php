@@ -22,27 +22,27 @@
 
     <div class="form-row">
         <div class="form-group col-md-4">
-            <label for="type">Price</label>
-            {!! Form::number('price', null, ['placeholder' => 'Product price','class' => 'form-control']) !!}
+            <label for="type">{!! __('forms.products.labels.price') !!}</label>
+            {!! Form::number('price', null, ['placeholder' => __('forms.products.placeholders.price'),'class' => 'form-control']) !!}
         </div>
 
         <div class="form-group col-md-4">
-            <label for="type">Cost</label>
-            {!! Form::number('cost', null, ['placeholder' => 'Product cost','class' => 'form-control']) !!}
+            <label for="type">{!! __('forms.products.labels.cost') !!}</label>
+            {!! Form::number('cost', null, ['placeholder' => __('forms.products.placeholders.cost'),'class' => 'form-control']) !!}
         </div>
 
         <div class="form-group col-md-4">
-            <label for="type">Discount</label>
-            {!! Form::number('discount', null, ['placeholder' => 'Product discount (%)','class' => 'form-control']) !!}
+            <label for="type">{!! __('forms.products.labels.discount') !!}</label>
+            {!! Form::number('discount', null, ['placeholder' => __('forms.products.placeholders.discount'),'class' => 'form-control']) !!}
         </div>
 
         <div class="form-group col-md-12">
-            <label for="type">Type</label>
-            {{ Form::select('type_id', $types, null, ['placeholder' => 'Pick a type...', 'class' => 'form-control']) }}
+            <label for="type">{!! __('forms.products.labels.type') !!}</label>
+            {{ Form::select('type_id', $types, null, ['placeholder' => __('forms.products.placeholders.type'), 'class' => 'form-control']) }}
         </div>
 
         <div class="form-group col-md-12">
-            <label for="categories">Categories</label>
+            <label for="categories">{!! __('forms.products.labels.categories') !!}</label>
             @if(isset($product_categories))
                 {{ Form::select('categories[]', $categories, $product_categories, [
                  'class' => 'form-control select2',
@@ -59,7 +59,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="card mb-3">
                 <div class="card-header">
-                    <h3><i class="fa fa-file"></i> Images</h3>
+                    <h3><i class="fa fa-file"></i> {!! __('forms.products.labels.images') !!}</h3>
                     Maximum 30 files, all files together must have maximal 30MB and the extensions must be matched in
                     the array ['jpg', 'png', 'gif'].
                 </div>
@@ -123,28 +123,28 @@
     <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
             <div class="form-group">
-                <label for="name">Category Name (En)</label>
-                {!! Form::text('en_name', null, ['placeholder' => 'Category name (En)','class' => 'form-control']) !!}
+                <label for="name">{!! __('forms.products.labels.name') !!}</label>
+                {!! Form::text('en_name', null, ['placeholder' => __('forms.products.placeholders.name'),'class' => 'form-control']) !!}
                 <div class="invalid-feedback">
                     Looks good!
                 </div>
             </div>
             <div class="form-group">
-                <label for="description">Description (En)</label>
-                {!! Form::textarea('en_description', null, ['placeholder' => 'Category description (En)','class' => 'form-control editor']) !!}
+                <label for="description">{!! __('forms.products.labels.description') !!}</label>
+                {!! Form::textarea('en_description', null, ['placeholder' => __('forms.products.placeholders.description'),'class' => 'form-control editor']) !!}
             </div>
         </div>
         <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
             <div class="form-group">
-                <label for="name">Category Name (Kh)</label>
-                {!! Form::text('kh_name', null, ['placeholder' => 'Category name (Kh)','class' => 'form-control']) !!}
+                <label for="name">{!! __('forms.products.labels.name') !!}</label>
+                {!! Form::text('kh_name', null, ['placeholder' => __('forms.products.placeholders.name'),'class' => 'form-control']) !!}
                 <div class="invalid-feedback">
                     Looks good!
                 </div>
             </div>
             <div class="form-group">
-                <label for="description">Description (Kh)</label>
-                {!! Form::textarea('kh_description', null, ['placeholder' => 'Category description (Kh)','class' => 'form-control editor']) !!}
+                <label for="description">{!! __('forms.products.labels.description') !!}</label>
+                {!! Form::textarea('kh_description', null, ['placeholder' => __('forms.products.placeholders.description'),'class' => 'form-control editor']) !!}
             </div>
         </div>
     </div>
@@ -152,9 +152,9 @@
     <div class="custom-control custom-checkbox mb-3">
         {!! Form::hidden('status','0', false) !!}
         {!! Form::checkbox('status', '1', null,['class' => 'custom-control-input', 'id' => 'status']) !!}
-        {!! Form::label('status', 'Status', ['class' => 'custom-control-label']) !!}
+        {!! Form::label('status', __('forms.products.labels.status'), ['class' => 'custom-control-label']) !!}
     </div>
 </div>
 
-<button type="submit" class="btn btn-primary">Submit</button>
-<a href="{!! route('admin.products.index') !!}" class="btn btn-default">Back</a>
+<button type="submit" class="btn btn-primary">{!! __('forms.buttons.submit') !!}</button>
+<a href="{!! route('admin.products.index') !!}" class="btn btn-default">{!! __('forms.buttons.back') !!}</a>

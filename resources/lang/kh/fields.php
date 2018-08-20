@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 return [
     'attributes' => [
@@ -27,6 +27,22 @@ return [
             'order_reference' => 'Order reference',
             'status' => 'Status',
             'new' => 'New',
+        ],
+        'customers' => [
+            'title' => '',
+            'name' => '',
+            'email' => '',
+            'dob' => '',
+            'address' => '',
+            'status' => '',
+        ],
+        'users' => [
+            'title' => '',
+            'name' => '',
+            'email' => '',
+            'dob' => '',
+            'last_login' => '',
+            'status' => '',
         ],
     ],
 ];

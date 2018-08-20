@@ -77,7 +77,7 @@ try {
 try {
     Breadcrumbs::register('admin.products.index', function (BreadcrumbsGenerator $breadcrumbs) {
         $breadcrumbs->parent('admin.dashboard');
-        $breadcrumbs->push(trans('fields.attributes.types.title'), route('admin.products.index'));
+        $breadcrumbs->push(trans('forms.products.list'), route('admin.products.index'));
     });
 } catch (DuplicateBreadcrumbException $e) {
     throw new $e;
@@ -87,7 +87,7 @@ try {
 try {
     Breadcrumbs::register('admin.products.create', function (BreadcrumbsGenerator $breadcrumbs) {
         $breadcrumbs->parent('admin.products.index');
-        $breadcrumbs->push(trans('fields.attributes.types.title'), route('admin.products.index'));
+        $breadcrumbs->push(trans('forms.products.create'), route('admin.products.create'));
     });
 } catch (DuplicateBreadcrumbException $e) {
     throw new $e;
@@ -97,7 +97,7 @@ try {
 try {
     Breadcrumbs::register('admin.products.edit', function (BreadcrumbsGenerator $breadcrumbs, Product $product) {
         $breadcrumbs->parent('admin.products.index');
-        $breadcrumbs->push($product->name, route('admin.products.edit', $product->id));
+        $breadcrumbs->push(str_limit($product->name, 50), route('admin.products.edit', $product->id));
     });
 } catch (DuplicateBreadcrumbException $e) {
     throw new $e;

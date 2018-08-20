@@ -37,60 +37,42 @@
 </head>
 <body class="adminbody">
 <div id="main">
-
     @include('layouts.top-bar')
     @include('layouts.left-sidebar')
-
     <main class="content-page">
-        <!-- Start content -->
         <div class="content">
-
             <div class="container-fluid">
-
                 {{ Breadcrumbs::render() }}
-
                 {{--<div class="alert alert-danger" role="alert">--}}
                 {{--<h4 class="alert-heading">Info!</h4>--}}
                 {{--<p>Alert Body</p>--}}
                 {{--</div>--}}
-
                 @yield('content')
             </div>
-            <!-- END container-fluid -->
-
         </div>
-        <!-- END content -->
     </main>
-
     @include('layouts.footer')
 </div>
-
-
 <script src="{{ asset('admin/js/modernizr.min.js') }}"></script>
 <script src="{{ asset('admin/js/jquery.min.js') }}"></script>
 <script src="{{ asset('admin/js/moment.min.js') }}"></script>
-
 <script src="{{ asset('admin/js/popper.min.js') }}"></script>
 <script src="{{ asset('admin/js/bootstrap.min.js') }}"></script>
-
 <script src="{{ asset('admin/js/detect.js') }}"></script>
 <script src="{{ asset('admin/js/fastclick.js') }}"></script>
 <script src="{{ asset('admin/js/jquery.blockUI.js') }}"></script>
 <script src="{{ asset('admin/js/jquery.nicescroll.js') }}"></script>
-
 <!-- App js -->
 <script src="{{ asset('admin/js/pikeadmin.js') }}"></script>
-
+<script src="{{ asset('admin/js/custom.js') }}"></script>
 <!-- BEGIN Java Script for this page -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
-
 <!-- Counter-Up-->
 <script src="{{ asset('admin/plugins/waypoints/lib/jquery.waypoints.min.js') }}"></script>
 <script src="{{ asset('admin/plugins/counterup/jquery.counterup.min.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.26.11/dist/sweetalert2.all.min.js"></script>
-
 <script>
     (function () {
         $.ajaxSetup({

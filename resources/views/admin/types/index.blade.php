@@ -8,7 +8,7 @@
                 <header class="card-header">
                     <div class="">
                         <i class="fa fa-align-justify"></i>
-                        <strong>{!! __('fields.attributes.types.title') !!}</strong>
+                        <strong>{!! __('forms.categories.list') !!}</strong>
                         <div class="card-actions">
                             <a href="{!! route('admin.types.create') !!}">
                                 <small class="text-muted">{!! __('fields.attributes.types.new') !!}</small>
@@ -53,7 +53,7 @@
                     </table>
                     {!! $types->render() !!}
                 </div>
-            </div><!-- end card-->
+            </div>
         </div>
     </div>
 @endsection

@@ -8,7 +8,7 @@
                 <header class="card-header">
                     <div class="">
                         <i class="fa fa-align-justify"></i>
-                        <strong>{!! __('fields.attributes.customers.title') !!}</strong>
+                        <strong>{!! __('forms.customers.list') !!}</strong>
                     </div>
                 </header>
                 <div class="card-body">
@@ -17,11 +17,11 @@
                         <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">{!! __('fields.attributes.customers.name') !!}</th>
-                            <th scope="col">{!! __('fields.attributes.customers.email') !!}</th>
-                            <th scope="col">{!! __('fields.attributes.customers.dob') !!}</th>
-                            <th scope="col">{!! __('fields.attributes.customers.address') !!}</th>
-                            <th scope="col">{!! __('fields.attributes.customers.status') !!}</th>
+                            <th scope="col">{!! __('forms.customers.labels.name') !!}</th>
+                            <th scope="col">{!! __('forms.customers.labels.email') !!}</th>
+                            <th scope="col">{!! __('forms.customers.labels.dob') !!}</th>
+                            <th scope="col">{!! __('forms.customers.labels.address') !!}</th>
+                            <th scope="col">{!! __('forms.customers.labels.status') !!}</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -39,7 +39,7 @@
                     </table>
                     {!! $customers->render() !!}
                 </div>
-            </div><!-- end card-->
+            </div>
         </div>
     </div>
 @endsection

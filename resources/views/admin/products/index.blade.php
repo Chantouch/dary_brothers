@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
     @include('vendor.modal.delete')
     <div class="row">
@@ -8,7 +7,7 @@
                 <header class="card-header">
                     <div class="">
                         <i class="fa fa-align-justify"></i>
-                        <strong>{!! __('fields.attributes.types.title') !!}</strong>
+                        <strong>{!! __('forms.products.list') !!}</strong>
                         <div class="card-actions">
                             <a href="{!! route('admin.products.create') !!}">
                                 <small class="text-muted">{!! __('fields.attributes.types.new') !!}</small>
@@ -23,9 +22,9 @@
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Image</th>
-                            <th scope="col">{!! __('fields.attributes.types.name') !!}</th>
-                            <th scope="col">{!! __('fields.attributes.types.description') !!}</th>
-                            <th scope="col">{!! __('fields.attributes.types.status') !!}</th>
+                            <th scope="col">{!! __('forms.products.labels.name') !!}</th>
+                            <th scope="col">{!! __('forms.products.labels.description') !!}</th>
+                            <th scope="col">{!! __('forms.products.labels.status') !!}</th>
                             <th scope="col">{!! __('fields.attributes.actions.action') !!}</th>
                         </tr>
                         </thead>
@@ -61,7 +60,7 @@
                     </table>
                     {!! $products->render() !!}
                 </div>
-            </div><!-- end card-->
+            </div>
         </div>
     </div>
 @endsection

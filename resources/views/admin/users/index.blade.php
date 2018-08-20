@@ -8,7 +8,7 @@
                 <header class="card-header">
                     <div class="">
                         <i class="fa fa-align-justify"></i>
-                        <strong>{!! __('fields.attributes.users.title') !!}</strong>
+                        <strong>{!! __('forms.users.list') !!}</strong>
                     </div>
                 </header>
                 <div class="card-body">
@@ -17,11 +17,12 @@
                         <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">{!! __('fields.attributes.users.name') !!}</th>
-                            <th scope="col">{!! __('fields.attributes.users.email') !!}</th>
-                            <th scope="col">{!! __('fields.attributes.users.dob') !!}</th>
-                            <th scope="col">{!! __('fields.attributes.users.last_login') !!}</th>
-                            <th scope="col">{!! __('fields.attributes.users.status') !!}</th>
+                            <th scope="col">{!! __('forms.users.labels.name') !!}</th>
+                            <th scope="col">{!! __('forms.users.labels.email') !!}</th>
+                            <th scope="col">{!! __('forms.users.labels.dob') !!}</th>
+                            <th scope="col">{!! __('forms.users.labels.last_login') !!}</th>
+                            <th scope="col">{!! __('forms.users.labels.status') !!}</th>
+                            <th scope="col">{!! __('fields.attributes.actions.action') !!}</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -33,13 +34,25 @@
                                 <td>{!! $user->date_of_birth !!}</td>
                                 <td>{!! $user->user_reference !!}</td>
                                 <td>{!! $user->status !!}</td>
+                                <td>
+                                    <div class='btn-group'>
+                                        <a href="{!! route('admin.users.edit', $user->id) !!}"
+                                           class='btn btn-primary btn-sm'
+                                        >
+                                            <i class="fa fa-edit"></i>
+                                        </a>
+                                        {!! Form::open(['route' => ['admin.users.destroy', $user->id], 'method' => 'delete', 'class' => 'confirm']) !!}
+                                        {!! Form::button('<i class="fa fa-trash-o"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm confirm']) !!}
+                                        {!! Form::close() !!}
+                                    </div>
+                                </td>
                             </tr>
                         @endforeach
                         </tbody>
                     </table>
                     {!! $users->render() !!}
                 </div>
-            </div><!-- end card-->
+            </div>
         </div>
     </div>
 @endsection
@@ -47,12 +60,6 @@
 @section('scripts')
     <script>
         $(document).ready(function () {
-            const toast = swal.mixin({
-                toast: true,
-                position: 'bottom-end',
-                showConfirmButton: false,
-                timer: 3000
-            });
             $('button.confirm').on('click', function (e) {
                 e.preventDefault();
                 var self = $(this);
@@ -70,32 +77,6 @@
                         }
                         swal('Your imaginary file is safe!');
                     });
-            });
-
-            $('.payment_status').on('change', function () {
-                var id = $(this).attr('data-id');
-                $.ajax({
-                    type: "PUT",
-                    url: '/{!! app()->getLocale()!!}/admin/users/' + id,
-                    data: {
-                        'status': this.value,
-                    },
-                    beforeSend: function () {
-                        // swal('Updating....', 'success');
-                    },
-                    success(data) {
-                        toast({
-                            type: 'success',
-                            title: data.message
-                        })
-                    },
-                    error: function (data) {
-                        // var errors = data.responseJSON;
-                    },
-                    fail: function (xhr, textStatus, errorThrown) {
-                        alert('request failed');
-                    }
-                });
             });
         });
     </script>

@@ -50,7 +50,7 @@
                     </table>
                     {!! $orders->render() !!}
                 </div>
-            </div><!-- end card-->
+            </div>
         </div>
     </div>
 @endsection

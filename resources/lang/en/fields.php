@@ -30,11 +30,19 @@ return [
         ],
         'customers' => [
             'title' => 'Customers table',
-            'name' => 'Name'
+            'name' => 'Name',
+            'email' => '',
+            'dob' => '',
+            'address' => '',
+            'status' => '',
         ],
         'users' => [
             'title' => 'User table',
-            'name' => 'Name'
+            'name' => 'Name',
+            'email' => '',
+            'dob' => '',
+            'last_login' => '',
+            'status' => '',
         ]
     ],
 ];

@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
     @include('vendor.modal.delete')
     <div class="row">
@@ -8,7 +7,7 @@
                 <header class="card-header">
                     <div class="">
                         <i class="fa fa-align-justify"></i>
-                        <strong>{!! __('fields.attributes.categories.title') !!}</strong>
+                        <strong>{!! __('forms.categories.list') !!}</strong>
                         <div class="card-actions">
                             <a href="{!! route('admin.categories.create') !!}">
                                 <small class="text-muted">{!! __('fields.attributes.categories.new') !!}</small>
@@ -53,7 +52,7 @@
                     </table>
                     {!! $categories->render() !!}
                 </div>
-            </div><!-- end card-->
+            </div>
         </div>
     </div>
 @endsection
