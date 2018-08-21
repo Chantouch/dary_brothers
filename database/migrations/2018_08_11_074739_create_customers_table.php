@@ -21,7 +21,7 @@ class CreateCustomersTable extends Migration
             $table->string('password')->nullable();
             $table->date('date_of_birth')->nullable();
             $table->string('address', 255)->nullable();
-            $table->string('phone_number', 20)->unique()->nullable();
+            $table->string('phone_number', 25)->unique()->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
