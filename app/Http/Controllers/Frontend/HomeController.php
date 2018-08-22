@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Models\Product;
+use App\Models\Slider;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\View\View;
@@ -32,10 +33,11 @@ class HomeController extends Controller
             ->where('status', 1)
             ->latest('updated_at')
             ->paginate(20);
-
+        $sliders = (new Slider())->where('status', '=', 1)->get();
 
         return view('frontend.home', [
-            'products' => $products
+            'products' => $products,
+            'sliders' => $sliders
         ]);
     }
 

@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Models\Category;
+use App\Models\CategoryTranslation;
 
 class CategoryTableSeeder extends Seeder
 {
@@ -12,7 +13,8 @@ class CategoryTableSeeder extends Seeder
      */
     public function run()
     {
-        (new Category)->truncate();
+        (new Category())->truncate();
+        (new CategoryTranslation())->truncate();
         factory(Category::class, 50)->create();
     }
 }

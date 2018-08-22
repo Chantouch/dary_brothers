@@ -11,7 +11,7 @@
                         <strong>{!! __('forms.sliders.list') !!}</strong>
                         <div class="card-actions">
                             <a href="{!! route('admin.sliders.create') !!}">
-                                <small class="text-muted">{!! __('fields.attributes.sliders.new') !!}</small>
+                                <small class="text-muted">{!! __('fields.attributes.types.new') !!}</small>
                             </a>
                         </div>
                     </div>

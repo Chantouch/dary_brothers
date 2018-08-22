@@ -30,4 +30,4 @@ Route::resource('users', 'UserController');
 
 Route::resource('customers', 'CustomerController');
 
-Route::resource('sliders', 'SlidersController');
+Route::resource('sliders', 'SliderController');

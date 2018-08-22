@@ -140,7 +140,16 @@ try {
 try {
     Breadcrumbs::register('admin.sliders.index', function (BreadcrumbsGenerator $breadcrumbs) {
         $breadcrumbs->parent('admin.dashboard');
-        $breadcrumbs->push(trans('fields.attributes.customers.title'), route('admin.sliders.index'));
+        $breadcrumbs->push(trans('forms.sliders.list'), route('admin.sliders.index'));
+    });
+} catch (DuplicateBreadcrumbException $e) {
+    throw new $e;
+}
+// Admin > Dashboard > Sliders > Edit
+try {
+    Breadcrumbs::register('admin.sliders.edit', function (BreadcrumbsGenerator $breadcrumbs) {
+        $breadcrumbs->parent('admin.sliders.index');
+        $breadcrumbs->push(trans('forms.sliders.edit'), route('admin.sliders.index'));
     });
 } catch (DuplicateBreadcrumbException $e) {
     throw new $e;
