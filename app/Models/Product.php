@@ -54,6 +54,10 @@ class Product extends Model implements HasMedia
         return $this->belongsTo(Type::class);
     }
 
+    /**
+     * @param Media|null $media
+     * @throws \Spatie\Image\Exceptions\InvalidManipulation
+     */
     public function registerMediaConversions(Media $media = null)
     {
         $this->addMediaConversion('feature-product')

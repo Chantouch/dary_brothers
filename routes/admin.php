@@ -29,3 +29,5 @@ Route::put('orders/{order}', 'OrderController@update')->name('orders.update');
 Route::resource('users', 'UserController');
 
 Route::resource('customers', 'CustomerController');
+
+Route::resource('sliders', 'SlidersController');

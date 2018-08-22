@@ -44,7 +44,8 @@
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="list-unstyled">
-                        <li><a href="#">Roles</a></li>
+                        <li><a href="{!! route('admin.sliders.index') !!}">Sliders</a></li>
+                        <li><a href="#">Permission</a></li>
                         <li><a href="#">Permission</a></li>
                     </ul>
                 </li>

@@ -94,5 +94,24 @@ return [
             'last_login' => 'Last login',
             'address' => 'Address'
         ],
+    ],
+    'sliders' => [
+        'create' => 'Create slider',
+        'edit' => 'Edit slider',
+        'list' => 'List sliders',
+        'placeholders' => [
+            'name' => 'Slider name',
+            'link' => 'Slider link',
+            'status' => 'Slider status',
+            'text_link' => 'Slider text link',
+            'description' => 'Slider description'
+        ],
+        'labels' => [
+            'name' => 'Name',
+            'link' => 'Link',
+            'status' => 'Status',
+            'text_link' => 'Text link',
+            'description' => 'Description'
+        ],
     ]
 ];
