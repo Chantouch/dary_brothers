@@ -5,9 +5,7 @@
         <section class="slide1">
             <div class="wrap-slick1">
                 <div class="slick1">
-
                     @foreach($sliders as $index => $slider)
-
                         <div class="item-slick1 item1-slick1"
                              style="background-image: url({!! asset($slider->getMedia('sliders')->first()->getUrl()) !!});">
                             <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
@@ -29,9 +27,7 @@
                                 </div>
                             </div>
                         </div>
-
                     @endforeach
-
                 </div>
             </div>
         </section>

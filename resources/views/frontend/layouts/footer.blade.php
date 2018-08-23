@@ -125,7 +125,7 @@
 
             <form>
                 <div class="effect1 w-size9">
-                    <input class="s-text7 bg6 w-full p-b-5" type="text" name="email" placeholder="email@example.com">
+                    <input class="s-text7 bg6 w-full p-b-5 form-control" type="text" name="email" placeholder="email@example.com" autocomplete="off">
                     <span class="effect1-line"></span>
                 </div>
 

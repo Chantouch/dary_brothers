@@ -117,9 +117,13 @@ class SliderController extends Controller
      *
      * @param  \App\Models\Slider $slider
      * @return \Illuminate\Http\Response
+     * @throws \Exception
      */
     public function destroy(Slider $slider)
     {
-        //
+        DB::beginTransaction();
+        $slider->delete();
+        DB::commit();
+        return redirect()->route('admin.sliders.index');
     }
 }
