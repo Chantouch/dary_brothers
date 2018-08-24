@@ -115,8 +115,6 @@
 </script>
 @include('sweet::alert')
 @yield('scripts')
-
-<!--===============================================================================================-->
 <script src="{{ asset('js/frontend/main.js') }}"></script>
 
 </html>

@@ -43,6 +43,9 @@ return [
             'dob' => '',
             'last_login' => '',
             'status' => '',
+        ],
+        'sliders' => [
+            'type' => 'Type'
         ]
     ],
 ];

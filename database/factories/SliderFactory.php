@@ -12,6 +12,7 @@ $factory->define(Slider::class, function (Faker $faker) {
         'description:en' => $faker->text,
         'text_link:kh' => $faker->text(10),
         'text_link:en' => $faker->text(10),
-        'status' => $faker->boolean
+        'status' => $faker->boolean,
+        'type' => $faker->randomElement(['slider', 'banner', 'video']),
     ];
 });

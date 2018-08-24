@@ -34,13 +34,21 @@ class HomeController extends Controller
             ->where('status', 1)
             ->latest('updated_at')
             ->paginate(20);
-        $sliders = (new Slider())->where('status', '=', 1)->get();
-        $categories = (new Category())->where('status', '=', 1)->get();
+        $sliders = (new Slider())->where('status', '=', 1)
+            ->where('type', '=', 'slider')
+            ->get();
+        $banners = (new Slider())->where('status', '=', 1)
+            ->where('type', '=', 'banner')
+            ->get();
+        $video = (new Slider())->where('status', '=', 1)
+            ->where('type', '=', 'video')
+            ->first();
 
         return view('frontend.home', [
             'products' => $products,
             'sliders' => $sliders,
-            'categories' => $categories
+            'banners' => $banners,
+            'video' => $video
         ]);
     }
 

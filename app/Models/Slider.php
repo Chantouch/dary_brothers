@@ -12,13 +12,14 @@ class Slider extends Model implements HasMedia
 {
     use  Translatable, HasMediaTrait;
 
-    protected $fillable = ['link', 'status'];
+    protected $fillable = ['link', 'status', 'type'];
 
     public $translatedAttributes = ['name', 'description', 'text_link'];
 
     public $registerMediaConversionsUsingModelInstance = true;
 
     protected $casts = [
+        'type' => 'string',
         'status' => 'boolean',
         'link' => 'text'
     ];

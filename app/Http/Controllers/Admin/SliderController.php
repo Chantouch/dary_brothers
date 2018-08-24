@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Slider\StoreRequest;
+use App\Http\Requests\Admin\Slider\UpdateRequest;
 use App\Models\Slider;
 use App\Transformers\SliderTransformer;
 use Illuminate\Contracts\View\View;
@@ -98,11 +99,11 @@ class SliderController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param  UpdateRequest $request
      * @param  \App\Models\Slider $slider
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Slider $slider)
+    public function update(UpdateRequest $request, Slider $slider)
     {
         $slider->fill($request->all());
         if ($request->hasFile('image')) {

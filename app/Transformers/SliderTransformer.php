@@ -20,7 +20,9 @@ class SliderTransformer extends BaseTransformer
             'kh_name' => (string)$item->translate('kh')->name,
             'en_description' => (string)$item->translate('en')->description,
             'kh_description' => (string)$item->translate('kh')->description,
-            'status' => (boolean)$item->status
+            'status' => (boolean)$item->status,
+            'link' => $item->link,
+            'type' => $item->type
         ];
     }
 }

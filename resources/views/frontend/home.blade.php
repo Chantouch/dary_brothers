@@ -32,44 +32,28 @@
             </div>
         </section>
     @endif
-    <div class="banner bgwhite p-t-40 p-b-40">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-10 col-md-8 col-lg-4 m-l-r-auto">
-                    <div class="block1 hov-img-zoom pos-relative m-b-30">
-                        <img src="{!! asset('images/banner-05.jpg') !!}" alt="IMG-BENNER">
-                        <div class="block1-wrapbtn w-size2">
-                            <a href="#" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
-                                Sunglasses
-                            </a>
-                        </div>
+    @if(count($banners))
+        <div class="banner bgwhite p-t-40 p-b-40">
+            <div class="container">
+                @foreach($banners->chunk(3) as $chunk)
+                    <div class="row">
+                        @foreach ($chunk as $banner)
+                            <div class="col-sm-10 col-md-8 col-lg-4 m-l-r-auto">
+                                <div class="block1 hov-img-zoom pos-relative m-b-30">
+                                    <img src="{!! asset('images/banner-05.jpg') !!}" alt="IMG-BENNER">
+                                    <div class="block1-wrapbtn w-size2">
+                                        <a href="{{$banner->link}}" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
+                                            {{ $banner->text_link }}
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
-                </div>
-
-                <div class="col-sm-10 col-md-8 col-lg-4 m-l-r-auto">
-                    <div class="block1 hov-img-zoom pos-relative m-b-30">
-                        <img src="{!! asset('images/banner-03.jpg') !!}" alt="IMG-BENNER">
-                        <div class="block1-wrapbtn w-size2">
-                            <a href="#" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
-                                Watches
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-10 col-md-8 col-lg-4 m-l-r-auto">
-                    <div class="block1 hov-img-zoom pos-relative m-b-30">
-                        <img src="{!! asset('images/banner-10.jpg') !!}" alt="IMG-BENNER">
-                        <div class="block1-wrapbtn w-size2">
-                            <a href="#" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
-                                Bags
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
-    </div>
+    @endif
     <section class="bgwhite p-t-45 p-b-58">
         <div class="container">
             <div class="sec-title p-b-22">
@@ -83,24 +67,44 @@
             </a>
         </div>
     </section>
-    <section class="parallax0 parallax100" style="background-image: url({!! asset('images/bg-video-01.jpg') !!});">
-        <div class="overlay0 p-t-190 p-b-200">
-            <div class="flex-col-c-m p-l-15 p-r-15">
-				<span class="m-text9 p-t-45 fs-20-sm">
-					The Beauty
-				</span>
-
-                <h3 class="l-text1 fs-35-sm">
-                    Lookbook
-                </h3>
-
-                <span class="btn-play s-text4 hov5 cs-pointer p-t-25" data-toggle="modal" data-target="#modal-video-01">
-					<i class="fa fa-play" aria-hidden="true"></i>
-					Play Video
-				</span>
+    @if(isset($video))
+        <section class="parallax0 parallax100"
+                 style="background-image: url({!! asset($video->getMedia('sliders')->first() ? $video->getMedia('sliders')->first()->getUrl() : 'images/bg-video-01.jpg') !!});">
+            <div class="overlay0 p-t-190 p-b-200">
+                <div class="flex-col-c-m p-l-15 p-r-15">
+                    <span class="m-text9 p-t-45 fs-20-sm">
+                        {!! $video->name !!}
+                    </span>
+                    <h3 class="l-text1 fs-35-sm">
+                        {!! $video->text_link !!}
+                    </h3>
+                    <span class="btn-play s-text4 hov5 cs-pointer p-t-25" data-toggle="modal"
+                          data-target="#modal-video-01">
+                        <i class="fa fa-play" aria-hidden="true"></i>
+                        Play Video
+				    </span>
+                </div>
+            </div>
+        </section>
+        <div class="modal fade" id="modal-video-01" tabindex="-1" role="dialog" aria-labelledby="video-01" aria-hidden="true">
+            <div class="modal-dialog" role="document" data-dismiss="modal">
+                <div class="close-mo-video-01 trans-0-4" data-dismiss="modal" aria-label="Close">&times;</div>
+                <div class="modal-content">
+                    <div class="wrap-video-mo-01">
+                        <div class="w-full wrap-pic-w op-0-0">
+                            <img src="{!! asset('images/icons/video-16-9.jpg') !!}" alt="{!! $video->name !!}">
+                        </div>
+                        <div class="video-mo-01">
+                            <iframe src="{!! $video->link !!}"
+                                    allowfullscreen allowusermedia
+                            >
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
+    @endif
     <section class="blog bgwhite p-t-94 p-b-65">
         <div class="container">
             <div class="sec-title p-b-52">
@@ -343,22 +347,5 @@
             </div>
         </div>
     </section>
-
-    <!-- Modal Video 01-->
-    <div class="modal fade" id="modal-video-01" tabindex="-1" role="dialog" aria-hidden="true">
-
-        <div class="modal-dialog" role="document" data-dismiss="modal">
-            <div class="close-mo-video-01 trans-0-4" data-dismiss="modal" aria-label="Close">&times;</div>
-
-            <div class="wrap-video-mo-01">
-                <div class="w-full wrap-pic-w op-0-0"><img src="{!! asset('images/icons/video-16-9.jpg') !!}" alt="IMG">
-                </div>
-                <div class="video-mo-01">
-                    <iframe src="https://www.youtube.com/embed/Nt8ZrWY2Cmk?rel=0&amp;showinfo=0"
-                            allowfullscreen></iframe>
-                </div>
-            </div>
-        </div>
-    </div>
 
 @endsection
