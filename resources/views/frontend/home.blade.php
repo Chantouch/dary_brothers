@@ -188,6 +188,7 @@
             </div>
         </div>
     </section>
+
     <section class="instagram p-t-20">
         <div class="sec-title p-b-52 p-l-15 p-r-15">
             <h3 class="m-text5 t-center">
@@ -313,7 +314,6 @@
         </div>
     </section>
 
-    <!-- Shipping -->
     <section class="shipping bgwhite p-t-62 p-b-46">
         <div class="flex-w p-l-15 p-r-15">
             <div class="flex-col-c w-size5 p-l-15 p-r-15 p-t-16 p-b-15 respon1">
