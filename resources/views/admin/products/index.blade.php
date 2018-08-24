@@ -24,6 +24,7 @@
                             <th scope="col">Image</th>
                             <th scope="col">{!! __('forms.products.labels.name') !!}</th>
                             <th scope="col">{!! __('forms.products.labels.description') !!}</th>
+                            <th scope="col">{!! __('forms.products.labels.qty') !!}</th>
                             <th scope="col">{!! __('forms.products.labels.status') !!}</th>
                             <th scope="col">{!! __('fields.attributes.actions.action') !!}</th>
                         </tr>
@@ -41,6 +42,7 @@
                                 </td>
                                 <td>{!! $product->name !!}</td>
                                 <td>{!! str_limit($product->description,50) !!}</td>
+                                <td>{!! $product->qty !!}</td>
                                 <td>{!! status($product->status) !!}</td>
                                 <td>
                                     <div class='btn-group'>

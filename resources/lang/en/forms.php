@@ -30,6 +30,7 @@ return [
             'status' => 'Status',
             'categories' => 'Categories',
             'type' => 'Product type',
+            'qty' => 'Qty',
         ],
     ],
     'categories' => [
