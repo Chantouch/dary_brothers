@@ -20,26 +20,35 @@
             <div class="w-size13 p-t-30 respon5">
                 <div class="wrap-slick3 flex-sb flex-w">
                     <div class="wrap-slick3-dots"></div>
-
-                    <div class="slick3">
-                        <div class="item-slick3" data-thumb="{!! asset('images/thumb-item-01.jpg') !!}">
-                            <div class="wrap-pic-w">
-                                <img src="{!! asset('images/product-detail-01.jpg') !!}" alt="IMG-PRODUCT">
+                    @if($product->hasMedia('product-images'))
+                        <div class="slick3">
+                            @foreach($product->getMedia('product-images') as $media)
+                                <div class="item-slick3" data-thumb="{!! asset($media->getUrl('feature-product')) !!}">
+                                    <div class="wrap-pic-w">
+                                        {{ Html::image($media->getUrl('feature-product'), $media->name) }}
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    @else
+                        <div class="slick3">
+                            <div class="item-slick3" data-thumb="{!! asset('images/thumb-item-01.jpg') !!}">
+                                <div class="wrap-pic-w">
+                                    <img src="{!! asset('images/product-detail-01.jpg') !!}" alt="IMG-PRODUCT">
+                                </div>
+                            </div>
+                            <div class="item-slick3" data-thumb="{!! asset('images/thumb-item-02.jpg') !!}">
+                                <div class="wrap-pic-w">
+                                    <img src="{!! asset('images/product-detail-02.jpg') !!}" alt="IMG-PRODUCT">
+                                </div>
+                            </div>
+                            <div class="item-slick3" data-thumb="{!! asset('images/thumb-item-03.jpg') !!}">
+                                <div class="wrap-pic-w">
+                                    <img src="{!! asset('images/product-detail-03.jpg') !!}" alt="IMG-PRODUCT">
+                                </div>
                             </div>
                         </div>
-
-                        <div class="item-slick3" data-thumb="{!! asset('images/thumb-item-02.jpg') !!}">
-                            <div class="wrap-pic-w">
-                                <img src="{!! asset('images/product-detail-02.jpg') !!}" alt="IMG-PRODUCT">
-                            </div>
-                        </div>
-
-                        <div class="item-slick3" data-thumb="{!! asset('images/thumb-item-03.jpg') !!}">
-                            <div class="wrap-pic-w">
-                                <img src="{!! asset('images/product-detail-03.jpg') !!}" alt="IMG-PRODUCT">
-                            </div>
-                        </div>
-                    </div>
+                    @endif
                 </div>
             </div>
 

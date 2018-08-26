@@ -10519,7 +10519,6 @@ a.text-dark:focus {
 
 input {
   outline: none;
-  border: none !important;
 }
 
 textarea {
