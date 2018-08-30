@@ -48,14 +48,14 @@
                     </a>
                     <ul class="list-unstyled">
                         <li>
-                            <a class="{{ set_active([$lang.'admin/customers', Request::is($lang.'admin/customers/*'), $lang.'admin/customers']) }}"
+                            <a class="{{ set_active([$lang.'admin/users', Request::is($lang.'admin/users/*'), $lang.'admin/users']) }}"
                                href="{{ route('admin.users.index') }}"
                             >
                                 Users
                             </a>
                         </li>
                         <li>
-                            <a class="{{ set_active([$lang.'admin/categories', Request::is($lang.'admin/categories/*'), $lang.'admin/categories']) }}"
+                            <a class="{{ set_active([$lang.'admin/customers', Request::is($lang.'admin/customers/*'), $lang.'admin/customers']) }}"
                                href="{{ route('admin.customers.index') }}"
                             >
                                 Customers
