@@ -20,13 +20,7 @@ class AppServiceProvider extends ServiceProvider
         // Set the app locale according to the URL
         app()->setLocale($request->segment(1));
         view()->composer('*', function ($view) use ($request) {
-
-            $current_route_name = $request->route()->getName();
-
-            $view->with('current_route_name', $current_route_name);
-
             $view->with('lang', app()->getLocale() . '/');
-
         });
     }
 
