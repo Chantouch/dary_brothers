@@ -114,11 +114,13 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapAdminApiRoutes(): void
     {
+        $locale = Request::segment(1);
+
         Route::group([
             'middleware' => ['web', 'auth:admin'], //'role:admin'
             'namespace' => $this->namespace . '\Admin\Api',
-            'prefix' => '/api/admin',
-            'as' => 'admin.'
+            'prefix' => $locale . '/admin/api',
+            'as' => 'admin.api.'
         ], function ($router) {
             require base_path('routes/admin-api.php');
         });

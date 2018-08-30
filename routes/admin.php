@@ -24,7 +24,6 @@ Route::resource('products', 'ProductController');
 Route::resource('media', 'MediaLibraryController')->only(['index', 'show', 'create', 'store', 'destroy']);
 
 Route::get('orders', 'OrderController@index')->name('orders.index');
-Route::put('orders/{order}', 'OrderController@update')->name('orders.update');
 
 Route::resource('users', 'UserController');
 

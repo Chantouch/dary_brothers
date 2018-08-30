@@ -28,21 +28,23 @@
                         @foreach($orders as $index => $order)
                             <tr>
                                 <th scope="row">{!! $loop->iteration !!}</th>
-                                <td>{!! $order->customer->full_name !!}</td>
+                                <td>{!! $order->customer ? $order->customer->full_name : '' !!}</td>
                                 <td>{!! $order->total !!}</td>
                                 <td>{!! $order->payment_method !!}</td>
                                 <td>{!! $order->order_reference !!}</td>
                                 <td>
+                                    {!! Form::model($order, ['method' => 'PATCH','route' => ['admin.api.orders.update', $order->id]]) !!}
                                     {{ Form::select('status', [
-                                        '1' => 'Awaiting payment',
-                                        '2' => 'Canceled',
-                                        '3' => 'Delivered',
-                                        '4' => 'Payment accepted',
-                                        '5' => 'Processing in progress',
-                                        '6' => 'Shipped'
+                                        1 => 'Awaiting payment',
+                                        2 => 'Canceled',
+                                        3 => 'Delivered',
+                                        4 => 'Payment accepted',
+                                        5 => 'Processing in progress',
+                                        6 => 'Shipped'
                                     ], $order->status, [
-                                     'class' => 'form-control select2 payment_status', 'data-id' => $order->id
+                                     'class' => 'form-control select2 payment_status form-control-sm', 'data-id' => $order->id
                                     ]) }}
+                                    {!! Form::close() !!}
                                 </td>
                             </tr>
                         @endforeach
@@ -84,10 +86,10 @@
             });
 
             $('.payment_status').on('change', function () {
-                var id = $(this).attr('data-id');
+                var url = $("form").attr('action');
                 $.ajax({
                     type: "PUT",
-                    url: '/admin/api/orders/' + id,
+                    url: url,
                     data: {
                         'status': this.value,
                     },
@@ -95,10 +97,11 @@
                         // swal('Updating....', 'success');
                     },
                     success(data) {
-                        toast({
-                            type: 'success',
-                            title: data.message
-                        })
+                        console.log(data)
+                        // toast({
+                        //     type: 'success',
+                        //     title: data.message
+                        // })
                     },
                     error: function (data) {
                         // var errors = data.responseJSON;
