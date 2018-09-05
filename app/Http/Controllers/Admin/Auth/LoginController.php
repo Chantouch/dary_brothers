@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
@@ -50,28 +51,19 @@ class LoginController extends Controller
     }
 
     /**
-     * Handle a login request to the application.
+     * The user has been authenticated.
      *
      * @param  \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Http\JsonResponse
-     *
+     * @param  mixed $user
+     * @return mixed
      */
-    public function login(Request $request)
+    function authenticated(Request $request, $user)
     {
-        // Validate the form data
-        $this->validate($request, [
-            'email' => 'required|email',
-            'password' => 'required|min:6'
+        $user->update([
+            'last_login_at' => Carbon::now()->toDateTimeString(),
+            'last_login_ip' => $request->getClientIp()
         ]);
-        // Attempt to log the user in
-        if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password], $request->remember)) {
-            // if successful, then redirect to their intended location
-            return redirect()->intended(route('admin.dashboard'));
-        }
-        // if unsuccessful, then redirect back to the login with the form data
-        return redirect()->back()->withInput($request->only('email', 'remember'));
     }
-
 
     /**
      * Get the guard to be used during authentication.

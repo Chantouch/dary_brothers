@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
+use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
@@ -43,8 +44,13 @@ class UserController extends Controller
     public function store(StoreRequest $request)
     {
         DB::beginTransaction();
-        $user = new User($request->all());
+        $user = new User(array_filter($request->only(['name', 'email', 'password', 'date_of_birth'])));
+
         $user->save();
+
+        $role_ids = array_values($request->get('roles', []));
+        $user->roles()->sync($role_ids);
+
         DB::commit();
         return redirect()->route('admin.users.index');
     }
@@ -71,7 +77,8 @@ class UserController extends Controller
     public function edit(User $user): View
     {
         return view('admin.users.edit', [
-            'user' => $user
+            'user' => $user,
+            'roles' => Role::all()
         ]);
     }
 
@@ -86,7 +93,9 @@ class UserController extends Controller
     public function update(UpdateRequest $request, User $user)
     {
         DB::beginTransaction();
-        $user->fill($request->all());
+        $user->fill(array_filter($request->only(['name', 'email', 'password', 'date_of_birth'])));
+        $role_ids = array_values($request->get('roles', []));
+        $user->roles()->sync($role_ids);
         $user->save();
         DB::commit();
         return redirect()->route('admin.users.index');

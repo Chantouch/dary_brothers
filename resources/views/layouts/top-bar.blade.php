@@ -176,27 +176,28 @@
                          class="avatar-rounded">
                 </a>
                 <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
-                    <!-- item-->
+
                     <div class="dropdown-item noti-title">
                         <h5 class="text-overflow">
-                            <small>Hello, admin</small>
+                            <small>Hello, {{Auth::user()->name}}</small>
                         </h5>
                     </div>
 
-                    <!-- item-->
-                    <a href="pro-profile.html" class="dropdown-item notify-item">
+                    <a href="#" class="dropdown-item notify-item">
                         <i class="fa fa-user"></i> <span>Profile</span>
                     </a>
 
-                    <!-- item-->
-                    <a href="#" class="dropdown-item notify-item">
-                        <i class="fa fa-power-off"></i> <span>Logout</span>
-                    </a>
+                    @auth
+                        <a class="dropdown-item notify-item" href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                            <i class="fa fa-power-off"></i> <span>{{ __('Logout') }}</span>
+                        </a>
 
-                    <!-- item-->
-                    <a target="_blank" href="https://www.pikeadmin.com" class="dropdown-item notify-item">
-                        <i class="fa fa-external-link"></i> <span>Pike Admin</span>
-                    </a>
+                        <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    @endauth
                 </div>
             </li>
 

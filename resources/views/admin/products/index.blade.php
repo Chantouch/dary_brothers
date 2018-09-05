@@ -35,7 +35,7 @@
                                 <th scope="row">{!! $loop->iteration !!}</th>
                                 <td>
                                     @if($product->hasMedia('product-images'))
-                                        {{ Html::image($product->getMedia('product-images')->first()->getUrl('feature-product'), $product->getMedia('product-images')->first()->name, ['class' => 'img-thumbnail', 'width' => '40px']) }}
+                                        {{ Html::image($product->getMedia('product-images')->first()->getUrl(), $product->getMedia('product-images')->first()->name, ['class' => 'img-thumbnail', 'width' => '40px']) }}
                                     @else
                                         <img src="{{ asset('images/item-02.jpg') }}" alt="{{ $product->name }}" class="img-thumbnail" width="40px">
                                     @endif

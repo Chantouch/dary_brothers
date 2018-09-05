@@ -115,11 +115,22 @@ try {
 }
 
 
-// Admin > Dashboard > Orders
+// Admin > Dashboard > Users
 try {
     Breadcrumbs::register('admin.users.index', function (BreadcrumbsGenerator $breadcrumbs) {
         $breadcrumbs->parent('admin.dashboard');
         $breadcrumbs->push(trans('fields.attributes.users.title'), route('admin.users.index'));
+    });
+} catch (DuplicateBreadcrumbException $e) {
+    throw new $e;
+}
+
+
+// Admin > Dashboard > Users > Edit
+try {
+    Breadcrumbs::register('admin.users.edit', function (BreadcrumbsGenerator $breadcrumbs) {
+        $breadcrumbs->parent('admin.users.index');
+        $breadcrumbs->push(trans('forms.users.edit'), route('admin.users.index'));
     });
 } catch (DuplicateBreadcrumbException $e) {
     throw new $e;

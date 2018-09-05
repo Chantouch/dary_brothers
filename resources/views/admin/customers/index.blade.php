@@ -32,7 +32,7 @@
                                 <td>{!! $customer->email !!}</td>
                                 <td>{!! $customer->date_of_birth !!}</td>
                                 <td>{!! $customer->address !!}</td>
-                                <td>{!! $customer->status !!}</td>
+                                <td>{!! status($customer->status) !!}</td>
                             </tr>
                         @endforeach
                         </tbody>

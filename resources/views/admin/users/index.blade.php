@@ -20,21 +20,21 @@
                             <th scope="col">{!! __('forms.users.labels.name') !!}</th>
                             <th scope="col">{!! __('forms.users.labels.email') !!}</th>
                             <th scope="col">{!! __('forms.users.labels.dob') !!}</th>
-                            <th scope="col">{!! __('forms.users.labels.last_login') !!}</th>
-                            <th scope="col">{!! __('forms.users.labels.status') !!}</th>
-                            <th scope="col">{!! __('fields.attributes.actions.action') !!}</th>
+                            <th scope="col">{!! __('users.attributes.last_login_at') !!}</th>
+                            <th scope="col" class="text-center">{!! __('forms.users.labels.status') !!}</th>
+                            <th scope="col" class="text-center">{!! __('fields.attributes.actions.action') !!}</th>
                         </tr>
                         </thead>
                         <tbody>
                         @foreach($users as $index => $user)
                             <tr>
                                 <th scope="row">{!! $loop->iteration !!}</th>
-                                <td>{!! $user->name !!}</td>
+                                <td>{{ link_to_route('admin.users.edit', $user->name, $user) }}</td>
                                 <td>{!! $user->email !!}</td>
                                 <td>{!! $user->date_of_birth !!}</td>
-                                <td>{!! $user->user_reference !!}</td>
-                                <td>{!! $user->status !!}</td>
-                                <td>
+                                <td>{!! $user->last_login_at !!}</td>
+                                <td class="text-center">{!! status($user->status) !!}</td>
+                                <td class="text-center">
                                     <div class='btn-group'>
                                         <a href="{!! route('admin.users.edit', $user->id) !!}"
                                            class='btn btn-primary btn-sm'
@@ -42,7 +42,9 @@
                                             <i class="fa fa-edit"></i>
                                         </a>
                                         {!! Form::open(['route' => ['admin.users.destroy', $user->id], 'method' => 'delete', 'class' => 'confirm']) !!}
-                                        {!! Form::button('<i class="fa fa-trash-o"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm confirm']) !!}
+                                        @if(Auth::user()->id != $user->id)
+                                            {!! Form::button('<i class="fa fa-trash-o"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm']) !!}
+                                        @endif
                                         {!! Form::close() !!}
                                     </div>
                                 </td>

@@ -26,7 +26,7 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
-        $schedule->command('queue:work --tries=3')
+        $schedule->command('queue:listen --tries=3')
             ->cron('* * * * * *')
             ->withoutOverlapping();
     }
