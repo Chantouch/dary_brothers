@@ -8,7 +8,7 @@ $factory->define(Customer::class, function (Faker $faker) {
         'first_name' => $faker->firstName,
         'last_name' => $faker->lastName,
         'email' => $faker->unique()->safeEmail,
-        'password' => bcrypt('secret'),
+        'password' => secret,
         'remember_token' => str_random(10),
         'address' => $faker->address,
         'date_of_birth' => $faker->date('Y-m-d'),
