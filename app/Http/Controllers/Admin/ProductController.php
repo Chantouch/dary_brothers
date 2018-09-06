@@ -31,13 +31,19 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param Request $request
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $products = (new Product)->newQuery()->latest()->paginate(20);
+        $limit = $request->input('limit', 20);
+        $products = (new Product)->newQuery()
+            ->latest()
+            ->sortable()
+            ->paginate($limit);
         return view('admin.products.index', [
-            'products' => $products
+            'products' => $products,
+            'limit' => $limit
         ]);
     }
 

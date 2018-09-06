@@ -16,16 +16,27 @@
                     </div>
                 </header>
                 <div class="card-body">
+                    @include('admin.products._form_search')
                     <table class="table table-responsive-xl table-bordered table-hover" data-toggle="dataTable"
                            data-form="deleteForm">
                         <thead>
                         <tr>
-                            <th scope="col" class="text-center">#</th>
+                            <th scope="col" class="text-center">
+                                @sortablelink('id', '#')
+                            </th>
                             <th scope="col" class="text-center">Image</th>
-                            <th scope="col">{!! __('forms.products.labels.name') !!}</th>
-                            <th scope="col">{!! __('forms.products.labels.description') !!}</th>
-                            <th scope="col">{!! __('forms.products.labels.qty') !!}</th>
-                            <th scope="col">{!! __('forms.products.labels.status') !!}</th>
+                            <th scope="col">
+                                @sortablelink('name', trans('forms.products.labels.name'))
+                            </th>
+                            <th scope="col">
+                                @sortablelink('description', trans('forms.products.labels.description'))
+                            </th>
+                            <th scope="col">
+                                @sortablelink('qty', trans('forms.products.labels.qty'))
+                            </th>
+                            <th scope="col">
+                                @sortablelink('status', trans('forms.products.labels.status'))
+                            </th>
                             <th scope="col" class="text-center">{!! __('fields.attributes.actions.action') !!}</th>
                         </tr>
                         </thead>
@@ -37,7 +48,8 @@
                                     @if($product->hasMedia('product-images'))
                                         {{ Html::image($product->getMedia('product-images')->first()->getUrl(), $product->getMedia('product-images')->first()->name, ['class' => 'img-thumbnail', 'width' => '40px']) }}
                                     @else
-                                        <img src="{{ asset('images/item-02.jpg') }}" alt="{{ $product->name }}" class="img-thumbnail" width="40px">
+                                        <img src="{{ asset('images/item-02.jpg') }}" alt="{{ $product->name }}"
+                                             class="img-thumbnail" width="40px">
                                     @endif
                                 </td>
                                 <td>{!! $product->name !!}</td>
@@ -60,7 +72,20 @@
                         @endforeach
                         </tbody>
                     </table>
-                    {!! $products->render() !!}
+                    <div class="row">
+                        <div class="col-md-8">
+                            {!! $products->appends(Request::except('page'))->render() !!}
+                        </div>
+                        <div class="col-md-4">
+                            {!! Form::select('limit', [
+                                '?limit=5' => 5,
+                                '?limit=20' => 20,
+                                '?limit=50' => 50,
+                                '?limit=100' => 100,
+                                '?limit=500' => 500,
+                            ], '?limit='.$limit, ['class' => 'form-control', 'id' => 'paginate']) !!}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -69,25 +94,32 @@
 
 @section('scripts')
     <script>
-      $(document).ready(function () {
-        $('button.confirm').on('click', function (e) {
-          e.preventDefault();
-          var self = $(this);
-          swal({
-            title: 'Are you sure?',
-            text: 'Once deleted, you will not be able to recover this imaginary file!',
-            icon: 'warning',
-            buttons: true,
-            dangerMode: true
-          })
-            .then((willDelete) => {
-              if (willDelete) {
-                self.parents('.confirm').submit();
-                return
-              }
-              swal('Your imaginary file is safe!');
+        $(document).ready(function () {
+            $('button.confirm').on('click', function (e) {
+                e.preventDefault();
+                let self = $(this);
+                swal({
+                    title: 'Are you sure?',
+                    text: 'Once deleted, you will not be able to recover this imaginary file!',
+                    icon: 'warning',
+                    buttons: true,
+                    dangerMode: true
+                }).then((willDelete) => {
+                    if (willDelete) {
+                        self.parents('.confirm').submit();
+                        return
+                    }
+                    swal('Your imaginary file is safe!');
+                });
+            });
+            // bind change event to select
+            $('#paginate').on('change', function () {
+                let url = $(this).val(); // get selected value
+                if (url) { // require a URL
+                    window.location = url; // redirect
+                }
+                return false;
             });
         });
-      });
     </script>
 @endsection

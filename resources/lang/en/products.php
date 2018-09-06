@@ -18,5 +18,8 @@ return [
         'discount' => 'Discount',
         'type' => 'Type',
         'qty' => 'Qty'
+    ],
+    'search' => [
+        'kh_name' => 'Product khmer name'
     ]
 ];

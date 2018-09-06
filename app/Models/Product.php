@@ -6,6 +6,7 @@ use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Kyslik\ColumnSortable\Sortable;
 use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
@@ -15,13 +16,15 @@ use Spatie\Sluggable\SlugOptions;
 
 class Product extends Model implements HasMedia
 {
-    use  Translatable, HasMediaTrait, HasSlug;
+    use  Translatable, HasMediaTrait, HasSlug, Sortable;
 
     public $translatedAttributes = ['name', 'description'];
 
     public $registerMediaConversionsUsingModelInstance = true;
 
     protected $fillable = ['status', 'cost', 'price', 'discount', 'qty', 'type_id', 'slug'];
+
+    public $sortable = ['id', 'status', 'cost', 'price', 'discount', 'qty'];
 
     protected $casts = ['status' => 'boolean'];
 

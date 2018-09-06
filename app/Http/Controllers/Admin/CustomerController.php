@@ -19,7 +19,7 @@ class CustomerController extends Controller
     public function index(): View
     {
         return view('admin.customers.index', [
-            'customers' => (new Customer())->paginate(20)
+            'customers' => (new Customer())->newQuery()->paginate(20)
         ]);
     }
 

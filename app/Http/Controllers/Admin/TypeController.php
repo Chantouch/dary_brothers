@@ -31,7 +31,7 @@ class TypeController extends Controller
      */
     public function index()
     {
-        $types = (new Type)->newQuery()->paginate(20);
+        $types = (new Type)->newQuery()->latest()->paginate(20);
         return view('admin.types.index', [
             'types' => $types
         ]);

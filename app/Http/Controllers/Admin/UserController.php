@@ -20,7 +20,7 @@ class UserController extends Controller
     public function index(): View
     {
         return view('admin.users.index', [
-            'users' => (new User())->paginate(20)
+            'users' => (new User())->newQuery()->latest()->paginate(20)
         ]);
     }
 

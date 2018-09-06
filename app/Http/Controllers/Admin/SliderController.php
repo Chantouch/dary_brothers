@@ -35,7 +35,7 @@ class SliderController extends Controller
     public function index(): View
     {
         return view('admin.sliders.index', [
-            'sliders' => (new Slider())->paginate(20)
+            'sliders' => (new Slider())->latest()->paginate(20)
         ]);
     }
 

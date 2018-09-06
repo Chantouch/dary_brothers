@@ -133,7 +133,7 @@
 
                     <div class="row"><input type="file" name="images[]" id="image_uploads" multiple="multiple"></div>
 
-                    @include('admin.products.__images')
+                    @include('admin.products._images')
 
                 </div>
 

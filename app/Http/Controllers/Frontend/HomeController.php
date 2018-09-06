@@ -31,16 +31,16 @@ class HomeController extends Controller
     {
 
         $products = (new Product())->newQuery()
-            ->where('status', 1)
+            ->where('status', '=', 1)
             ->latest('updated_at')
             ->paginate(20);
-        $sliders = (new Slider())->where('status', '=', 1)
+        $sliders = (new Slider())->newQuery()->where('status', '=', 1)
             ->where('type', '=', 'slider')
             ->get();
-        $banners = (new Slider())->where('status', '=', 1)
+        $banners = (new Slider())->newQuery()->where('status', '=', 1)
             ->where('type', '=', 'banner')
             ->get();
-        $video = (new Slider())->where('status', '=', 1)
+        $video = (new Slider())->newQuery()->where('status', '=', 1)
             ->where('type', '=', 'video')
             ->first();
 
