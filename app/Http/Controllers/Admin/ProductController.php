@@ -38,8 +38,17 @@ class ProductController extends Controller
     {
         $limit = $request->input('limit', 20);
         $products = (new Product)->newQuery()
+            ->select('products.*')
             ->latest()
             ->sortable()
+            ->when($request->input('sort') === 'name', function ($query) use ($request) {
+                $query->join('product_translations', 'products.id', '=', 'product_translations.product_id')
+                    ->orderBy('product_translations.name', $request->input('direction'));
+            })
+            ->when($request->input('sort') === 'description', function ($query) use ($request) {
+                $query->join('product_translations', 'products.id', '=', 'product_translations.product_id')
+                    ->orderBy('product_translations.description', $request->input('direction'));
+            })
             ->paginate($limit);
         return view('admin.products.index', [
             'products' => $products,
