@@ -1,5 +1,5 @@
 <div class="bd-example bd-example-tabs">
-    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+    <ul class="nav nav-tabs mb-3" id="pills-tab" role="tablist">
         <li class="nav-item">
             <a class="nav-link active"
                id="pills-home-tab" data-toggle="pill"

@@ -20,20 +20,20 @@
                            data-form="deleteForm">
                         <thead>
                         <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Image</th>
+                            <th scope="col" class="text-center">#</th>
+                            <th scope="col" class="text-center">Image</th>
                             <th scope="col">{!! __('forms.products.labels.name') !!}</th>
                             <th scope="col">{!! __('forms.products.labels.description') !!}</th>
                             <th scope="col">{!! __('forms.products.labels.qty') !!}</th>
                             <th scope="col">{!! __('forms.products.labels.status') !!}</th>
-                            <th scope="col">{!! __('fields.attributes.actions.action') !!}</th>
+                            <th scope="col" class="text-center">{!! __('fields.attributes.actions.action') !!}</th>
                         </tr>
                         </thead>
                         <tbody>
                         @foreach($products as $index => $product)
                             <tr>
-                                <th scope="row">{!! $loop->iteration !!}</th>
-                                <td>
+                                <th scope="row" class="text-center">{!! $loop->iteration !!}</th>
+                                <td class="text-center">
                                     @if($product->hasMedia('product-images'))
                                         {{ Html::image($product->getMedia('product-images')->first()->getUrl(), $product->getMedia('product-images')->first()->name, ['class' => 'img-thumbnail', 'width' => '40px']) }}
                                     @else
@@ -44,7 +44,7 @@
                                 <td>{!! str_limit($product->description,50) !!}</td>
                                 <td>{!! $product->qty !!}</td>
                                 <td>{!! status($product->status) !!}</td>
-                                <td>
+                                <td class="text-center">
                                     <div class='btn-group'>
                                         <a href="{!! route('admin.products.edit', $product->id) !!}"
                                            class='btn btn-primary btn-sm'

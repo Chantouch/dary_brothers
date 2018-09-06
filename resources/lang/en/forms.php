@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 return [
     'buttons' => [
@@ -68,14 +68,20 @@ return [
         'placeholders' => [
             'name' => 'User name',
             'dob' => 'User date of birth',
-            'email' => 'User email'
+            'email' => 'User email',
         ],
         'labels' => [
             'name' => 'Name',
             'dob' => 'Date of birth',
             'status' => 'Status',
             'email' => 'Email',
-            'last_login' => 'Last login'
+            'last_login' => 'Last login',
+            'date_of_birth' => '',
+        ],
+        'placeholder' => [
+            'email' => '',
+            'name' => '',
+            'date_of_birth' => '',
         ],
     ],
     'customers' => [
@@ -85,7 +91,7 @@ return [
         'placeholders' => [
             'name' => 'Customer name',
             'dob' => 'Customer date of birth',
-            'email' => 'Customer email'
+            'email' => 'Customer email',
         ],
         'labels' => [
             'name' => 'Name',
@@ -93,7 +99,7 @@ return [
             'status' => 'Status',
             'email' => 'Email',
             'last_login' => 'Last login',
-            'address' => 'Address'
+            'address' => 'Address',
         ],
     ],
     'sliders' => [
@@ -105,14 +111,14 @@ return [
             'link' => 'Slider link',
             'status' => 'Slider status',
             'text_link' => 'Slider text link',
-            'description' => 'Slider description'
+            'description' => 'Slider description',
         ],
         'labels' => [
             'name' => 'Name',
             'link' => 'Link',
             'status' => 'Status',
             'text_link' => 'Text link',
-            'description' => 'Description'
+            'description' => 'Description',
         ],
-    ]
+    ],
 ];

@@ -35,7 +35,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = (new Product)->newQuery()->paginate(20);
+        $products = (new Product)->newQuery()->latest()->paginate(20);
         return view('admin.products.index', [
             'products' => $products
         ]);
@@ -48,7 +48,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $types = (new Type())->newQuery()->get()->pluck('name', 'id')->toArray();
+        $types = (new Type())->newQuery()->where('status', '=', 1)->get()->pluck('name', 'id')->toArray();
         $categories = (new Category())->newQuery()->get()->pluck('name', 'id')->toArray();
         return view('admin.products.create', [
             'types' => $types,
@@ -110,7 +110,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        $types = (new Type())->newQuery()->get()->pluck('name', 'id')->toArray();
+        $types = (new Type())->newQuery()->where('status', '=', 1)->get()->pluck('name', 'id')->toArray();
         $categories = (new Category())->newQuery()->get()->pluck('name', 'id')->toArray();
         $product_categories = $product->categories()->get()->pluck('id', 'name')->toArray();
 
@@ -138,7 +138,7 @@ class ProductController extends Controller
      */
     public function update(UpdateRequest $request, Product $product)
     {
-        $product->fill($request->all());
+        $product->fill(array_filter($request->all()));
         $product->{'name:en'} = $request->input('en_name');
         $product->{'description:en'} = $request->input('en_description');
         $product->{'name:kh'} = $request->input('kh_name');
@@ -153,7 +153,7 @@ class ProductController extends Controller
             }
         }
 
-        $saved = $product->save();
+        $product->save();
         return redirect()->route('admin.products.index')->with('success', 'The product has been updated.');
     }
 

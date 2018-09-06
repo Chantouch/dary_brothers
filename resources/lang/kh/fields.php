@@ -44,5 +44,8 @@ return [
             'last_login' => '',
             'status' => '',
         ],
+        'sliders' => [
+            'type' => '',
+        ],
     ],
 ];

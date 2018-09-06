@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Free Bootstrap 4 Admin Theme | Pike Admin">
     <meta name="author" content="Pike Web Development - https://www.pikephp.com">
-
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
     <!-- Favicon -->
     <link rel="shortcut icon" href="{!! asset('admin/images/favicon.ico') !!}">
 
@@ -43,10 +43,28 @@
         <div class="content">
             <div class="container-fluid">
                 {{ Breadcrumbs::render() }}
-                {{--<div class="alert alert-danger" role="alert">--}}
-                {{--<h4 class="alert-heading">Info!</h4>--}}
-                {{--<p>Alert Body</p>--}}
-                {{--</div>--}}
+                @if ($message = Session::get('success'))
+
+                    <div class="alert alert-success alert-block">
+
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+
+                        <strong>{{ $message }}</strong>
+
+                    </div>
+
+                @endif
+
+                @if (count($errors) > 0)
+                    <div class="alert alert-danger" role="alert">
+                        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 @yield('content')
             </div>
         </div>

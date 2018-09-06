@@ -24,7 +24,8 @@ class ProductTransformer extends BaseTransformer
             'type_id' => $item->type_id,
             'cost' => $item->cost,
             'price' => $item->price,
-            'discount' => $item->discount
+            'discount' => $item->discount,
+            'qty' => $item->qty
         ];
     }
 }

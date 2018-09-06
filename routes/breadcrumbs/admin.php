@@ -156,6 +156,17 @@ try {
 } catch (DuplicateBreadcrumbException $e) {
     throw new $e;
 }
+
+// Admin > Dashboard > Sliders > Create
+try {
+    Breadcrumbs::register('admin.sliders.create', function (BreadcrumbsGenerator $breadcrumbs) {
+        $breadcrumbs->parent('admin.sliders.index');
+        $breadcrumbs->push(trans('forms.sliders.create'), route('admin.sliders.index'));
+    });
+} catch (DuplicateBreadcrumbException $e) {
+    throw new $e;
+}
+
 // Admin > Dashboard > Sliders > Edit
 try {
     Breadcrumbs::register('admin.sliders.edit', function (BreadcrumbsGenerator $breadcrumbs) {

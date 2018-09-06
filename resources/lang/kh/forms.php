@@ -21,6 +21,7 @@ return [
             'name' => '',
             'description' => '',
             'status' => '',
+            'qty' => '',
         ],
         'placeholders' => [
             'price' => '',
@@ -86,6 +87,7 @@ return [
             'dob' => '',
             'last_login' => '',
             'status' => '',
+            'date_of_birth' => '',
         ],
         'create' => '',
         'edit' => '',
@@ -93,6 +95,30 @@ return [
             'name' => '',
             'dob' => '',
             'email' => '',
+        ],
+        'placeholder' => [
+            'email' => '',
+            'name' => '',
+            'date_of_birth' => '',
+        ],
+    ],
+    'sliders' => [
+        'create' => '',
+        'edit' => '',
+        'list' => '',
+        'placeholders' => [
+            'name' => '',
+            'link' => '',
+            'status' => '',
+            'text_link' => '',
+            'description' => '',
+        ],
+        'labels' => [
+            'name' => '',
+            'link' => '',
+            'status' => '',
+            'text_link' => '',
+            'description' => '',
         ],
     ],
 ];
