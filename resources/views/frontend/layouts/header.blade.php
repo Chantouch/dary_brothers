@@ -9,7 +9,7 @@
                 <a href="#" class="topbar-social-item fa fa-youtube-play"></a>
             </div>
             <a href="{{ route('frontend.home') }}" class="logo2">
-                <img src="{!! asset('images/icons/logo.png') !!}" alt="{{ config('app.name', 'Dary Brothers') }}">
+                <img src="{!! asset(config('settings.app_logo')) !!}" alt="{{ MetaTag::get('title') }} - {!! config('settings.app_name') !!}">
             </a>
 
             <div class="topbar-child2">

@@ -10,5 +10,10 @@ return [
         'cancel' => 'Cancel',
         'submit' => 'Submit'
     ],
-    'edit' => 'Edit'
+    'edit' => 'Edit',
+    'search' => 'Search',
+    'placeholder' => [
+        'name' => 'Enter setting name',
+        'description' => 'Enter setting description'
+    ]
 ];

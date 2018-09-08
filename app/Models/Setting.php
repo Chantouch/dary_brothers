@@ -8,10 +8,12 @@ use Illuminate\Support\Facades\Request;
 use Intervention\Image\ImageManagerStatic as Image;
 use Illuminate\Support\Facades\Storage;
 use Kyslik\ColumnSortable\Sortable;
+use Spatie\MediaLibrary\HasMedia\HasMedia;
+use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 
-class Setting extends Model
+class Setting extends Model implements HasMedia
 {
-    use Sortable;
+    use Sortable, HasMediaTrait;
 
     protected $fillable = [
         'key',

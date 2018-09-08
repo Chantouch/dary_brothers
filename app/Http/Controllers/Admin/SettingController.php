@@ -14,11 +14,26 @@ class SettingController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param Request $request
+     *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $settings = Setting::sortable()->orderBy('name', 'ASC')->paginate(20);
+        $settings = (new Setting())->newQuery();
+
+        if ($request->has('name')) {
+            $name = $request->input('name');
+            $settings->where('name', 'LIKE', "%$name%");
+        }
+
+        if ($request->has('description')) {
+            $description = $request->input('description');
+            $settings->where('description', 'LIKE', "%$description%");
+        }
+
+        $settings = $settings->sortable()->orderBy('name', 'ASC')->paginate(20);
+
         return view('admin.settings.index', [
             'settings' => $settings
         ]);

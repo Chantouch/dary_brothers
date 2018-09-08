@@ -8,12 +8,12 @@
     <meta name="author" content="Pike Web Development - https://www.pikephp.com">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{!! asset('admin/images/favicon.ico') !!}">
+    <link rel="shortcut icon" type="image/png" sizes="16x16" href="{!! asset(config('settings.app_favicon')) !!}">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Admin') }} :Administrator site</title>
+    <title>{{ config('settings.app_name', 'Dary Brother Admin Site') }} :Administrator site</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -45,15 +45,12 @@
             <div class="container-fluid">
                 {{ Breadcrumbs::render() }}
                 @if ($message = Session::get('success'))
-
-                    <div class="alert alert-success alert-block">
-
-                        <button type="button" class="close" data-dismiss="alert">×</button>
-
-                        <strong>{{ $message }}</strong>
-
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>Holy congrats!</strong> {{ $message }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
-
                 @endif
 
                 @if (count($errors) > 0)

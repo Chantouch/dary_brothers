@@ -10,6 +10,28 @@
                     </div>
                 </header>
                 <div class="card-body">
+                    {!! Form::open(array('route' => 'admin.settings.index','method'=>'GET')) !!}
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            {!! Form::label('name', __('settings.attributes.name')) !!}
+                            {!! Form::text('name', null, ['class' => 'form-control' . ($errors->has('name') ? ' is-invalid' : ''), 'placeholder' => __('settings.placeholder.name')]) !!}
+
+                            @if ($errors->has('name'))
+                                <span class="invalid-feedback">{{ $errors->first('name') }}</span>
+                            @endif
+                        </div>
+                        <div class="form-group col-md-6">
+                            {!! Form::label('description', __('settings.attributes.description')) !!}
+                            {!! Form::text('description', null, ['class' => 'form-control' . ($errors->has('description') ? ' is-invalid' : ''), 'placeholder' => __('settings.placeholder.description')]) !!}
+
+                            @if ($errors->has('description'))
+                                <span class="invalid-feedback">{{ $errors->first('description') }}</span>
+                            @endif
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">{{ __('settings.search') }}</button>
+                    {!! Form::close() !!}
+                    <hr>
                     @include('admin.settings.table')
                 </div>
             </div>

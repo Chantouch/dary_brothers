@@ -5,41 +5,63 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Wish shop project">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/png" href="{{ asset('images/icons/favicon.png') }}"/>
-    <!-- CSRF Token -->
+    <link rel="shortcut icon" type="image/png" sizes="16x16" href="{!! asset(config('settings.app_favicon')) !!}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Dary Brothers') }}</title>
+    <title>{{ MetaTag::get('title') }} - {!! config('settings.app_name') !!}</title>
+    {!! MetaTag::tag('description') !!}{!! MetaTag::tag('keywords') !!}
+    {!! MetaTag::tag('canonical', Request::url()) !!}
+    {!! MetaTag::tag('image') !!}
+    {!! MetaTag::openGraph() !!}
+    {!! MetaTag::tag('robots') !!}
+    {!! MetaTag::tag('site_name', config('settings.app_name', 'Dary Brothers')) !!}
+    {!! MetaTag::tag('url', Request::url()); !!}
+    {!! MetaTag::tag('locale', 'en_EN') !!}
+
+    @if (config('services.facebook.client_id'))
+        <meta property="fb:app_id" content="{{ config('services.facebook.client_id') }}"/>
+        {!! MetaTag::twitterCard() !!}
+    @endif
+    @if (config('settings.google_site_verification'))
+        <meta name="google-site-verification" content="{{ config('settings.google_site_verification') }}"/>
+    @endif
+    @if (config('settings.msvalidate'))
+        <meta name="msvalidate.01" content="{{ config('settings.msvalidate') }}"/>
+    @endif
+    @if (config('settings.alexa_verify_id'))
+        <meta name="alexaVerifyID" content="{{ config('settings.alexa_verify_id') }}"/>
+    @endif
 
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
     <link rel="stylesheet" type="text/css" href="{{ asset('css/fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
-    <!--===============================================================================================-->
+
     <link rel="stylesheet" type="text/css" href="{{ asset('css/fonts/themify/themify-icons.css') }}">
-    <!--===============================================================================================-->
+
     <link rel="stylesheet" type="text/css" href="{{ asset('css/fonts/Linearicons-Free-v1.0.0/icon-font.min.css') }}">
-    <!--===============================================================================================-->
+
     <link rel="stylesheet" type="text/css" href="{{ asset('css/fonts/elegant-font/html-css/style.css') }}">
-    <!--===============================================================================================-->
+
     <link rel="stylesheet" type="text/css" href="{{ asset('vendor/animate/animate.css') }}">
-    <!--===============================================================================================-->
+
     <link rel="stylesheet" type="text/css" href="{{ asset('vendor/css-hamburgers/hamburgers.min.css') }}">
-    <!--===============================================================================================-->
+
     <link rel="stylesheet" type="text/css" href="{{ asset('vendor/animsition/css/animsition.min.css') }}">
-    <!--===============================================================================================-->
+
     <link rel="stylesheet" type="text/css" href="{{ asset('vendor/select2/select2.min.css') }}">
-    <!--===============================================================================================-->
+
     <link rel="stylesheet" type="text/css" href="{{ asset('vendor/daterangepicker/daterangepicker.css') }}">
-    <!--===============================================================================================-->
+
     <link rel="stylesheet" type="text/css" href="{{ asset('vendor/slick/slick.css') }}">
-    <!--===============================================================================================-->
+
     <link rel="stylesheet" type="text/css" href="{{ asset('vendor/lightbox2/css/lightbox.min.css') }}">
-    <!--===============================================================================================-->
+
     <link rel="stylesheet" type="text/css" href="{{ asset('css/frontend/util.css') }}">
+
     <link rel="stylesheet" type="text/css" href="{{ asset('css/frontend/main.css') }}">
+
     <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
-    <!--===============================================================================================-->
 
     @yield('style')
 </head>
@@ -58,14 +80,13 @@
 </div>
 </body>
 
-<!--===============================================================================================-->
 <script type="text/javascript" src="{{ asset('vendor/jquery/jquery-3.2.1.min.js') }}"></script>
-<!--===============================================================================================-->
+
 <script type="text/javascript" src="{{ asset('vendor/animsition/js/animsition.min.js') }}"></script>
-<!--===============================================================================================-->
+
 <script type="text/javascript" src="{{ asset('vendor/bootstrap/js/popper.js') }}"></script>
 <script type="text/javascript" src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
-<!--===============================================================================================-->
+
 <script type="text/javascript" src="{{ asset('vendor/select2/select2.min.js') }}"></script>
 <script type="text/javascript">
     $('.selection-1').select2({
@@ -77,14 +98,14 @@
         dropdownParent: $('#dropDownSelect2')
     });
 </script>
-<!--===============================================================================================-->
+
 <script type="text/javascript" src="{{ asset('vendor/slick/slick.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/frontend/slick-custom.js') }}"></script>
-<!--===============================================================================================-->
+
 <script type="text/javascript" src="{{ asset('vendor/countdowntime/countdowntime.js') }}"></script>
-<!--===============================================================================================-->
+
 <script type="text/javascript" src="{{ asset('vendor/lightbox2/js/lightbox.min.js') }}"></script>
-<!--===============================================================================================-->
+
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.26.11/dist/sweetalert2.all.min.js"></script>
 <script type="text/javascript">
     $('.block2-btn-addcart').each(function () {
@@ -112,9 +133,17 @@
             }
         });
     })();
+    $(document).ready(function () {
+        setTimeout(function () {
+            $("#cookieConsent").fadeIn(200);
+        }, 4000);
+        $("#closeCookieConsent, .cookieConsentOK").click(function () {
+            $("#cookieConsent").fadeOut(200);
+        });
+    });
 </script>
 @include('sweet::alert')
 @yield('scripts')
 <script src="{{ asset('js/frontend/main.js') }}"></script>
-
+<noscript>Your browser does not support JavaScript!</noscript>
 </html>
