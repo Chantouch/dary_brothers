@@ -77,6 +77,10 @@
                             </a>
                         </li>
                         <li>
+                            <a class="{{ set_active([$lang.'admin/settings', Request::is($lang.'admin/settings/*'), $lang.'admin/settings']) }}"
+                               href="{{ route('admin.settings.index') }}">{{ __('admin_menu.settings') }}</a>
+                        </li>
+                        <li>
                             <a href="#">Permission</a>
                         </li>
                         <li>

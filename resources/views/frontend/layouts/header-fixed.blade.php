@@ -18,10 +18,6 @@
                 </li>
 
                 <li>
-                    <a href="#">Blog</a>
-                </li>
-
-                <li>
                     <a href="{!! route('about.index') !!}">About</a>
                 </li>
 

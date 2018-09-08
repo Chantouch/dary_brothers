@@ -176,3 +176,23 @@ try {
 } catch (DuplicateBreadcrumbException $e) {
     throw new $e;
 }
+
+// Admin > Dashboard > Settings > List
+try {
+    Breadcrumbs::register('admin.settings.index', function (BreadcrumbsGenerator $breadcrumbs) {
+        $breadcrumbs->parent('admin.dashboard');
+        $breadcrumbs->push(trans('settings.list'), route('admin.settings.index'));
+    });
+} catch (DuplicateBreadcrumbException $e) {
+    throw new $e;
+}
+
+// Admin > Dashboard > Settings > List
+try {
+    Breadcrumbs::register('admin.settings.edit', function (BreadcrumbsGenerator $breadcrumbs) {
+        $breadcrumbs->parent('admin.settings.index');
+        $breadcrumbs->push(trans('settings.edit'), route('admin.settings.index'));
+    });
+} catch (DuplicateBreadcrumbException $e) {
+    throw new $e;
+}

@@ -151,7 +151,8 @@ return [
          * Package Service Providers...
          */
 
-        \App\Providers\BladeServiceProvider::class,
+        App\Providers\BladeServiceProvider::class,
+        Torann\LaravelMetaTags\MetaTagsServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -214,6 +215,7 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'Alert' => UxWeb\SweetAlert\SweetAlert::class,
         'Breadcrumbs' => \DaveJamesMiller\Breadcrumbs\Facades\Breadcrumbs::class,
+        'MetaTag' => Torann\LaravelMetaTags\Facades\MetaTag::class,
     ],
 
 ];

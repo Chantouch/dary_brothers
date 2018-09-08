@@ -20,8 +20,8 @@
                 @endauth
                 <div class="topbar-language rs1-select2">
                     <select class="selection-1" name="lang">
-                        <option>KH</option>
-                        <option>EN</option>
+                        <option value="kh">{{ __('app.languages.kh') }}</option>
+                        <option value="en">{{ __('app.languages.en') }}</option>
                     </select>
                 </div>
 
@@ -50,27 +50,23 @@
                 <nav class="menu">
                     <ul class="main_menu">
                         <li>
-                            <a href="{{ route('frontend.home') }}">Home</a>
+                            <a href="{{ route('frontend.home') }}">{{ __('app.menu.home') }}</a>
                         </li>
 
                         <li>
-                            <a href="{!! route('products.index') !!}">Shop</a>
+                            <a href="{!! route('products.index') !!}">{{ __('app.menu.shop') }}</a>
                         </li>
 
                         <li class="sale-noti">
-                            <a href="#">Sale</a>
+                            <a href="#">{{ __('app.menu.sale') }}</a>
                         </li>
 
                         <li>
-                            <a href=#">Blog</a>
+                            <a href="{!! route('about.index') !!}">{{ __('app.menu.about') }}</a>
                         </li>
 
                         <li>
-                            <a href="{!! route('about.index') !!}">About</a>
-                        </li>
-
-                        <li>
-                            <a href="#">Contact</a>
+                            <a href="#">{{ __('app.menu.contact') }}</a>
                         </li>
                     </ul>
                 </nav>
@@ -130,14 +126,16 @@
 
                 <li class="item-topbar-mobile p-l-20 p-t-8 p-b-8">
                     <div class="topbar-child2-mobile">
-                        <span class="topbar-email">
-                            fashe@example.com
-                        </span>
+                        @auth
+                            <span class="topbar-email">
+                                {!! Auth::user()->full_name !!}
+                            </span>
+                        @endauth
 
                         <div class="topbar-language rs1-select2">
-                            <select class="selection-1" name="time">
-                                <option>USD</option>
-                                <option>EUR</option>
+                            <select class="selection-1" name="lang">
+                                <option value="kh">{{ __('app.languages.kh') }}</option>
+                                <option value="en">{{ __('app.languages.en') }}</option>
                             </select>
                         </div>
                     </div>
@@ -154,28 +152,24 @@
                 </li>
 
                 <li class="item-menu-mobile">
-                    <a href="{{ route('frontend.home') }}">Home</a>
+                    <a href="{{ route('frontend.home') }}">{{ __('app.menu.home') }}</a>
                     <i class="arrow-main-menu fa fa-angle-right" aria-hidden="true"></i>
                 </li>
 
                 <li class="item-menu-mobile">
-                    <a href="{!! route('products.index') !!}">Shop</a>
+                    <a href="{!! route('products.index') !!}">{{ __('app.menu.shop') }}</a>
                 </li>
 
                 <li class="item-menu-mobile">
-                    <a href="#">Sale</a>
+                    <a href="#">{{ __('app.menu.sale') }}</a>
                 </li>
 
                 <li class="item-menu-mobile">
-                    <a href="#">Blog</a>
+                    <a href="{!! route('about.index') !!}">{{ __('app.menu.about') }}</a>
                 </li>
 
                 <li class="item-menu-mobile">
-                    <a href="{!! route('about.index') !!}">About</a>
-                </li>
-
-                <li class="item-menu-mobile">
-                    <a href="#">Contact</a>
+                    <a href="#">{{ __('app.menu.contact') }}</a>
                 </li>
             </ul>
         </nav>

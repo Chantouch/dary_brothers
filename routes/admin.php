@@ -30,3 +30,7 @@ Route::resource('users', 'UserController');
 Route::resource('customers', 'CustomerController');
 
 Route::resource('sliders', 'SliderController');
+
+Route::put('settings/ajax/{id}', 'SettingController@ajaxUpdate')->name('settings.ajax-update');
+
+Route::resource('settings', 'SettingController', ['only' => ['index', 'edit', 'update']]);
