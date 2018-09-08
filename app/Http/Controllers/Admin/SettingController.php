@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 
 class SettingController extends Controller
 {
@@ -20,22 +21,28 @@ class SettingController extends Controller
      */
     public function index(Request $request)
     {
+        $limit = $request->input('limit', 20);
         $settings = (new Setting())->newQuery();
-
+        $name = $request->input('name');
         if ($request->has('name')) {
-            $name = $request->input('name');
             $settings->where('name', 'LIKE', "%$name%");
         }
-
+        $description = $request->input('description');
         if ($request->has('description')) {
-            $description = $request->input('description');
             $settings->where('description', 'LIKE', "%$description%");
         }
 
-        $settings = $settings->sortable()->orderBy('name', 'ASC')->paginate(20);
-
+        $settings = $settings->sortable()
+            ->orderBy('name', 'ASC')
+            ->paginate($limit)
+            ->appends([
+                'name' => $name,
+                'description' => $description
+            ]);
+        Session::flash('_old_input', $request->all());
         return view('admin.settings.index', [
-            'settings' => $settings
+            'settings' => $settings,
+            'limit' => $limit
         ]);
     }
 

@@ -13,7 +13,7 @@
             <tbody>
             @foreach($settings as $index => $setting)
                 <tr>
-                    <th>{!! $loop->index+1 !!}</th>
+                    <th>{!! $loop->iteration !!}</th>
                     <td>{!! $setting->name !!}</td>
                     <td>
                         <?php
@@ -31,7 +31,7 @@
                                 ></i>
                             </a>
                         @elseif($json['type'] == 'image')
-                            <img src="{!! asset($setting->value) !!}" alt="{!! $setting->value !!}" width="50">
+                            <img src="{!! asset($setting->value) !!}" alt="{!! $setting->value !!}" width="70">
                         @else
                             {!! $setting->value !!}
                         @endif
@@ -40,7 +40,7 @@
                     <td>
                         <div class="btn-group">
                             <a href="{!! route('admin.settings.edit', [$setting->id]) !!}"
-                               class='btn btn-primary btn-outline waves-effect btn-xs'>
+                               class='btn btn-primary btn-outline waves-effect btn-sm'>
                                 <i class="fa fa-pencil"></i>
                             </a>
                         </div>
@@ -49,7 +49,20 @@
             @endforeach
             </tbody>
         </table>
-        {!! $settings->appends(Request::except('page'))->render() !!}
+        <div class="row">
+            <div class="col-md-8">
+                {!! $settings->appends(Request::except('page'))->render() !!}
+            </div>
+            <div class="col-md-4">
+                {!! Form::select('limit', [
+                    '?limit=5' => 5,
+                    '?limit=20' => 20,
+                    '?limit=50' => 50,
+                    '?limit=100' => 100,
+                    '?limit=500' => 500,
+                ], '?limit='.$limit, ['class' => 'form-control', 'id' => 'paginate']) !!}
+            </div>
+        </div>
     @else
         <p>There is no data here.</p>
     @endif

@@ -96,6 +96,14 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
+        // bind change event to select
+        $('#paginate').on('change', function () {
+            let url = $(this).val(); // get selected value
+            if (url) { // require a URL
+                window.location = url; // redirect
+            }
+            return false;
+        });
     })();
 </script>
 @include('sweet::alert')

@@ -112,14 +112,6 @@
                     swal('Your imaginary file is safe!');
                 });
             });
-            // bind change event to select
-            $('#paginate').on('change', function () {
-                let url = $(this).val(); // get selected value
-                if (url) { // require a URL
-                    window.location = url; // redirect
-                }
-                return false;
-            });
         });
     </script>
 @endsection
