@@ -1,27 +1,46 @@
 <header class="header2">
     <div class="container-menu-header-v2 p-t-26">
         <div class="topbar2">
-            <div class="topbar-social">
-                <a href="#" class="topbar-social-item fa fa-facebook"></a>
-                <a href="#" class="topbar-social-item fa fa-instagram"></a>
-                <a href="#" class="topbar-social-item fa fa-pinterest-p"></a>
-                <a href="#" class="topbar-social-item fa fa-snapchat-ghost"></a>
-                <a href="#" class="topbar-social-item fa fa-youtube-play"></a>
-            </div>
+            @if(config('settings.social_activated'))
+                <div class="topbar-social">
+                    <a target="_blank" href="{!! config('settings.facebook_page_url') !!}"
+                       class="topbar-social-item fa fa-facebook"
+                    ></a>
+                    <a target="_blank" href="{!! config('settings.instagram_url') !!}"
+                       class="topbar-social-item fa fa-instagram"
+                    ></a>
+                    <a target="_blank" href="{!! config('settings.vimeo_url') !!}"
+                       class="topbar-social-item fa fa-vimeo"
+                    ></a>
+                    <a target="_blank" href="{!! config('settings.g_plus_url') !!}"
+                       class="topbar-social-item fa fa-google-plus"
+                    ></a>
+                    <a target="_blank" href="{!! config('settings.youtube_url') !!}"
+                       class="topbar-social-item fa fa-youtube-play"
+                    ></a>
+                </div>
+            @endif
             <a href="{{ route('frontend.home') }}" class="logo2">
-                <img src="{!! asset(config('settings.app_logo')) !!}" alt="{{ MetaTag::get('title') }} - {!! config('settings.app_name') !!}">
+                <img src="{!! asset(config('settings.app_logo')) !!}"
+                     alt="{{ MetaTag::get('title') }} - {!! config('settings.app_name') !!}"
+                >
             </a>
-
             <div class="topbar-child2">
                 @auth
                     <span class="topbar-email">
                         {!! Auth::user()->full_name !!}
                     </span>
                 @endauth
+
                 <div class="topbar-language rs1-select2">
                     <select class="selection-1" name="lang">
-                        <option value="kh">{{ __('app.languages.kh') }}</option>
-                        <option value="en">{{ __('app.languages.en') }}</option>
+                        @foreach (config('translatable.locales') as $lang => $language)
+                            <option selected="{{ app()->getLocale() }}"
+                                    value="{{ $lang }}"
+                            >
+                                {{ $language }}
+                            </option>
+                        @endforeach
                     </select>
                 </div>
 
@@ -66,7 +85,7 @@
                         </li>
 
                         <li>
-                            <a href="#">{{ __('app.menu.contact') }}</a>
+                            <a href="{!! route('contact.index') !!}">{{ __('app.menu.contact') }}</a>
                         </li>
                     </ul>
                 </nav>

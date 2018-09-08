@@ -11,14 +11,25 @@
                     Any questions? Let us know in store at 8th floor, 379 Hudson St, New York, NY 10018 or call us on
                     (+1) 96 716 6879
                 </p>
-
-                <div class="flex-m p-t-30">
-                    <a href="#" class="fs-18 color1 p-r-20 fa fa-facebook"></a>
-                    <a href="#" class="fs-18 color1 p-r-20 fa fa-instagram"></a>
-                    <a href="#" class="fs-18 color1 p-r-20 fa fa-pinterest-p"></a>
-                    <a href="#" class="fs-18 color1 p-r-20 fa fa-snapchat-ghost"></a>
-                    <a href="#" class="fs-18 color1 p-r-20 fa fa-youtube-play"></a>
-                </div>
+                @if(config('settings.social_activated'))
+                    <div class="flex-m p-t-30">
+                        <a target="_blank" href="{!! config('settings.facebook_page_url') !!}"
+                           class="fs-18 color1 p-r-20 fa fa-facebook"
+                        ></a>
+                        <a target="_blank" href="{!! config('settings.instagram_url') !!}"
+                           class="fs-18 color1 p-r-20 fa fa-instagram"
+                        ></a>
+                        <a target="_blank" href="{!! config('settings.vimeo_url') !!}"
+                           class="fs-18 color1 p-r-20 fa fa-vimeo"
+                        ></a>
+                        <a target="_blank" href="{!! config('settings.g_plus_url') !!}"
+                           class="fs-18 color1 p-r-20 fa fa-google-plus"
+                        ></a>
+                        <a target="_blank" href="{!! config('settings.youtube_url') !!}"
+                           class="fs-18 color1 p-r-20 fa fa-youtube-play"
+                        ></a>
+                    </div>
+                @endif
             </div>
         </div>
 
@@ -125,7 +136,8 @@
 
             <form>
                 <div class="effect1 w-size9">
-                    <input class="s-text7 bg6 w-full p-b-5 form-control" type="text" name="email" placeholder="email@example.com" autocomplete="off">
+                    <input class="s-text7 bg6 w-full p-b-5 form-control" type="text" name="email"
+                           placeholder="email@example.com" autocomplete="off">
                     <span class="effect1-line"></span>
                 </div>
 

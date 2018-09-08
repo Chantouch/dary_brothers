@@ -67,15 +67,34 @@
 </head>
 <body>
 <div id="app" class="animsition">
+
     @include('frontend.layouts.header-fixed')
+
     @include('frontend.layouts.top-noti')
+
     <main class="main">
+
         @include('frontend.layouts.header')
+
+        @if ($message = Session::get('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Holy congrats!</strong> {{ $message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endif
+
         @yield('content')
+
         @include('frontend.layouts.footer')
+
         @include('frontend.layouts.backtotop')
+
         <div id="dropDownSelect1"></div>
+
         <div id="dropDownSelect2"></div>
+
     </main>
 </div>
 </body>

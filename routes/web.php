@@ -30,5 +30,7 @@ Route::middleware('web')->namespace('Frontend')->group(function () {
 
     Route::resource('about', 'AboutController', ['only' => ['index']]);
 
+    Route::resource('contact', 'ContactController', ['only' => ['index', 'store']]);
+
 });
 
