@@ -60,6 +60,7 @@
                 <h3 class="m-text5 t-center">
                     Our Products
                 </h3>
+                <hr>
             </div>
             @include('frontend.products.__list')
             <a href="{!! route('products.index') !!}" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">

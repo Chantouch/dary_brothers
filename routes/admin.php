@@ -13,6 +13,8 @@
 
 //Auth::routes();
 
+Route::get('/', 'HomeController@index')->name('home');
+
 Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 
 Route::resource('categories', 'CategoryController');
