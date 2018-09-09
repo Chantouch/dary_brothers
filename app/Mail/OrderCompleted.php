@@ -43,8 +43,8 @@ class OrderCompleted extends Mailable implements ShouldQueue
     public function build()
     {
         $address = $this->customer->email;
-        $subject = 'An Order has been submitted to your store at: ' . Carbon::now();
-        $name = $this->customer->full_name;
+        $subject = 'Your order has been completed at: ' . Carbon::now();
+        $name = config('settings.app_name');
 
         $headerData = [
             'category' => 'category',
@@ -60,10 +60,10 @@ class OrderCompleted extends Mailable implements ShouldQueue
                 ->addTextHeader('X-SMTPAPI', $header);
         });
 
-        return $this->to($address)
+        return $this->to($address, $this->customer->full_name)
             ->view('mails.order-completed')
             // ->text('mails.ordered-plain')
-            ->from('dary@example.com', $name)
+            ->from(config('settings.app_email'), $name)
             //->cc($address, $name)
             //->bcc($address, $name)
             //->replyTo($address, $name)

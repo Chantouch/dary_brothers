@@ -32,7 +32,7 @@
                     </span>
                 @endauth
 
-                <div class="topbar-language rs1-select2">
+                <div class="topbar-language rs1-select2 ml-2">
                     <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle"
                                 type="button"
@@ -52,9 +52,15 @@
                     </div>
                 </div>
 
-                <a href="{!! route('customer.carts.index') !!}" class="header-wrapicon1 dis-block m-l-30">
-                    <img src="{{ asset('images/icons/icon-header-01.png') }}" class="header-icon1" alt="ICON">
-                </a>
+                @auth
+                    <a href="{!! route('customer.dashboard') !!}" class="header-wrapicon1 dis-block m-l-30">
+                        <img src="{{ asset('images/icons/icon-header-01.png') }}" class="header-icon1" alt="ICON">
+                    </a>
+                @else
+                    <a href="{!! route('login') !!}" class="header-wrapicon1 dis-block m-l-30">
+                        <img src="{{ asset('images/icons/icon-header-01.png') }}" class="header-icon1" alt="ICON">
+                    </a>
+                @endauth
 
                 <a href="{!! route('customer.wish-lists.index') !!}" class="header-wrapicon1 dis-block m-l-30">
                     <i class="fa fa-heart-o"></i>

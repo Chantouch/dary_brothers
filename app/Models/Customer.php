@@ -50,14 +50,15 @@ class Customer extends Authenticatable
         return "{$this->first_name} {$this->last_name}";
     }
 
-    // Set Attribute for Model
-
+    // ---------------------------
+    // ACCESSORS
+    //----------------------------
     /**
      * Encrypt the user's password.
      *
      * @param $password
      * @return void
-     * @internal param string $passwword
+     * @internal param string $password
      */
     public function setPasswordAttribute($password)
     {

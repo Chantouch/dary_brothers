@@ -21,7 +21,7 @@ class CheckOutController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth:customer');
+        $this->middleware('web');
         $this->auth = Auth::guard('customer');
     }
 
@@ -33,8 +33,38 @@ class CheckOutController extends Controller
     public function store(StoreRequest $request)
     {
         DB::beginTransaction();
-        $user_id = $this->auth->id();
-        $customer = (new Customer())->find($user_id);
+
+        $customer = '';
+
+        if ($this->auth->check()) {
+
+            $user_id = $this->auth->id();
+
+            $customer = Customer::find($user_id);
+        }
+
+        $find_exist_customer = Customer::where('phone_number', '=', $request->input('phone_number'))
+            ->where('email', '=', $request->input('email'))->first();
+
+        if (!empty($find_exist_customer)) {
+            $customer = $find_exist_customer;
+
+            $this->auth->login($customer, true);
+        }
+
+        if (!$this->auth->check()) {
+
+            $customer = new Customer(array_filter($request->all()));
+
+            $customer->setPasswordAttribute($request->input('phone_number'));
+
+            $customer->save();
+
+            $this->auth->login($customer, true);
+        }
+
+        $user_id = $customer->id;
+
         $total = Cart::total();
         $products = Cart::content();
 

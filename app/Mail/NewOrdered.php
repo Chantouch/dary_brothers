@@ -41,7 +41,7 @@ class NewOrdered extends Mailable implements ShouldQueue
      */
     public function build()
     {
-        $address = 'janeexampexample@example.com';
+        $address = $this->customer->email;
         $subject = 'An Order has been submitted to your store at: ' . Carbon::now();
         $name = $this->customer->full_name;
 
@@ -59,7 +59,7 @@ class NewOrdered extends Mailable implements ShouldQueue
                 ->addTextHeader('X-SMTPAPI', $header);
         });
 
-        return $this->to('dary@example.com')
+        return $this->to(config('settings.app_email'), config('settings.app_name'))
             ->view('mails.new-ordered')
             ->text('mails.ordered-plain')
             ->from($address, $name)

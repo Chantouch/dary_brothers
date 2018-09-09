@@ -19,7 +19,7 @@ Hello <i>{{ $customer->full_name }}</i>,
             <td>{!! $product->name !!}</td>
             <td>
                 @if($product->model->hasMedia('product-images'))
-                    {{ Html::image($product->model->getMedia('product-images')->first()->getUrl('feature-product'), $product->model->getMedia('product-images')->first()->name, ['width' => '30px]) }}
+                    {{ Html::image($product->model->getMedia('product-images')->first()->getUrl('feature-product'), $product->model->getMedia('product-images')->first()->name, ['width' => '30px']) }}
                 @else
                     <img src="{{ asset('images/item-02.jpg') }}" alt="{{ $product->name }}" width="30px">
                 @endif

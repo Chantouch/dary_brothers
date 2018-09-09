@@ -3,7 +3,6 @@
 namespace App\Jobs;
 
 use App\Mail\NewOrdered;
-use App\Models\Customer;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
@@ -14,9 +13,7 @@ use Illuminate\Support\Facades\Mail;
 class SendNewOrderedEmail implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
-    /**
-     * @var Customer
-     */
+
     protected $customer;
     /**
      * @var array
@@ -26,10 +23,10 @@ class SendNewOrderedEmail implements ShouldQueue
     /**
      * Create a new job instance.
      *
-     * @param Customer $customer
+     * @param  $customer
      * @param array $products
      */
-    public function __construct(Customer $customer, $products = [])
+    public function __construct($customer, $products = [])
     {
         $this->customer = $customer;
         $this->products = $products;

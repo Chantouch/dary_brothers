@@ -36,3 +36,14 @@ Route::middleware('web')->namespace('Frontend')->group(function () {
 
 });
 
+Route::middleware('web')
+    ->name('customer.')
+    ->namespace('Customer')
+    ->prefix('customer')
+    ->group(function () {
+
+    Route::resource('carts', 'CartController', ['only' => ['destroy', 'index', 'update']]);
+
+    Route::resource('checkouts', 'CheckOutController', ['only' => ['store']]);
+});
+

@@ -24,8 +24,13 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'payment_method' => 'required|integer',
             'address' => 'required|string|min:5',
+            'first_name' => 'required|string|min:3',
+            'last_name' => 'required|string|min:3',
+            'email' => 'required|email|min:4',
+            'phone_number' => 'required',
+            'payment_method' => 'required|integer|in:1,2',
+            'date_of_birth' => 'nullable|date'
         ];
     }
 }
