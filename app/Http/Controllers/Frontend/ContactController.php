@@ -41,14 +41,14 @@ class ContactController extends Controller
             'name' => $request->get('name'),
             'email' => $request->get('email'),
             'phone' => $request->get('phone'),
-            'user_message' => $request->get('message'),
+            'message' => $request->get('message'),
             'subject' => $request->get('subject')
         ];
-        $mail_sent = Mail::to(config('settings.app_email'))->send(new SendContactEmail($object));
-        if ($mail_sent) {
+        $contact = new Contact(array_filter($object));
+        $contact = $contact->save();
+        if ($contact) {
+            Mail::to(config('settings.app_email'))->send(new SendContactEmail($object));
             Mail::to($object['email'])->send(new SendThanksContactEmail());
-            $contact = new Contact(array_filter($request->all()));
-            $contact->save();
         }
         DB::commit();
         return redirect()->back()->with('success', 'Thanks for contacting us!');

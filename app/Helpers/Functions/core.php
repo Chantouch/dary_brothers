@@ -101,3 +101,20 @@ function is_png($bufferImg, $recursive = true)
     }
     return $result == 'image/png';
 }
+
+
+if (!function_exists('check_lang')) {
+    function check_lang($lang)
+    {
+        switch ($lang) {
+            case 'kh':
+                return 'Khmer';
+                break;
+            case 'en':
+                return 'English';
+                break;
+            default:
+                break;
+        }
+    }
+}

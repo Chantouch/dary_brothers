@@ -33,15 +33,23 @@
                 @endauth
 
                 <div class="topbar-language rs1-select2">
-                    <select class="selection-1" name="lang">
-                        @foreach (config('translatable.locales') as $lang => $language)
-                            <option selected="{{ app()->getLocale() }}"
-                                    value="{{ $lang }}"
-                            >
-                                {{ $language }}
-                            </option>
-                        @endforeach
-                    </select>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle"
+                                type="button"
+                                id="dropDownLanguage"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        >
+                            {{ check_lang(app()->getLocale()) }}
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropDownLanguage">
+                            @foreach (config('translatable.locales') as $lang => $language)
+                                @if ($lang != app()->getLocale())
+                                    <a class="dropdown-item"
+                                       href="{{ route('lang.switch', $lang) }}">{{ $language }}</a>
+                                @endif
+                            @endforeach
+                        </div>
+                    </div>
                 </div>
 
                 <a href="{!! route('customer.carts.index') !!}" class="header-wrapicon1 dis-block m-l-30">

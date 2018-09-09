@@ -5,13 +5,12 @@
 @endsection
 
 @section('content')
-    <section class="bg-title-page p-t-50 p-b-40 flex-col-c-m"
-             style="background-image: url({!! asset('images/heading-pages-02.jpg') !!});">
+    <section class="bg-title-page p-t-50 p-b-40 flex-col-c-m" style="background-image: url({!! asset('images/heading-pages-02.jpg') !!});">
         <h2 class="l-text2 t-center">
-            {!! $category->name !!}
+            {!! $type->name !!}
         </h2>
         <p class="m-text13 t-center">
-            {!! $category->description !!}
+            {!! $type->description !!}
         </p>
     </section>
 
@@ -20,8 +19,9 @@
             <div class="row">
                 <div class="col-sm-6 col-md-4 col-lg-3 p-b-50">
                     <div class="leftbar p-r-20 p-r-0-sm">
+                        <!--  -->
                         <h4 class="m-text14 p-b-7">
-                            Categories
+                            Types
                         </h4>
                         <hr>
                         <ul class="p-b-54">
@@ -30,12 +30,11 @@
                                     All
                                 </a>
                             </li>
-                            @if(isset($categories) && count($categories))
-                                @foreach($categories as $index => $category)
+                            @if(isset($types) && count($types))
+                                @foreach($types as $index => $type)
                                     <li class="p-t-4">
-                                        <a href="{!! route('categories.show', $category->slug) !!}"
-                                           class="s-text13 {!! html_class([ route('categories.show', $category->slug) ]) !!}">
-                                            {!! $category->name !!}
+                                        <a href="{!! route('types.show', $type->getRouteKey()) !!}" class="s-text13 {!! html_class([ route('categories.show', $type->getRouteKey()) ]) !!}">
+                                            {!! $type->name !!}
                                         </a>
                                     </li>
                                 @endforeach

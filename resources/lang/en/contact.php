@@ -18,5 +18,6 @@ return [
     ],
     'buttons' => [
         'send' => 'Send'
-    ]
+    ],
+    'title' => 'Contacts'
 ];

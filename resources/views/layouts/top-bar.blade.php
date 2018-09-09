@@ -11,8 +11,8 @@
 
         <ul class="list-inline float-right mb-0">
             <li class="list-inline-item dropdown notif">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    {{ app()->getLocale() }} <i class="fa fa-caret-down"></i>
+                <a href="javascript: void (0)" class="btn btn-secondary dropdown-toggle m-b-9" data-toggle="dropdown">
+                    {{ check_lang(app()->getLocale()) }} <i class="fa fa-caret-down"></i>
                 </a>
                 <div class="dropdown-menu">
                     @foreach (config('translatable.locales') as $lang => $language)

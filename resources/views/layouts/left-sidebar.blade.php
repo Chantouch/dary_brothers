@@ -42,6 +42,14 @@
                     </a>
                 </li>
                 <li class="submenu">
+                    <a class="{{ set_active([$lang.'admin/contacts', Request::is($lang.'admin/contacts/*'), $lang.'admin/contacts']) }}"
+                       href="{!! route('admin.contacts.index') !!}"
+                    >
+                        <i class="fa fa-fw fa-pencil"> </i>
+                        <span> {!! __('menu.contacts') !!} </span>
+                    </a>
+                </li>
+                <li class="submenu">
                     <a href="javascript: void (0)"><i class="fa fa-fw fa-user-circle-o"></i>
                         <span> User Management </span>
                         <span class="menu-arrow"></span>

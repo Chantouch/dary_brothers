@@ -78,4 +78,30 @@ class Product extends Model implements HasMedia
             ->sepia()
             ->border(10, 'black', Manipulations::BORDER_OVERLAY);
     }
+
+    /**
+     * Get the route key for the model.
+     *
+     * @return string
+     */
+    public function getRouteKeyName(): string
+    {
+        if (request()->expectsJson()) {
+            return 'id';
+        }
+        return 'slug';
+    }
+
+    /**
+     * Get the route key for the model.
+     *
+     * @return string
+     */
+    public function getRouteKey(): string
+    {
+        if (!empty($this->slug)) {
+            return $this->slug;
+        }
+        return $this->id;
+    }
 }

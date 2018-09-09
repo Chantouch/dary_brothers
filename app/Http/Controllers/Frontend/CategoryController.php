@@ -9,7 +9,7 @@ class CategoryController extends Controller
 {
     public function show($slug)
     {
-        $category = (new Category())->where('slug', $slug)->first();
+        $category = (new Category())->newQuery()->where('slug', $slug)->first();
 
         $categories = (new Category())->newQuery()->where('status', 1)->get();
 

@@ -1,7 +1,7 @@
 @component('mail::message')
-    # Received message
+    #Received message
 
-    ## Dear Admin
+    ##Dear Admin
 
     You recently received a message from : {{ $user['name'] }}
 
@@ -11,8 +11,8 @@
 
     Phone: {{ $user['phone'] }}
 
-    Message: {{ $user['user_message'] }}
+    Message: {{ $user['message'] }}
 
-    Thanks,<br>
+    Thanks,
     {{ config('app.name') }}
 @endcomponent

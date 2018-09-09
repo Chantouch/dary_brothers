@@ -6,7 +6,7 @@
             <i class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>
         </a>
 
-        <a href="#" class="s-text16">
+        <a href="{{ route('types.show', $product->type->getRouteKey()) }}" class="s-text16">
             {!! $product->type->name !!}
             <i class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>
         </a>
@@ -125,7 +125,8 @@
                 <div class="p-b-45">
                     <div class="s-text8">
                         <span class="type-title">Type:</span>
-                        <a href="#" title="{!! $product->type->name !!}">
+                        <a href="{{ route('types.show', $product->type->getRouteKey()) }}"
+                           title="{!! $product->type->name !!}">
                             {!! $product->type->name !!}
                         </a>
                     </div>

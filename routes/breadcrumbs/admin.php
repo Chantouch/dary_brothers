@@ -196,3 +196,13 @@ try {
 } catch (DuplicateBreadcrumbException $e) {
     throw new $e;
 }
+
+// Admin > Dashboard > Contacts > List
+try {
+    Breadcrumbs::register('admin.contacts.index', function (BreadcrumbsGenerator $breadcrumbs) {
+        $breadcrumbs->parent('admin.dashboard');
+        $breadcrumbs->push(trans('contact.title'), route('admin.contacts.index'));
+    });
+} catch (DuplicateBreadcrumbException $e) {
+    throw new $e;
+}

@@ -32,5 +32,7 @@ Route::middleware('web')->namespace('Frontend')->group(function () {
 
     Route::resource('contact', 'ContactController', ['only' => ['index', 'store']]);
 
+    Route::resource('types', 'TypeController', ['only' => 'show']);
+
 });
 

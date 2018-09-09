@@ -38,10 +38,10 @@ class ProductController extends Controller
      */
     public function show($slug): View
     {
-        $product = (new Product())->where('slug', $slug)->first();
+        $product = (new Product())->newQuery()->where('slug', $slug)->first();
         $categories = (new Category())->newQuery()->where('status', 1)->get();
-        $types = (new Type())->where('status', 1)->get();
-        $related_products = (new Product())->where('type_id', $product->type->id)->get();
+        $types = (new Type())->newQuery()->where('status', 1)->get();
+        $related_products = (new Product())->newQuery()->where('type_id', $product->type->id)->get();
         return view('frontend.products.show', [
             'product' => $product,
             'categories' => $categories,

@@ -34,3 +34,5 @@ Route::resource('sliders', 'SliderController');
 Route::put('settings/ajax/{id}', 'SettingController@ajaxUpdate')->name('settings.ajax-update');
 
 Route::resource('settings', 'SettingController', ['only' => ['index', 'edit', 'update']]);
+
+Route::resource('contacts', 'ContactController', ['only' => ['index', 'destroy']]);

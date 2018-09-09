@@ -37,4 +37,30 @@ class Type extends Model
             ->usingLanguage('en')
             ->doNotGenerateSlugsOnUpdate();
     }
+
+    /**
+     * Get the route key for the model.
+     *
+     * @return string
+     */
+    public function getRouteKeyName(): string
+    {
+        if (request()->expectsJson()) {
+            return 'id';
+        }
+        return 'slug';
+    }
+
+    /**
+     * Get the route key for the model.
+     *
+     * @return string
+     */
+    public function getRouteKey(): string
+    {
+        if (!empty($this->slug)) {
+            return $this->slug;
+        }
+        return $this->id;
+    }
 }

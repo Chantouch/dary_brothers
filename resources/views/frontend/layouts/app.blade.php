@@ -151,15 +151,13 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-    })();
-    $(document).ready(function () {
         setTimeout(function () {
             $("#cookieConsent").fadeIn(200);
         }, 4000);
         $("#closeCookieConsent, .cookieConsentOK").click(function () {
             $("#cookieConsent").fadeOut(200);
         });
-    });
+    })();
 </script>
 @include('sweet::alert')
 @yield('scripts')

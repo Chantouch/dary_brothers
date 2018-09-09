@@ -32,7 +32,11 @@
                         @foreach($types as $index => $type)
                             <tr>
                                 <th scope="row">{!! $loop->iteration !!}</th>
-                                <td>{!! $type->name !!}</td>
+                                <td>
+                                    <a href="{!! route('admin.types.edit', $type->getRouteKey()) !!}">
+                                        {{ $type->name }}
+                                    </a>
+                                </td>
                                 <td>{!! str_limit($type->description,50) !!}</td>
                                 <td>{!! status($type->status) !!}</td>
                                 <td>

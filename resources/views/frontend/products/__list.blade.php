@@ -37,7 +37,7 @@
                     </div>
 
                     <div class="block2-txt p-t-20">
-                        <a href="{{ route('products.show', $product->slug) }}"
+                        <a href="{{ route('products.show', $product->getRouteKey()) }}"
                            class="block2-name dis-block s-text3 p-b-5">
                             {{ $product->name }}
                         </a>
