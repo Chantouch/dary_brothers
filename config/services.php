@@ -36,7 +36,7 @@ return [
     ],
 
     'instagram' => [
-        'access-token' => '9898ab2ca6664d6a99f0a03cab423e17'
+        'access-token' => '6722907826.1677ed0.a0fe593ad1c74b44b463f7e6a91156c2'
     ],
 
 ];
