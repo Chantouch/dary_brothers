@@ -45,13 +45,15 @@ class HomeController extends Controller
             ->where('type', '=', 'video')
             ->first();
 
-        $instagram = new Instagram(config('services.instagram.access-token'));
+        $instagrams = [];
 
-        $instagrams = collect($instagram->get())->map(function ($each) {
-            return $each->images->standard_resolution->url;
-        });
+        if (config('app.env') === 'production') {
+            $instagram = new Instagram(config('services.instagram.access-token'));
 
-        dd($instagrams);
+            $instagrams = collect($instagram->get())->map(function ($each) {
+                return $each->images->standard_resolution->url;
+            });
+        }
 
         return view('frontend.home', [
             'products' => $products,

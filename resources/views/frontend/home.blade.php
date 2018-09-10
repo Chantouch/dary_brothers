@@ -87,7 +87,8 @@
                 </div>
             </div>
         </section>
-        <div class="modal fade" id="modal-video-01" tabindex="-1" role="dialog" aria-labelledby="video-01" aria-hidden="true">
+        <div class="modal fade" id="modal-video-01" tabindex="-1" role="dialog" aria-labelledby="video-01"
+             aria-hidden="true">
             <div class="modal-dialog" role="document" data-dismiss="modal">
                 <div class="close-mo-video-01 trans-0-4" data-dismiss="modal" aria-label="Close">&times;</div>
                 <div class="modal-content">
@@ -198,120 +199,31 @@
         </div>
 
         <div class="flex-w">
-            <div class="block4 wrap-pic-w">
-                <img src="{!! asset('images/gallery-03.jpg') !!}" alt="IMG-INSTAGRAM">
-                <a href="#" class="block4-overlay sizefull ab-t-l trans-0-4">
-					<span class="block4-overlay-heart s-text9 flex-m trans-0-4 p-l-40 p-t-25">
-						<i class="icon_heart_alt fs-20 p-r-12" aria-hidden="true"></i>
-						<span class="p-t-2">39</span>
-					</span>
-
-                    <div class="block4-overlay-txt trans-0-4 p-l-40 p-r-25 p-b-30">
-                        <p class="s-text10 m-b-15 h-size1 of-hidden">
-                            Nullam scelerisque, lacus sed consequat laoreet, dui enim iaculis leo, eu viverra ex nulla
-                            in tellus. Nullam nec ornare tellus, ac fringilla lacus. Ut sit amet enim orci. Nam eget
-                            metus elit.
-                        </p>
-
-                        <span class="s-text9">
-							Photo by @nancyward
-						</span>
+            @if(isset($instagrams) && count($instagrams))
+                @foreach($instagrams as  $key => $instagram)
+                    <div class="block4 wrap-pic-w">
+                        <img src="{!! asset($instagram) !!}" alt="IMG-INSTAGRAM">
+                        <a href="#" class="block4-overlay sizefull ab-t-l trans-0-4">
+                        <span class="block4-overlay-heart s-text9 flex-m trans-0-4 p-l-40 p-t-25">
+                            <i class="icon_heart_alt fs-20 p-r-12" aria-hidden="true"></i>
+                            <span class="p-t-2">39</span>
+                        </span>
+                            <div class="block4-overlay-txt trans-0-4 p-l-40 p-r-25 p-b-30">
+                                <p class="s-text10 m-b-15 h-size1 of-hidden">
+                                    Nullam scelerisque, lacus sed consequat laoreet, dui enim iaculis leo, eu viverra ex
+                                    nulla
+                                    in tellus. Nullam nec ornare tellus, ac fringilla lacus. Ut sit amet enim orci. Nam
+                                    eget
+                                    metus elit.
+                                </p>
+                                <span class="s-text9">
+                                    Photo by @nancyward
+                                </span>
+                            </div>
+                        </a>
                     </div>
-                </a>
-            </div>
-
-            <div class="block4 wrap-pic-w">
-                <img src="{{ asset('images/gallery-07.jpg') }}" alt="IMG-INSTAGRAM">
-
-                <a href="#" class="block4-overlay sizefull ab-t-l trans-0-4">
-					<span class="block4-overlay-heart s-text9 flex-m trans-0-4 p-l-40 p-t-25">
-						<i class="icon_heart_alt fs-20 p-r-12" aria-hidden="true"></i>
-						<span class="p-t-2">39</span>
-					</span>
-
-                    <div class="block4-overlay-txt trans-0-4 p-l-40 p-r-25 p-b-30">
-                        <p class="s-text10 m-b-15 h-size1 of-hidden">
-                            Nullam scelerisque, lacus sed consequat laoreet, dui enim iaculis leo, eu viverra ex nulla
-                            in tellus. Nullam nec ornare tellus, ac fringilla lacus. Ut sit amet enim orci. Nam eget
-                            metus elit.
-                        </p>
-
-                        <span class="s-text9">
-							Photo by @nancyward
-						</span>
-                    </div>
-                </a>
-            </div>
-            <div class="block4 wrap-pic-w">
-                <img src="{!! asset('images/gallery-09.jpg') !!}" alt="IMG-INSTAGRAM">
-
-                <a href="#" class="block4-overlay sizefull ab-t-l trans-0-4">
-					<span class="block4-overlay-heart s-text9 flex-m trans-0-4 p-l-40 p-t-25">
-						<i class="icon_heart_alt fs-20 p-r-12" aria-hidden="true"></i>
-						<span class="p-t-2">39</span>
-					</span>
-
-                    <div class="block4-overlay-txt trans-0-4 p-l-40 p-r-25 p-b-30">
-                        <p class="s-text10 m-b-15 h-size1 of-hidden">
-                            Nullam scelerisque, lacus sed consequat laoreet, dui enim iaculis leo, eu viverra ex nulla
-                            in tellus. Nullam nec ornare tellus, ac fringilla lacus. Ut sit amet enim orci. Nam eget
-                            metus elit.
-                        </p>
-
-                        <span class="s-text9">
-							Photo by @nancyward
-						</span>
-                    </div>
-                </a>
-            </div>
-
-            <!-- Block4 -->
-            <div class="block4 wrap-pic-w">
-                <img src="{!! asset('images/gallery-13.jpg') !!}" alt="IMG-INSTAGRAM">
-
-                <a href="#" class="block4-overlay sizefull ab-t-l trans-0-4">
-					<span class="block4-overlay-heart s-text9 flex-m trans-0-4 p-l-40 p-t-25">
-						<i class="icon_heart_alt fs-20 p-r-12" aria-hidden="true"></i>
-						<span class="p-t-2">39</span>
-					</span>
-
-                    <div class="block4-overlay-txt trans-0-4 p-l-40 p-r-25 p-b-30">
-                        <p class="s-text10 m-b-15 h-size1 of-hidden">
-                            Nullam scelerisque, lacus sed consequat laoreet, dui enim iaculis leo, eu viverra ex nulla
-                            in tellus. Nullam nec ornare tellus, ac fringilla lacus. Ut sit amet enim orci. Nam eget
-                            metus elit.
-                        </p>
-
-                        <span class="s-text9">
-							Photo by @nancyward
-						</span>
-                    </div>
-                </a>
-            </div>
-
-            <!-- Block4 -->
-            <div class="block4 wrap-pic-w">
-                <img src="{!! asset('images/gallery-15.jpg') !!}" alt="IMG-INSTAGRAM">
-
-                <a href="#" class="block4-overlay sizefull ab-t-l trans-0-4">
-					<span class="block4-overlay-heart s-text9 flex-m trans-0-4 p-l-40 p-t-25">
-						<i class="icon_heart_alt fs-20 p-r-12" aria-hidden="true"></i>
-						<span class="p-t-2">39</span>
-					</span>
-
-                    <div class="block4-overlay-txt trans-0-4 p-l-40 p-r-25 p-b-30">
-                        <p class="s-text10 m-b-15 h-size1 of-hidden">
-                            Nullam scelerisque, lacus sed consequat laoreet, dui enim iaculis leo, eu viverra ex nulla
-                            in tellus. Nullam nec ornare tellus, ac fringilla lacus. Ut sit amet enim orci. Nam eget
-                            metus elit.
-                        </p>
-
-                        <span class="s-text9">
-							Photo by @nancyward
-						</span>
-                    </div>
-                </a>
-            </div>
+                @endforeach
+            @endif
         </div>
     </section>
 
