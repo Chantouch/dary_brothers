@@ -8,6 +8,7 @@ use App\Models\Slider;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\View\View;
+use Vinkla\Instagram\Instagram;
 
 class HomeController extends Controller
 {
@@ -44,11 +45,20 @@ class HomeController extends Controller
             ->where('type', '=', 'video')
             ->first();
 
+        $instagram = new Instagram(config('services.instagram.access-token'));
+
+        $instagrams = collect($instagram->get())->map(function ($each) {
+            return $each->images->standard_resolution->url;
+        });
+
+        dd($instagrams);
+
         return view('frontend.home', [
             'products' => $products,
             'sliders' => $sliders,
             'banners' => $banners,
-            'video' => $video
+            'video' => $video,
+            'instagrams' => $instagrams
         ]);
     }
 

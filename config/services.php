@@ -30,9 +30,13 @@ return [
     ],
 
     'stripe' => [
-        'model' => App\User::class,
+        'model' => App\Models\User::class,
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
+    ],
+
+    'instagram' => [
+        'access-token' => '9898ab2ca6664d6a99f0a03cab423e17'
     ],
 
 ];
