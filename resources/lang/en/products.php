@@ -8,7 +8,9 @@ return [
         'cost' => 'Product cost',
         'discount' => 'Product discount',
         'type' => 'Product type',
-        'qty' => 'Product qty'
+        'qty' => 'Product qty',
+        'en_description' => 'English description',
+        'kh_description' => 'Khmer description'
     ],
     'labels' => [
         'name' => 'Name',
@@ -19,7 +21,15 @@ return [
         'type' => 'Type',
         'qty' => 'Qty'
     ],
-    'search' => [
-        'kh_name' => 'Product khmer name'
+    'search' => 'Search',
+    'attributes' => [
+        'kh_name' => 'Khmer name',
+        'name' => 'Product name',
+        'kh_description' => 'Khmer description',
+        'description' => 'Description',
+        'en_description' => 'English description',
+        'cost' => 'Cost',
+        'price' => 'Price',
+        'qty' => 'Quantity'
     ]
 ];

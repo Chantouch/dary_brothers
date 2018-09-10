@@ -49,7 +49,7 @@ class CheckOutController extends Controller
         if (!empty($find_exist_customer)) {
             $customer = $find_exist_customer;
 
-            $this->auth->login($customer, true);
+            $this->auth->loginUsingId($customer->id, true);
         }
 
         if (!$this->auth->check()) {
@@ -60,7 +60,7 @@ class CheckOutController extends Controller
 
             $customer->save();
 
-            $this->auth->login($customer, true);
+            $this->auth->loginUsingId($customer->id, true);
         }
 
         $user_id = $customer->id;

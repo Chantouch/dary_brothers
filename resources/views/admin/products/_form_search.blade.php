@@ -1,63 +1,68 @@
-<form class="mb-3">
-    <div class="form-row">
-        <div class="form-group col-md-6">
-            <label for="inputEnName">En Name</label>
-            <input type="text" class="form-control" id="inputEnName" placeholder="English name">
-        </div>
-        <div class="form-group col-md-6">
-            <label for="inputKhName">Kh Name</label>
-            <input type="text" class="form-control" id="inputKhName" placeholder="Kh Name">
+{!! Form::open(array('route' => 'admin.products.index','method'=>'GET')) !!}
+<div class="form-group">
+    {!! Form::label('name', __('products.attributes.name')) !!}
+    {!! Form::text('name', null, ['class' => 'form-control' . ($errors->has('name') ? ' is-invalid' : ''), 'placeholder' => __('products.placeholder.name')]) !!}
+
+    @if ($errors->has('name'))
+        <span class="invalid-feedback">{{ $errors->first('name') }}</span>
+    @endif
+</div>
+<div class="form-row">
+    <div class="form-group col-md-6">
+        {!! Form::label('cost', __('products.attributes.cost')) !!}
+        {!! Form::number('cost', null, ['class' => 'form-control' . ($errors->has('cost') ? ' is-invalid' : ''), 'placeholder' => __('products.placeholder.cost')]) !!}
+
+        @if ($errors->has('cost'))
+            <span class="invalid-feedback">{{ $errors->first('cost') }}</span>
+        @endif
+    </div>
+    <div class="form-group col-md-6">
+        {!! Form::label('price', __('products.attributes.price')) !!}
+        {!! Form::number('price', null, ['class' => 'form-control' . ($errors->has('price') ? ' is-invalid' : ''), 'placeholder' => __('products.placeholder.price')]) !!}
+
+        @if ($errors->has('price'))
+            <span class="invalid-feedback">{{ $errors->first('price') }}</span>
+        @endif
+    </div>
+</div>
+<div class="form-row">
+    <div class="form-group col-md-6">
+        {!! Form::label('qty', __('products.attributes.qty')) !!}
+        {!! Form::number('qty', null, ['class' => 'form-control' . ($errors->has('qty') ? ' is-invalid' : ''), 'placeholder' => __('products.placeholder.qty')]) !!}
+
+        @if ($errors->has('qty'))
+            <span class="invalid-feedback">{{ $errors->first('qty') }}</span>
+        @endif
+    </div>
+    <div class="form-group col-md-6">
+        {!! Form::label('type', __('forms.products.labels.type')) !!}
+        {!! Form::select('type', $types, null, ['class' => 'form-control' . ($errors->has('type') ? ' is-invalid' : ''), 'placeholder' => __('products.placeholder.type')]) !!}
+
+        @if ($errors->has('type'))
+            <span class="invalid-feedback">{{ $errors->first('type') }}</span>
+        @endif
+    </div>
+</div>
+<div class="form-group">
+    {!! Form::label('description', __('products.attributes.description')) !!}
+    {!! Form::textarea('description', null, ['class' => 'form-control' . ($errors->has('description') ? ' is-invalid' : ''), 'placeholder' => __('products.placeholder.description'), 'rows' => 5]) !!}
+
+    @if ($errors->has('description'))
+        <span class="invalid-feedback">{{ $errors->first('description') }}</span>
+    @endif
+</div>
+<div class="form-row">
+    <div class="form-group col-md-6">
+        <div class="custom-control custom-checkbox mb-3">
+            {!! Form::checkbox('status', '1', null,['class' => 'custom-control-input', 'id' => 'status']) !!}
+            {!! Form::label('status', __('forms.products.labels.status'), ['class' => 'custom-control-label']) !!}
         </div>
     </div>
-    <div class="form-group">
-        <label for="inputDescription">Description</label>
-        <input type="text" class="form-control" id="inputDescription" placeholder="Something about product...">
+    <div class="col-md-6">
+        <button type="submit" class="btn btn-primary pull-right">
+            <i class="fa fa-search"></i> {{ __('products.search') }}
+        </button>
     </div>
-    <div class="form-row">
-        <div class="form-group col-md-6">
-            <label for="inputDiscount">Discount</label>
-            <input type="number" class="form-control" id="inputDiscount" placeholder="0.43">
-        </div>
-        <div class="form-group col-md-6">
-            <label for="inputCost">Cost</label>
-            <input type="number" class="form-control" id="inputCost">
-        </div>
-    </div>
-    <div class="form-row">
-        <div class="form-group col-md-3">
-            <label for="inputPrice">Price</label>
-            <input type="number" class="form-control" id="inputPrice">
-        </div>
-        <div class="form-group col-md-3">
-            <label for="inputType">Type</label>
-            <select id="inputType" class="form-control">
-                <option selected>Choose...</option>
-                <option>...</option>
-            </select>
-        </div>
-        <div class="form-group col-md-3">
-            <label for="inputCategories">Categories</label>
-            <select id="inputCategories" class="form-control">
-                <option selected>Choose...</option>
-                <option>...</option>
-            </select>
-        </div>
-        <div class="form-group col-md-3">
-            <label for="inputQty">Qty</label>
-            <input type="number" class="form-control" id="inputQty">
-        </div>
-    </div>
-    <hr>
-    <div class="form-row">
-        <div class="form-group col-md-6">
-            <div class="custom-control custom-checkbox mb-3">
-                {!! Form::hidden('status','0', false) !!}
-                {!! Form::checkbox('status', '1', null,['class' => 'custom-control-input', 'id' => 'status']) !!}
-                {!! Form::label('status', __('forms.products.labels.status'), ['class' => 'custom-control-label']) !!}
-            </div>
-        </div>
-        <div class="col-md-6">
-            <button type="submit" class="btn btn-primary pull-right">Search</button>
-        </div>
-    </div>
-</form>
+</div>
+
+{!! Form::close() !!}

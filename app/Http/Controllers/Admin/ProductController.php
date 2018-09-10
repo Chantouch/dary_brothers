@@ -8,9 +8,11 @@ use App\Http\Requests\Admin\Product\UpdateRequest;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Type;
+use App\Searches\Product\Searches;
 use App\Transformers\ProductTransformer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 class ProductController extends Controller
 {
@@ -36,23 +38,15 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
+        $products = Searches::apply($request);
         $limit = $request->input('limit', 20);
-        $products = (new Product)->newQuery()
-            ->select('products.*')
-            ->latest()
-            ->sortable()
-            ->when($request->input('sort') === 'name', function ($query) use ($request) {
-                $query->join('product_translations', 'products.id', '=', 'product_translations.product_id')
-                    ->orderBy('product_translations.name', $request->input('direction'));
-            })
-            ->when($request->input('sort') === 'description', function ($query) use ($request) {
-                $query->join('product_translations', 'products.id', '=', 'product_translations.product_id')
-                    ->orderBy('product_translations.description', $request->input('direction'));
-            })
-            ->paginate($limit);
+        $types = (new Type())->newQuery()->where('status', '=', 1)
+            ->get()->pluck('name', 'name')->toArray();
+        Session::flash('_old_input', $request->all());
         return view('admin.products.index', [
             'products' => $products,
-            'limit' => $limit
+            'limit' => $limit,
+            'types' => $types
         ]);
     }
 
