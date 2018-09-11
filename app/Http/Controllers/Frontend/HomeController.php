@@ -45,6 +45,10 @@ class HomeController extends Controller
             ->where('type', '=', 'video')
             ->first();
 
+        $popUpVideo = (new Slider())->newQuery()->where('status', '=', 1)
+            ->where('type', '=', 'popup')
+            ->first();
+
         $instagrams = [];
 
         if (config('app.env') === 'production') {
@@ -60,7 +64,8 @@ class HomeController extends Controller
             'sliders' => $sliders,
             'banners' => $banners,
             'video' => $video,
-            'instagrams' => $instagrams
+            'instagrams' => $instagrams,
+            'popUpVideo' => $popUpVideo
         ]);
     }
 

@@ -6,6 +6,14 @@ use App\Models\Product;
 use App\Models\Category;
 use App\Models\Type;
 
+// Admin > Home
+try {
+    Breadcrumbs::register('admin.home', function (BreadcrumbsGenerator $breadcrumbs) {
+        $breadcrumbs->push('Dashboard', route('admin.dashboard'));
+    });
+} catch (DuplicateBreadcrumbException $e) {
+    throw new $e;
+}
 // Admin > Dashboard
 try {
     Breadcrumbs::register('admin.dashboard', function (BreadcrumbsGenerator $breadcrumbs) {

@@ -54,7 +54,7 @@
 
     <div class="form-group">
         <label for="type" class="control-label">Type</label>
-        {!! Form::select('type', ['banner' => 'Banner', 'slider' => 'Slider', 'video' => 'Video'], null, ['placeholder' => __('forms.categories.placeholders.description'),'class' => 'form-control']) !!}
+        {!! Form::select('type', ['banner' => 'Banner', 'slider' => 'Slider', 'video' => 'Video', 'popup' => 'Popup'], null, ['placeholder' => __('forms.categories.placeholders.description'),'class' => 'form-control']) !!}
     </div>
 
     <div class="card mb-3">

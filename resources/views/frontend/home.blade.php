@@ -260,5 +260,21 @@
             </div>
         </div>
     </section>
-
+    @include('frontend.modal-popup')
 @endsection
+
+@section('scripts')
+    <script>
+        $(document).ready(function () {
+            let cookie = getCookie('hidden');
+            if (!cookie) {
+                setTimeout(function () {
+                    $('#myPopupModal').modal();
+                }, 5000);
+            }
+            $("#time-closed-modal").click(function () {
+                setCookie("hidden", "myPopupModal", 5)
+            });
+        });
+    </script>
+@stop

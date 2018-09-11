@@ -10656,5 +10656,8 @@ iframe {
   background-color: #E0C91F;
 }
 
-/*Cookie Consent End*/
+.popup-start-page > iframe {
+  width: 100%;
+  height: 70vh;
+}
 

@@ -28,7 +28,7 @@ class StoreRequest extends FormRequest
 //            'description' => 'required|min:10|string',
 //            'text_link' => 'required|min:2|max:20|string',
             'link' => 'required|min:5|max:255|string',
-            'type' => 'required|min:2|max:10|in:banner,slider,video'
+            'type' => 'required|min:2|max:10|in:banner,slider,video,video-popup'
         ];
     }
 }
