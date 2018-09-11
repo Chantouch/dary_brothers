@@ -1,0 +1,65 @@
+
+/*[ rs Sweetalert ]
+///////////////////////////////////////////////////////////
+*/
+.swal-overlay {
+    overflow-y: auto;
+}
+
+.swal-icon--success {
+    border-color: #66a8a6;
+}
+
+.swal-icon--success__line {
+    background-color: #66a8a6;
+}
+
+.swal-icon--success__ring {
+    border: 4px solid rgba(102, 168, 166, 0.2);
+}
+
+.swal-button:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.swal-button {
+    background-color: #e65540;
+    font-family: Montserrat-Regular;
+    font-size: 15px;
+    color: white;
+    text-transform: uppercase;
+    font-weight: unset;
+    border-radius: 20px;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.swal-button:hover {
+    background-color: #333333;
+}
+
+.swal-button:active {
+    background-color: #e65540;
+}
+
+.swal-title {
+    font-family: Montserrat-Medium;
+    color: #333333;
+    font-size: 16px;
+    line-height: 1.5;
+    padding: 0 15px;
+}
+
+.swal-text {
+    font-family: Montserrat-Regular;
+    color: #333333;
+    font-size: 15px;
+    text-align: center;
+}
+
+.swal-footer {
+    margin-top: 0;
+}

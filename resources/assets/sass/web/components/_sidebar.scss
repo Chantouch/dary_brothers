@@ -1,0 +1,38 @@
+/*[ Page sidebar ]
+-----------------------------------------------------------
+*/
+.container1-page {
+    margin-left: 320px;
+}
+
+@media (max-width: 992px) {
+    .wrap_header_mobile {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: flex !important;
+    }
+
+    .wrap_header {
+        display: none;
+    }
+
+    .container-menu-header-v3,
+    .container-menu-header-v2,
+    .container-menu-header {
+        display: none;
+    }
+
+    .top-bar {
+        display: none;
+    }
+
+    header {
+        height: auto !important;
+    }
+
+    .container1-page {
+        margin-left: 0px;
+    }
+}

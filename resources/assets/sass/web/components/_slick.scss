@@ -1,0 +1,241 @@
+/*[ Slide1 ]
+///////////////////////////////////////////////////////////
+*/
+
+/*[ Slick1 ]
+-----------------------------------------------------------
+*/
+.wrap-slick1 {
+    position: relative;
+}
+
+.item-slick1 {
+    height: 570px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.arrow-slick1 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    color: white;
+    position: absolute;
+    background-color: black;
+    opacity: 0;
+
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+
+    border-radius: 50%;
+    z-index: 200;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+}
+
+.wrap-slick1:hover .arrow-slick1 {
+    opacity: 0.5;
+}
+
+.arrow-slick1:hover {
+    background-color: #e65540;
+}
+
+.next-slick1 {
+    right: 50px;
+    left: auto;
+}
+
+.prev-slick1 {
+    left: 50px;
+    right: auto;
+}
+
+@media (max-width: 576px) {
+    .next-slick1 {
+        right: 15px;
+    }
+
+    .prev-slick1 {
+        left: 15px;
+    }
+}
+
+/*[ Caption ]
+-----------------------------------------------------------
+*/
+@media (max-width: 992px) {
+    .wrap-content-slide1 .xl-text2 {
+        font-size: 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    .wrap-content-slide1 .xl-text3,
+    .wrap-content-slide1 .xl-text2,
+    .wrap-content-slide1 .xl-text1 {
+        font-size: 50px;
+    }
+
+    .wrap-content-slide1 .m-text27,
+    .wrap-content-slide1 .m-text1 {
+        font-size: 16px;
+    }
+
+    .item-slick1 {
+        height: 470px;
+    }
+}
+
+@media (max-width: 576px) {
+    .wrap-content-slide1 .xl-text3,
+    .wrap-content-slide1 .xl-text2,
+    .wrap-content-slide1 .xl-text1 {
+        font-size: 40px;
+    }
+
+    .wrap-content-slide1 .m-text27,
+    .wrap-content-slide1 .m-text1 {
+        font-size: 16px;
+    }
+
+    .item-slick1 {
+        height: 370px;
+    }
+}
+
+/*[ rs1-slick1 ]
+-----------------------------------------------------------
+*/
+.rs1-slick1 .item-slick1 {
+    height: 100vh;
+}
+
+@media (max-width: 992px) {
+    .rs1-slick1 .item-slick1 {
+        height: calc(100vh - 85px);
+    }
+}
+
+/*[ Slide2 ]
+///////////////////////////////////////////////////////////
+*/
+
+/*[ Slick2 ]
+-----------------------------------------------------------
+*/
+.wrap-slick2 {
+    position: relative;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+/* ------------------------------------ */
+.arrow-slick2 {
+    position: absolute;
+    z-index: 100;
+    top: calc((100% - 70px) / 2);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+    font-size: 39px;
+    color: #cccccc;
+
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+}
+
+.arrow-slick2:hover {
+    color: #666666;
+}
+
+.next-slick2 {
+    right: -30px;
+}
+
+.prev-slick2 {
+    left: -30px;
+}
+
+@media (max-width: 1280px) {
+    .next-slick2 {
+        right: 0px;
+    }
+
+    .prev-slick2 {
+        left: 0px;
+    }
+}
+
+@media (max-width: 1610px) {
+    .rs1-slick2 .next-slick2 {
+        right: 0px;
+    }
+
+    .rs1-slick2 .prev-slick2 {
+        left: 0px;
+    }
+}
+
+/*[ Slick3 ]
+///////////////////////////////////////////////////////////
+*/
+
+.wrap-slick3-dots {
+    width: 14.5%;
+}
+
+.slick3 {
+    width: 80.64%;
+}
+
+.slick3-dots li {
+    display: block;
+    position: relative;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.slick3-dots li img {
+    width: 100%;
+}
+
+.slick3-dot-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    border: 3px solid transparent;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+}
+
+.slick3-dot-overlay:hover {
+    border: 3px solid #888888;
+}
+
+.slick3-dots .slick-active .slick3-dot-overlay {
+    border: 3px solid #888888;
+}

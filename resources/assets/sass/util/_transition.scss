@@ -1,0 +1,229 @@
+/*[  ]
+-----------------------------------------------------------
+*/
+.bo-cir {border-radius: 50%;}
+
+.of-hidden {overflow: hidden;}
+
+.visible-false {visibility: hidden;}
+.visible-true {visibility: visible;}
+
+.cs-pointer {cursor: pointer;}
+
+
+
+/*[ Transition ]
+-----------------------------------------------------------
+*/
+.trans-0-1 {
+    -webkit-transition: all 0.1s;
+    -o-transition: all 0.1s;
+    -moz-transition: all 0.1s;
+    transition: all 0.1s;
+}
+.trans-0-2 {
+    -webkit-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    transition: all 0.2s;
+}
+.trans-0-3 {
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.trans-0-4 {
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+}
+.trans-0-5 {
+    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
+.trans-0-6 {
+    -webkit-transition: all 0.6s;
+    -o-transition: all 0.6s;
+    -moz-transition: all 0.6s;
+    transition: all 0.6s;
+}
+.trans-0-9 {
+    -webkit-transition: all 0.9s;
+    -o-transition: all 0.9s;
+    -moz-transition: all 0.9s;
+    transition: all 0.9s;
+}
+.trans-1-0 {
+    -webkit-transition: all 1s;
+    -o-transition: all 1s;
+    -moz-transition: all 1s;
+    transition: all 1s;
+}
+
+/*=========================================================
+EFFECT   EFFECT   EFFECT   EFFECT   EFFECT   EFFECT  EFFECT
+=========================================================*/
+
+/*[ Effect1 ]
+-----------------------------------------------------------
+*/
+.effect1 {
+    position: relative;
+    border-bottom: 1px solid #cccccc;
+}
+.effect1-line {
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 1px;
+    background-color: #e65540;
+    left: 0;
+    bottom: -1px;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.effect1 input:focus + .effect1-line {
+    width: 100%;
+}
+
+/*[ Effect2 ]
+-----------------------------------------------------------
+*/
+.eff2:active {
+    background-color: #e65540;
+    color: white;
+}
+
+
+
+.eff3 {
+    opacity: 0.7;
+}
+.eff3:hover {
+    opacity: 1;
+}
+
+/*[ Position ]
+///////////////////////////////////////////////////////////
+*/
+.pos1 {
+    position: absolute;
+    left: 0;
+    bottom: 30px;
+}
+
+.pos2 {
+    position: absolute;
+    top: 0;
+    right: 13px;
+}
+
+.pos3 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+
+/*[ Box Shadow ]
+///////////////////////////////////////////////////////////
+*/
+.shadow1 {
+    box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.1);
+    -o-box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.1);
+    -ms-box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.1);
+}
+
+
+/*[ Gradient ]
+///////////////////////////////////////////////////////////
+*/
+.gradient1 {
+    background: -webkit-linear-gradient(rgba(0,0,0,0.6) , rgba(0,0,0,0));
+    background: -o-linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0));
+    background: -moz-linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0));
+    background: linear-gradient(rgba(0,0,0,0.6) , rgba(0,0,0,0));
+}
+
+
+
+/*[ Transform ]
+///////////////////////////////////////////////////////////
+*/
+.transform1 {
+    -webkit-transform: translate(-50%, -50%) rotateZ(90deg);
+    -moz-transform: translate(-50%, -50%) rotateZ(90deg);
+    -ms-transform: translate(-50%, -50%) rotateZ(90deg);
+    -o-transform: translate(-50%, -50%) rotateZ(90deg);
+    transform: translate(-50%, -50%) rotateZ(90deg);
+}
+
+
+
+
+/*[ Hover ]
+///////////////////////////////////////////////////////////
+*/
+.hov1:hover {
+    background-color: #e65540;
+    color: white;
+}
+
+.hov2:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+.hov3:hover {
+    color: #333333;
+}
+
+.hov4:hover {
+    opacity: 0.8;
+}
+
+.hov5 {
+    line-height: 1.1;
+    border-bottom: 1px solid transparent;
+}
+.hov5:hover {
+    color: white;
+    border-bottom: 1px solid white;
+}
+
+.hov6:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+/*[ Active ]
+///////////////////////////////////////////////////////////
+*/
+.active1 {
+    color: #333333;
+}
+
+
+
+/*[ Parallax ]
+///////////////////////////////////////////////////////////
+*/
+.parallax0 {
+    background-attachment: fixed;
+    background-position: center 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.overlay0 {
+    background-color: rgba(0,0,0,0.2);
+}

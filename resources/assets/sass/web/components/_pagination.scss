@@ -1,0 +1,28 @@
+/*[ Pagination ]
+///////////////////////////////////////////////////////////
+*/
+.pagination {
+    margin-right: -6px;
+    margin-left: -6px;
+}
+
+.item-pagination {
+    font-family: Montserrat-Regular;
+    font-size: 13px;
+    color: #808080;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid #eeeeee;
+    margin: 6px;
+}
+
+.item-pagination:hover {
+    background-color: #222222;
+    color: white;
+}
+
+.active-pagination {
+    background-color: #222222;
+    color: white;
+}

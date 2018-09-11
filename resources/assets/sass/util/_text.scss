@@ -1,0 +1,454 @@
+/*[ TEXT ]
+///////////////////////////////////////////////////////////
+*/
+/* ------------------------------------ */
+.text-white {color: white;}
+.text-black {color: black;}
+
+.text-hov-white:hover {color: white;}
+
+/* ------------------------------------ */
+.text-up {text-transform: uppercase;}
+
+/* ------------------------------------ */
+.t-center {text-align: center;}
+.t-left {text-align: left;}
+.t-right {text-align: right;}
+.t-middle {vertical-align: middle;}
+
+/* ------------------------------------ */
+.lh-1-0 {line-height: 1.0;}
+.lh-1-1 {line-height: 1.1;}
+.lh-1-2 {line-height: 1.2;}
+.lh-1-3 {line-height: 1.3;}
+.lh-1-4 {line-height: 1.4;}
+.lh-1-5 {line-height: 1.5;}
+.lh-1-6 {line-height: 1.6;}
+.lh-1-7 {line-height: 1.7;}
+.lh-1-8 {line-height: 1.8;}
+.lh-1-9 {line-height: 1.9;}
+.lh-2-0 {line-height: 2.0;}
+.lh-2-1 {line-height: 2.1;}
+.lh-2-2 {line-height: 2.2;}
+.lh-2-3 {line-height: 2.3;}
+.lh-2-4 {line-height: 2.4;}
+.lh-2-5 {line-height: 2.5;}
+.lh-2-6 {line-height: 2.6;}
+.lh-2-7 {line-height: 2.7;}
+.lh-2-8 {line-height: 2.8;}
+.lh-2-9 {line-height: 2.9;}
+
+/*=========================================================
+TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
+=========================================================*/
+
+/*[ S-Text 0 - 15 ]
+///////////////////////////////////////////////////////////
+*/
+.s-text1 {
+    font-family: Montserrat-Regular;
+    font-size: 15px;
+    color: white;
+    text-transform: uppercase;
+}
+
+.s-text2 {
+    font-family: Montserrat-Regular;
+    font-size: 15px;
+    color: #111111;
+    text-transform: uppercase;
+}
+
+.s-text3 {
+    font-family: Montserrat-Regular;
+    font-size: 15px;
+    color: #555555;
+    line-height: 1.5;
+}
+
+.s-text4 {
+    font-family: Montserrat-Regular;
+    font-size: 15px;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.s-text5 {
+    font-family: Montserrat-Regular;
+    font-size: 15px;
+    color: #999999;
+    line-height: 1;
+}
+
+.s-text6 {
+    font-family: Montserrat-Regular;
+    font-size: 13px;
+    color: #999999;
+    line-height: 1.8;
+}
+
+.s-text7 {
+    font-family: Montserrat-Regular;
+    font-size: 13px;
+    color: #555555;
+    line-height: 1.8;
+}
+
+.s-text8, .s-text8 a {
+    font-family: Montserrat-Regular;
+    font-size: 13px;
+    color: #888888;
+    line-height: 1.8;
+}
+
+.s-text9 {
+    font-family: Montserrat-Regular;
+    font-size: 13px;
+    color: #adadad;
+    line-height: 1.8;
+}
+
+.s-text10 {
+    font-family: Montserrat-Regular;
+    font-size: 13px;
+    color: #cccccc;
+    line-height: 1.8;
+}
+
+.s-text11 {
+    font-family: Montserrat-Italic;
+    font-size: 13px;
+    color: #888888;
+    line-height: 1.8;
+}
+
+.s-text12 {
+    font-family: Montserrat-Bold;
+    font-size: 15px;
+    color: #222222;
+    line-height: 1.5;
+    text-transform: uppercase;
+}
+
+.s-text13 {
+    font-family: Montserrat-Regular;
+    font-size: 15px;
+    color: #888888;
+    line-height: 1.8;
+}
+
+.s-text14 {
+    font-family: Montserrat-Regular;
+    font-size: 13px;
+    color: white;
+    text-transform: uppercase;
+}
+
+.s-text15 {
+    font-family: Montserrat-Regular;
+    font-size: 13px;
+    color: #666666;
+    line-height: 1.8;
+}
+
+.s-text16 {
+    font-family: Montserrat-Regular;
+    font-size: 12px;
+    color: #555555;
+    line-height: 1.8;
+}
+
+.s-text17 {
+    font-family: Montserrat-Regular;
+    font-size: 12px;
+    color: #888888;
+    line-height: 1.8;
+}
+
+.s-text18 {
+    font-family: Montserrat-Bold;
+    font-size: 15px;
+    color: #555555;
+    line-height: 1.5;
+}
+
+.s-text19 {
+    font-family: Montserrat-Regular;
+    font-size: 13px;
+    color: #555555;
+    line-height: 1.8;
+    text-transform: uppercase;
+}
+
+.s-text20 {
+    font-family: Montserrat-Regular;
+    font-size: 15px;
+    color: #555555;
+    line-height: 1.2;
+}
+
+.s-text21 {
+    font-family: Montserrat-Regular;
+    font-size: 13px;
+    color: white;
+    line-height: 1.8;
+}
+
+.s-text22 {
+    font-family: Montserrat-Regular;
+    font-size: 13px;
+    color: white;
+    line-height: 1.8;
+    text-decoration: underline;
+}
+
+/*[ M-Text 16 - 30 ]
+///////////////////////////////////////////////////////////
+*/
+.m-text1 {
+    font-family: Montserrat-Regular;
+    font-size: 18px;
+    color: white;
+    line-height: 1.5;
+    letter-spacing: 2px;
+}
+
+.m-text2 {
+    font-family: Montserrat-Regular;
+    font-size: 16px;
+    color: #333333;
+    text-transform: uppercase;
+}
+
+.m-text3 {
+    font-family: Montserrat-Regular;
+    font-size: 16px;
+    color: white;
+    text-transform: uppercase;
+}
+
+.m-text4 {
+    font-family: Montserrat-Medium;
+    font-size: 30px;
+    color: #111111;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.m-text5 {
+    font-family: Montserrat-Bold;
+    font-size: 30px;
+    color: #222222;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.m-text6 {
+    font-family: Montserrat-Regular;
+    font-size: 16px;
+    color: #555555;
+    text-transform: uppercase;
+}
+
+.m-text7 {
+    font-family: Montserrat-Regular;
+    font-size: 16px;
+    color: #555555;
+    text-transform: uppercase;
+    text-decoration: line-through;
+}
+
+.m-text8 {
+    font-family: Montserrat-Regular;
+    font-size: 16px;
+    color: #e65540;
+    text-transform: uppercase;
+}
+
+.m-text9 {
+    font-family: Montserrat-Bold;
+    font-size: 30px;
+    color: white;
+    line-height: 1.2;
+    letter-spacing: 2px;
+}
+
+.m-text10 {
+    font-family: Montserrat-Regular;
+    font-size: 18px;
+    color: #555555;
+    line-height: 1;
+}
+
+.m-text11 {
+    font-family: Montserrat-Medium;
+    font-size: 16px;
+    color: #333333;
+    line-height: 1.5;
+}
+
+.m-text12 {
+    font-family: Montserrat-Regular;
+    font-size: 18px;
+    color: #555555;
+    line-height: 1.5;
+}
+
+.m-text13 {
+    font-family: Montserrat-Regular;
+    font-size: 18px;
+    color: white;
+    line-height: 1.8;
+}
+
+.m-text14 {
+    font-family: Montserrat-Black;
+    font-size: 18px;
+    color: #333333;
+    line-height: 1.5;
+}
+
+.m-text15 {
+    font-family: Montserrat-Medium;
+    font-size: 18px;
+    color: #555555;
+    line-height: 1.5;
+}
+
+.m-text16 {
+    font-family: Montserrat-Regular;
+    font-size: 24px;
+    color: #222222;
+    line-height: 1.5;
+}
+
+.m-text17 {
+    font-family: Montserrat-Regular;
+    font-size: 30px;
+    color: #555555;
+    line-height: 1.2;
+}
+
+.m-text18 {
+    font-family: Montserrat-Regular;
+    font-size: 16px;
+    color: #666666;
+    line-height: 1.2;
+}
+
+.m-text19 {
+    font-family: Montserrat-Medium;
+    font-size: 16px;
+    color: #222222;
+    line-height: 1.5;
+}
+
+.m-text20 {
+    font-family: Montserrat-Bold;
+    font-size: 20px;
+    color: #333333;
+    line-height: 1.5;
+    text-transform: uppercase;
+}
+
+.m-text21 {
+    font-family: Montserrat-Regular;
+    font-size: 18px;
+    color: #888888;
+    line-height: 1.5;
+}
+
+.m-text22 {
+    font-family: Montserrat-Bold;
+    font-size: 18px;
+    color: #555555;
+    line-height: 1.5;
+}
+
+.m-text23 {
+    font-family: Montserrat-Black;
+    font-size: 22px;
+    color: #333333;
+    line-height: 1.2;
+}
+
+.m-text24 {
+    font-family: Montserrat-Medium;
+    font-size: 26px;
+    color: #333333;
+    line-height: 1.3;
+}
+
+.m-text25 {
+    font-family: Montserrat-Bold;
+    font-size: 21px;
+    color: #333333;
+    line-height: 1.3;
+    text-transform: uppercase;
+}
+
+.m-text26 {
+    font-family: Montserrat-Regular;
+    font-size: 25px;
+    color: #333333;
+    line-height: 1.2;
+}
+
+.m-text27 {
+    font-family: Montserrat-Regular;
+    font-size: 18px;
+    color: #888888;
+    line-height: 1.5;
+    letter-spacing: 2px;
+}
+
+/*[ L-Text 31 - 50 ]
+///////////////////////////////////////////////////////////
+*/
+.l-text1 {
+    font-family: Montserrat-Bold;
+    font-size: 50px;
+    color: white;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.l-text2 {
+    font-family: Montserrat-Bold;
+    font-size: 50px;
+    color: white;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+/*[ XL-Text >= 51 ]
+///////////////////////////////////////////////////////////
+*/
+.xl-text1 {
+    font-family: Poppins-Bold;
+    font-size: 60px;
+    color: white;
+    line-height: 1.2;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.xl-text2 {
+    font-family: Poppins-Black;
+    font-size: 80px;
+    color: white;
+    line-height: 1.2;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.xl-text3 {
+    font-family: Poppins-Bold;
+    font-size: 60px;
+    color: #111111;
+    line-height: 1.2;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}

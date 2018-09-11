@@ -3,7 +3,6 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Wish shop project">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" sizes="16x16" href="{!! asset(config('settings.app_favicon')) !!}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -34,32 +33,6 @@
 
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
-
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
-
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/fonts/themify/themify-icons.css') }}">
-
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/fonts/Linearicons-Free-v1.0.0/icon-font.min.css') }}">
-
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/fonts/elegant-font/html-css/style.css') }}">
-
-    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/animate/animate.css') }}">
-
-    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/css-hamburgers/hamburgers.min.css') }}">
-
-    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/animsition/css/animsition.min.css') }}">
-
-    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/select2/select2.min.css') }}">
-
-    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/daterangepicker/daterangepicker.css') }}">
-
-    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/slick/slick.css') }}">
-
-    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/lightbox2/css/lightbox.min.css') }}">
-
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/frontend/util.css') }}">
-
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/frontend/main.css') }}">
 
     <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
 
@@ -124,8 +97,8 @@
 <script type="text/javascript" src="{{ asset('vendor/countdowntime/countdowntime.js') }}"></script>
 
 <script type="text/javascript" src="{{ asset('vendor/lightbox2/js/lightbox.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('vendor/sweetalert/sweetalert.min.js') }}"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.26.11/dist/sweetalert2.all.min.js"></script>
 <script type="text/javascript">
     $('.block2-btn-addcart').each(function () {
         var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();

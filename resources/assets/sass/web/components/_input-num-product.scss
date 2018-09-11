@@ -1,0 +1,14 @@
+/*[ Input NumProduct ]
+///////////////////////////////////////////////////////////
+*/
+input.num-product {
+    -moz-appearance: textfield;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+input.num-product::-webkit-outer-spin-button,
+input.num-product::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

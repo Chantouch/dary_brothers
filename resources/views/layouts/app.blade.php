@@ -88,7 +88,7 @@
 <!-- Counter-Up-->
 <script src="{{ asset('admin/plugins/waypoints/lib/jquery.waypoints.min.js') }}"></script>
 <script src="{{ asset('admin/plugins/counterup/jquery.counterup.min.js') }}"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.26.11/dist/sweetalert2.all.min.js"></script>
+<script type="text/javascript" src="{{ asset('vendor/sweetalert/sweetalert.min.js') }}"></script>
 <script>
     (function () {
         $.ajaxSetup({

@@ -1,15 +1,18 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
-
 // Variables
 @import 'variables';
-
+//Fonts
+@import "web/fonts/font-awesome/scss/font-awesome";
+@import "web/fonts/Linearicons/icon-font";
+@import "web/fonts/elegant-font/scss/elegant-font";
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
-
-@import "util/color";
-@import "util/font";
-@import "util/input";
-
+//Plugins
+@import "web/plugins/plugins";
+// Util
+@import "util/util";
 // custom header color for web
 @import "web/custom";
+// Components for web frontend
+@import "web/components/components";

@@ -1,0 +1,22 @@
+/*[ BG Title Page ]
+///////////////////////////////////////////////////////////
+*/
+.bg-title-page {
+    width: 100%;
+    min-height: 239px;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-repeat: no-repeat;
+    background-position: center 0;
+    background-size: cover;
+}
+
+@media (max-width: 576px) {
+    .bg-title-page .l-text2 {
+        font-size: 35px;
+    }
+
+    .bg-title-page .m-text13 {
+        font-size: 16px;
+    }
+}

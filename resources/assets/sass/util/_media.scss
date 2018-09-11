@@ -1,0 +1,115 @@
+/*=========================================================
+RESPONSIVE  RESPONSIVE  RESPONSIVE  RESPONSIVE   RESPONSIVE
+=========================================================*/
+
+@media (max-width: 1350px) {
+    .p-lr-0-xl1 {
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+}
+
+
+/*[ XL ]
+///////////////////////////////////////////////////////////
+*/
+@media (max-width: 1200px) {
+    .p-t-30-xl {padding-top: 30px;}
+    .p-lr-0-xl {
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+
+    .respon6 {
+        width: 100%;
+    }
+
+    .respon7 {
+        width: 33.333333%;
+    }
+
+    .flex-c-xl {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+
+/*[ LG ]
+///////////////////////////////////////////////////////////
+*/
+@media (max-width: 992px) {
+    .p-r-0-lg {padding-right: 0;}
+
+    .respon3 {
+        width: 100%;
+    }
+
+    .respon4 {
+        width: 33.333333%;
+    }
+
+    footer {
+        padding-right: 0 !important;
+        padding-left: 0 !important;
+    }
+}
+
+
+/*[ MD ]
+///////////////////////////////////////////////////////////
+*/
+@media (max-width: 768px) {
+    .respon5 {
+        width: 100%;
+    }
+
+}
+
+
+/*[ SM ]
+///////////////////////////////////////////////////////////
+*/
+@media (max-width: 576px) {
+    .p-r-0-sm {padding-right: 0;}
+    .p-l-15-sm {padding-left: 15px;}
+    .p-lr-15-sm {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+    .w-full-sm {width: 100%;}
+
+    .fs-20-sm {font-size: 20px;}
+    .fs-35-sm {font-size: 35px;}
+
+    .respon1 {
+        width: 100%;
+    }
+
+    .respon2 {
+        width: 100%;
+        border-left: none;
+        border-right: none;
+        border-top: 1px solid #d9d9d9;
+        border-bottom: 1px solid #d9d9d9;
+    }
+}
+
+/*[ SSM ]
+///////////////////////////////////////////////////////////
+*/
+@media (max-width: 480px) {
+    .p-b-20per-ssm {
+        padding-bottom: 20%;
+    }
+
+    .respon7,
+    .respon4 {
+        width: 100%;
+    }
+}

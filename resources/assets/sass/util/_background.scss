@@ -1,0 +1,40 @@
+/*[ Background ]
+///////////////////////////////////////////////////////////
+*/
+.bg0 {background-color: #e65540;}
+.bg1 {background-color: #222222;}
+.bg3 {background-color: rgba(255,255,255,0.95);}
+.bg4 {background-color: #111111;}
+.bg5 {background-color: #f2f2f2;}
+.bg6 {background-color: #f0f0f0;}
+.bg7 {background-color: #333333;}
+.bg8 {background-color: #e6e6e6;}
+
+.bg-img1 {
+    background-repeat: no-repeat;
+    background-position: center 0;
+    background-size: cover;
+}
+
+
+/*[  ]
+-----------------------------------------------------------
+*/
+.bg0-hov:hover {background-color: #e65540;}
+
+
+
+/*[  ]
+-----------------------------------------------------------
+*/
+.bg1-overlay {background-color: rgba(0,0,0,0.35);}
+
+
+/*[  ]
+-----------------------------------------------------------
+*/
+.bg1-pattern {
+    // background-image: url(images/icons/pattern1.png);
+    background-repeat: repeat;
+}
+
