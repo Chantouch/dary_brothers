@@ -20,18 +20,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
-    <link href="{{ asset('admin/css/bootstrap.css') }}" rel="stylesheet">
-
-    <!-- Font Awesome CSS -->
-    <link href="{{ asset('admin/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css"/>
-
-    <!-- Custom CSS -->
-    <link href="{{ asset('admin/css/style.css') }}" rel="stylesheet" type="text/css"/>
-    <link href="{{ asset('admin/css/custom.css') }}" rel="stylesheet" type="text/css"/>
-
-    <!-- BEGIN CSS for this page -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css"/>
-    <!-- END CSS for this page -->
+    <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
 
     @yield('styles')
 

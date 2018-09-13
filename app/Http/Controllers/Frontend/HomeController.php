@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Slider;
+use App\Searches\Product\Searches;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\View\View;
@@ -31,10 +32,7 @@ class HomeController extends Controller
     public function index(Request $request): View
     {
 
-        $products = (new Product())->newQuery()
-            ->where('status', '=', 1)
-            ->latest('updated_at')
-            ->paginate(20);
+        $products = (new Searches)->apply($request, 1);
         $sliders = (new Slider())->newQuery()->where('status', '=', 1)
             ->where('type', '=', 'slider')
             ->get();

@@ -38,7 +38,7 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        $products = Searches::apply($request);
+        $products = (new Searches())->apply($request);
         $limit = $request->input('limit', 20);
         $types = (new Type())->newQuery()->where('status', '=', 1)
             ->get()->pluck('name', 'name')->toArray();
@@ -134,7 +134,8 @@ class ProductController extends Controller
             'types' => $types,
             'categories' => $categories,
             'product_categories' => $product_categories,
-            'images' => $images
+            'images' => $images,
+            'id' => $product->getRouteKey()
         ]);
     }
 

@@ -10,12 +10,26 @@ class Searches
 {
     /**
      * @param Request $filters
+     * @param null $status
      * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
-    public static function apply(Request $filters)
+    public function apply(Request $filters, $status = null)
     {
-        $query = static::applyDecoratorsFromRequest($filters, (new Product())->newQuery());
-        return static::getResults($query, $filters);
+        $query = $this->applyDecoratorsFromRequest($filters, (new Product())->newQuery()->when($status === 1, function ($query) {
+            $query->where('status', '=', 1);
+        }));
+        return $this->getResults($query, $filters);
+    }
+
+    /**
+     * @param Builder $query
+     * @param Request $request
+     * @return Searches
+     */
+    public function where(Builder $query, Request $request)
+    {
+        $query->where('status', '=', 1);
+        return $this;
     }
 
     /**
@@ -23,11 +37,11 @@ class Searches
      * @param Builder $query
      * @return Builder
      */
-    private static function applyDecoratorsFromRequest(Request $request, Builder $query)
+    private function applyDecoratorsFromRequest(Request $request, Builder $query)
     {
         foreach ($request->all() as $filterName => $value) {
-            $decorator = static::createFilterDecorator($filterName);
-            if (static::isValidDecorator($decorator)) {
+            $decorator = $this->createFilterDecorator($filterName);
+            if ($this->isValidDecorator($decorator)) {
                 $query = $decorator::apply($query, $value);
             }
         }
@@ -38,7 +52,7 @@ class Searches
      * @param $name
      * @return string
      */
-    private static function createFilterDecorator($name)
+    private function createFilterDecorator($name)
     {
         return __NAMESPACE__ . '\\Filters\\' . studly_case($name);
     }
@@ -47,7 +61,7 @@ class Searches
      * @param $decorator
      * @return bool
      */
-    private static function isValidDecorator($decorator)
+    private function isValidDecorator($decorator)
     {
         return class_exists($decorator);
     }
@@ -57,7 +71,7 @@ class Searches
      * @param Request $request
      * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
-    private static function getResults(Builder $query, Request $request)
+    private function getResults(Builder $query, Request $request)
     {
         return $query->select('products.*')
             ->latest()

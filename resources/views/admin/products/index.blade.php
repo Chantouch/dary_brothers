@@ -58,12 +58,12 @@
                                 <td>{!! status($product->status) !!}</td>
                                 <td class="text-center">
                                     <div class='btn-group'>
-                                        <a href="{!! route('admin.products.edit', $product->id) !!}"
+                                        <a href="{!! route('admin.products.edit', $product->getRouteKey()) !!}"
                                            class='btn btn-primary btn-sm'
                                         >
                                             <i class="fa fa-edit"></i>
                                         </a>
-                                        {!! Form::open(['route' => ['admin.products.destroy', $product->id], 'method' => 'delete', 'class' => 'confirm']) !!}
+                                        {!! Form::open(['route' => ['admin.products.destroy', $product->getRouteKey()], 'method' => 'delete', 'class' => 'confirm']) !!}
                                         {!! Form::button('<i class="fa fa-trash-o"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm confirm']) !!}
                                         {!! Form::close() !!}
                                     </div>

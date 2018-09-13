@@ -3,8 +3,9 @@
 @section('styles')
     <link rel="stylesheet" href="{{ asset('admin/plugins/trumbowyg/ui/trumbowyg.min.css') }}">
     <link href="{{ asset('admin/plugins/select2/css/select2.min.css') }}" rel="stylesheet" type="text/css"/>
-    <link href="{{ asset('admin/plugins/jquery.filer/css/jquery.filer.css') }}" rel="stylesheet" />
-    <link href="{{ asset('admin/plugins/jquery.filer/css/themes/jquery.filer-dragdropbox-theme.css') }}" rel="stylesheet" />
+    <link href="{{ asset('admin/plugins/jquery.filer/css/jquery.filer.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('admin/plugins/jquery.filer/css/themes/jquery.filer-dragdropbox-theme.css') }}"
+          rel="stylesheet"/>
 @endsection
 
 @section('content')
@@ -15,7 +16,7 @@
                     <h3><i class="fa fa-table"></i> {!! __('forms.products.edit') !!}</h3>
                 </div>
                 <div class="card-body">
-                    {!! Form::model($product, ['method' => 'PATCH','route' => ['admin.products.update', $product['id']], 'files' => true]) !!}
+                    {!! Form::model($product, ['method' => 'PATCH','route' => ['admin.products.update', $id], 'files' => true]) !!}
                     @include('admin.products.fields')
                     {!! Form::close() !!}
                 </div>

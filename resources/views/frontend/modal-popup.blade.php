@@ -7,7 +7,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="myPopupModalTitle">
-                    @if(isset($popUpVideo)) {
+                    @if(isset($popUpVideo))
                         {{$popUpVideo->name}}
                     @else
                         Sample title
