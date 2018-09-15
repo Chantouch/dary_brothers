@@ -9,7 +9,7 @@
         let id = $(this).attr('data-id');
         $.ajax({
             type: "PUT",
-            url: '{!! url("/customer/carts") !!}' + '/' + id,
+            url: '/customer/carts/' + id,
             data: {
                 'quantity': this.value,
             },
