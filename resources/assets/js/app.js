@@ -1,11 +1,18 @@
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
+require('./web/bootstrap');
+
+import './web/components/select2'
+
+import './web/components/cart'
+
+import './web/components/parallax'
+
+import './web/components/cookie'
 
 // window.Vue = require('vue');
 

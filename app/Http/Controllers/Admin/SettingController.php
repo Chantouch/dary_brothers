@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Session;
 
 class SettingController extends Controller
@@ -75,6 +76,7 @@ class SettingController extends Controller
         if (!$update) {
             return back()->with('error', 'Unsuccessed');
         }
+        Artisan::call('cache:clear');
         return redirect()->route($this->route . 'edit', [$setting->id])->with('success', 'Settings updated');
     }
 
@@ -92,6 +94,7 @@ class SettingController extends Controller
         if (!$udpate) {
             return response()->json(['value' => $ajax->value]);
         }
+        Artisan::call('cache:clear');
         return response()->json(['value' => $ajax->value]);
     }
 }
