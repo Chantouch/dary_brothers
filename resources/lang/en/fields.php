@@ -31,18 +31,18 @@ return [
         'customers' => [
             'title' => 'Customers table',
             'name' => 'Name',
-            'email' => '',
-            'dob' => '',
-            'address' => '',
-            'status' => '',
+            'email' => 'Email',
+            'dob' => 'Date of birth',
+            'address' => 'Address',
+            'status' => 'Status',
         ],
         'users' => [
             'title' => 'User table',
             'name' => 'Name',
-            'email' => '',
-            'dob' => '',
-            'last_login' => '',
-            'status' => '',
+            'email' => 'Email',
+            'dob' => 'Date of birth',
+            'last_login' => 'Last login',
+            'status' => 'Status',
         ],
         'sliders' => [
             'type' => 'Type'

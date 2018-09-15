@@ -3,9 +3,7 @@
 return [
     'profile' => '',
     'public_profile' => '',
-    'settings' => '',
-    'nb_of_posts' => '',
-    'nb_of_comments' => '',
+    'settings' => '',    
     'edit' => '',
     'show' => '',
     'create' => '',

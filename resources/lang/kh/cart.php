@@ -2,25 +2,25 @@
 
 
 return [
-    'title' => 'Cart',
+    'title' => 'កន្ត្រក',
     'product' => [
         'name' => 'ទំនិញ',
         'price' => 'តម្លៃ',
         'qty' => 'ចំនួន',
         'total' => 'សរុប',
-        'sub_total' => 'សរុបបខម',
-        'cart_total' => 'Cart Total',
+        'sub_total' => 'សរុប បថម',
+        'cart_total' => 'ចំនួនសរុបក្នុងកន្ត្រក',
         'shipping' => 'ការដឹកជញ្ជូន',
-        'calculate_shipping' => 'CALCULATE SHIPPING'
+        'calculate_shipping' => 'គណនាការដឹកជញ្ជូន'
     ],
     'button' => [
-        'update_total' => 'Update Total',
-        'proceed_to_checkout' => 'Proceed To Checkout'
+        'update_total' => 'ធ្វើបច្ចុប្បន្នភាពសរុប',
+        'proceed_to_checkout' => 'បន្តដើម្បីពិនិត្យ'
     ],
     'coupon' => [
-        'code' => 'Coupon Code',
-        'apply' => 'Apply Coupon'
+        'code' => 'លេខកូដប័ណ្ណ',
+        'apply' => 'អនុវត្តប័ណ្ណ'
     ],
-    'update' => 'Update Cart',
-    'empty' => 'Empty Cart'
+    'update' => 'ធ្វើបច្ចុប្បន្នភាព កន្ត្រក',
+    'empty' => 'ទទេ កន្ត្រក'
 ];
