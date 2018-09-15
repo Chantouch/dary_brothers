@@ -10,7 +10,7 @@
 let cookie = getCookie('hidden');
 if (!cookie) {
     setTimeout(function () {
-        $('#myPopupModal').modal();
+        $('#myPopupModal').modal('show');
     }, 5000);
 }
 $("#time-closed-modal").click(function () {

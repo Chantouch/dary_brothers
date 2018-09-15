@@ -6,17 +6,7 @@
 
 require('./web/bootstrap');
 
-import './web/components/select2'
-
-import './web/components/cart'
-
-import './web/components/parallax'
-
-import './web/components/cookie'
-
-import './web/components/product-list'
-
-// window.Vue = require('vue');
+window.Vue = require('vue');
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

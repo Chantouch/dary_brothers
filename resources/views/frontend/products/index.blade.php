@@ -175,4 +175,5 @@
     <script type="text/javascript" src="{!! asset('vendor/daterangepicker/moment.min.js') !!}"></script>
     <script type="text/javascript" src="{!! asset('vendor/daterangepicker/daterangepicker.js') !!}"></script>
     <script type="text/javascript" src="{!! asset('vendor/noui/nouislider.min.js') !!}"></script>
+    <script src="{{ asset('js/frontend/product-list.js') }}"></script>
 @endsection
