@@ -14,6 +14,8 @@ import './web/components/parallax'
 
 import './web/components/cookie'
 
+import './web/components/product-list'
+
 // window.Vue = require('vue');
 
 /**
