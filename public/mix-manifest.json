@@ -2,5 +2,9 @@
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/css/admin.css": "/css/admin.css",
-    "/js/admin.js": "/js/admin.js"
+    "/js/admin.js": "/js/admin.js",
+    "/js/plugins.js": "/js/plugins.js",
+    "/plugins/select2.js": "/plugins/select2.js",
+    "/plugins/parallax.js": "/plugins/parallax.js",
+    "/js/main.js": "/js/main.js"
 }

@@ -14,6 +14,32 @@ let mix = require('laravel-mix');
 mix.js('resources/assets/js/app.js', 'public/js')
     .sass('resources/assets/sass/app.scss', 'public/css');
 
+
+mix.autoload({
+    jquery: ['$', 'window.jQuery', "jQuery", "window.$", "jquery", "window.jquery"]
+});
+// Select 2
+mix.scripts([
+    'resources/assets/js/plugins/select2/select2.js',
+    'resources/assets/js/web/components/select2.js'
+], 'public/plugins/select2.js');
+
+// Parallax
+mix.scripts([
+    'resources/assets/js/plugins/parallax100/parallax100.js',
+    'resources/assets/js/web/components/parallax.js'
+], 'public/plugins/parallax.js');
+
+// Plugins
+mix.js([
+    'resources/assets/js/web/plugins.js'
+], 'public/js/plugins.js');
+
+// Main JS
+mix.scripts([
+    'resources/assets/js/web/main.js'
+], 'public/js/main.js');
+
 // Admin resources
 mix.js('resources/assets/js/admin.js', 'public/js')
     .sass('resources/assets/sass/admin.scss', 'public/css');
