@@ -6,10 +6,10 @@
         timer: 3000
     });
     $('.quantity').on('keyup', function () {
-        let id = $(this).attr('data-id');
+        let url = $(this).attr('data-action');
         $.ajax({
             type: "PUT",
-            url: '/customer/carts/' + id,
+            url: url,
             data: {
                 'quantity': this.value,
             },
