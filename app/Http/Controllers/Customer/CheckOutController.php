@@ -46,6 +46,12 @@ class CheckOutController extends Controller
         $find_exist_customer = Customer::where('phone_number', '=', $request->input('phone_number'))
             ->orWhere('email', '=', $request->input('email'))->first();
 
+        if (!empty($find_exist_customer)) {
+            $customer = $find_exist_customer;
+
+            $this->auth->loginUsingId($customer->id, true);
+        }
+
         if (!$this->auth->check() && !$find_exist_customer) {
 
             $customer = new Customer(array_filter($request->all()));
