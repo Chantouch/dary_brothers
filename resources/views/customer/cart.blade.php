@@ -46,7 +46,7 @@
                                                    type="number"
                                                    name="quantity" value="{!! $product->qty !!}"
                                                    data-id="{!! $product->rowId !!}"
-                                                   data-action="{!! url('customer/carts', $product->rowId) !!}"
+                                                   data-action="{!! route('customer.carts.update', $product->rowId) !!}"
                                                    data-lang="{!! app()->getLocale() !!}"
                                                    id="quantity"
                                             >

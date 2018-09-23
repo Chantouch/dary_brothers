@@ -78,7 +78,7 @@
 <script type="text/javascript" src="{{ asset('vendor/animsition/js/animsition.min.js') }}"></script>
 
 <script type="text/javascript" src="{{ asset('vendor/bootstrap/js/popper.js') }}"></script>
-<script type="text/javascript" src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+{{--<script type="text/javascript" src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>--}}
 
 <script type="text/javascript" src="{{ asset('plugins/select2.js') }}"></script>
 

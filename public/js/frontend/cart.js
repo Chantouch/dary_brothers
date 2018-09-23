@@ -9,6 +9,9 @@
         let url = $(this).attr('data-action');
         $.ajax({
             type: "PUT",
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
             url: url,
             data: {
                 'quantity': this.value,
