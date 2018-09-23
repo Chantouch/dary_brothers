@@ -45,6 +45,8 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapAuthRoutes();
 
         $this->mapCustomerRoutes();
+
+        $this->mapCustomerApiRoutes();
     }
 
     /**
@@ -123,6 +125,25 @@ class RouteServiceProvider extends ServiceProvider
             'as' => 'admin.api.'
         ], function ($router) {
             require base_path('routes/admin-api.php');
+        });
+    }
+
+    /**
+     * Define the "admin" routes for the application.
+     *
+     * These routes are typically stateless.
+     */
+    protected function mapCustomerApiRoutes(): void
+    {
+        $locale = Request::segment(1);
+
+        Route::group([
+            'middleware' => ['web'],
+            'namespace' => $this->namespace . '\Customer',
+            'prefix' => $locale . '/customer',
+            'as' => 'customer.'
+        ], function ($router) {
+            require base_path('routes/customer-api.php');
         });
     }
 
