@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
@@ -63,5 +64,13 @@ class Customer extends Authenticatable
     public function setPasswordAttribute($password)
     {
         $this->attributes['password'] = bcrypt($password);
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function ordersHistory(): HasMany
+    {
+        return $this->hasMany(Purchase::class, 'customer_id', 'id');
     }
 }

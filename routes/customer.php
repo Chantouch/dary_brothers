@@ -11,3 +11,5 @@ Route::delete('empty-wish-list', 'WishlistController@emptyWishlist')->name('wish
 Route::resource('wish-lists', 'WishlistController');
 
 Route::post('switch-to-cart/{id}', 'WishlistController@switchToCart')->name('switch.cart');
+
+Route::get('orders-history', 'OrderHistoryController@index')->name('orders.history');
