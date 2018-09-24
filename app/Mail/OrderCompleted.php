@@ -46,20 +46,6 @@ class OrderCompleted extends Mailable implements ShouldQueue
         $subject = 'Your order has been completed at: ' . Carbon::now();
         $name = config('settings.app_name');
 
-        $headerData = [
-            'category' => 'category',
-            'unique_args' => [
-                'variable_1' => 'abc'
-            ]
-        ];
-
-        $header = $this->asString($headerData);
-
-        $this->withSwiftMessage(function ($message) use ($header) {
-            $message->getHeaders()
-                ->addTextHeader('X-SMTPAPI', $header);
-        });
-
         return $this->to($address, $this->customer->full_name)
             ->view('mails.order-completed')
             // ->text('mails.ordered-plain')
@@ -76,28 +62,5 @@ class OrderCompleted extends Mailable implements ShouldQueue
 //                'as' => 'item.jpg',
 //                'mime' => 'image/jpeg',
 //            ]);
-    }
-
-    /**
-     * @param $data
-     * @return null|string|string[]
-     */
-    public function asJSON($data)
-    {
-        $json = json_encode($data);
-        $json = preg_replace('/(["\]}])([,:])(["\[{])/', '$1$2 $3', $json);
-
-        return $json;
-    }
-
-    /**
-     * @param $data
-     * @return string
-     */
-    public function asString($data)
-    {
-        $json = $this->asJSON($data);
-
-        return wordwrap($json, 76, "\n   ");
     }
 }
