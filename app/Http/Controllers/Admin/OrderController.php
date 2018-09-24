@@ -15,7 +15,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = (new Purchase())->paginate(20);
+        $orders = (new Purchase())->newQuery()->paginate(20);
 
         return view('admin.orders.index', [
             'orders' => $orders
