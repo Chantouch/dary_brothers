@@ -45,20 +45,6 @@ class NewOrdered extends Mailable implements ShouldQueue
         $subject = 'An Order has been submitted to your store at: ' . Carbon::now();
         $name = $this->customer->full_name;
 
-        $headerData = [
-            'category' => 'category',
-            'unique_args' => [
-                'variable_1' => 'abc'
-            ]
-        ];
-
-        $header = $this->asString($headerData);
-
-        $this->withSwiftMessage(function ($message) use ($header) {
-            $message->getHeaders()
-                ->addTextHeader('X-SMTPAPI', $header);
-        });
-
         return $this->to(config('settings.app_email'), config('settings.app_name'))
             ->view('mails.new-ordered')
             ->text('mails.ordered-plain')
@@ -75,25 +61,5 @@ class NewOrdered extends Mailable implements ShouldQueue
 //                'as' => 'item.jpg',
 //                'mime' => 'image/jpeg',
 //            ]);
-    }
-
-    /**
-     * @param $data
-     * @return null|string|string[]
-     */
-    private function asJSON($data)
-    {
-        $json = json_encode($data);
-        $json = preg_replace('/(["\]}])([,:])(["\[{])/', '$1$2 $3', $json);
-
-        return $json;
-    }
-
-
-    private function asString($data)
-    {
-        $json = $this->asJSON($data);
-
-        return wordwrap($json, 76, "\n   ");
     }
 }
