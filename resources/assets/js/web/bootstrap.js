@@ -11,6 +11,25 @@ try {
     window.$ = window.jQuery = require('jquery');
 
     require('bootstrap');
+
+    $(document).ready(function () {
+        var options = {
+            "backdrop": "static",
+            "show": true
+        }
+
+        let cookie = getCookie('hidden');
+        console.log(cookie)
+        if (!cookie) {
+            setTimeout(function () {
+                $('#myPopupModal').modal(options);
+            }, 5000);
+        }
+        $("#time-closed-modal").click(function () {
+            setCookie("hidden", "myPopupModal", 5)
+        });
+    });
+
 } catch (e) {
 }
 

@@ -69,7 +69,7 @@ class WishlistController extends Controller
             session()->flash('error_message', 'Quantity must be between 1 and 5.');
             return response()->json(['success' => false]);
         }
-        Cart::update($id, $request->quantity);
+        Cart::instance('wishlist')->update($id, $request->quantity);
         session()->flash('success_message', 'Quantity was updated successfully!');
         return response()->json(['success' => true]);
     }
@@ -117,7 +117,7 @@ class WishlistController extends Controller
     {
         $item = Cart::instance('wishlist')->get($id);
         Cart::instance('wishlist')->remove($id);
-        $duplicates = Cart::instance('default')->search(function ($cartItem, $rowId) use ($id) {
+        $duplicates = Cart::instance('shopping')->search(function ($cartItem, $rowId) use ($id) {
             return $cartItem->id === $id;
         });
         if (!$duplicates->isEmpty()) {
@@ -128,7 +128,7 @@ class WishlistController extends Controller
             ];
             return redirect('carts')->with($notification);
         }
-        Cart::instance('default')->add($item->id, $item->name, $item->qty, $item->price)
+        Cart::instance('shopping')->add($item->id, $item->name, $item->qty, $item->price)
             ->associate(Product::class);
         //return redirect('products/wish-lists')->withSuccessMessage('Item has been moved to your shopping cart!');
         $notification = [

@@ -15,7 +15,7 @@ class CartController extends Controller
 
     public function index(): View
     {
-        $productCarts = Cart::content();
+        $productCarts = Cart::instance('shopping')->content();
 
         // dd($productCarts);
 
@@ -33,7 +33,7 @@ class CartController extends Controller
      */
     public function update(UpdateRequest $request, $id)
     {
-        $product = Cart::update($id, $request->quantity);
+        $product = Cart::instance('shopping')->update($id, $request->quantity);
         return response()->json([
             'message' => 'Cart has been updated successful.',
             'product' => $product
@@ -47,7 +47,7 @@ class CartController extends Controller
      */
     public function emptyCart()
     {
-        Cart::destroy();
+        Cart::instance('shopping')->destroy();
         $notification = [
             'message' => 'Thanks! Item was cleared from cart!',
             'alert-type' => 'success'
@@ -63,7 +63,7 @@ class CartController extends Controller
      */
     public function destroy($id)
     {
-        Cart::remove($id);
+        Cart::instance('shopping')->remove($id);
         $notification = [
             'message' => 'Thanks! Item has been removed!',
             'alert-type' => 'success'
@@ -81,8 +81,8 @@ class CartController extends Controller
      */
     public function switchToWishlist($id)
     {
-        $item = Cart::get($id);
-        Cart::remove($id);
+        $item = Cart::instance('shopping')->get($id);
+        Cart::instance('shopping')->remove($id);
         $duplicates = Cart::instance('wishlist')->search(function ($cartItem, $rowId) use ($id) {
             return $cartItem->id === $id;
         });

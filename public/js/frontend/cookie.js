@@ -7,12 +7,3 @@
     });
 })();
 
-let cookie = getCookie('hidden');
-if (!cookie) {
-    setTimeout(function () {
-        $('#myPopupModal').modal('show');
-    }, 5000);
-}
-$("#time-closed-modal").click(function () {
-    setCookie("hidden", "myPopupModal", 5)
-});

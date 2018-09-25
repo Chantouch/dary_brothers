@@ -26,55 +26,7 @@
                 >
             </a>
             <div class="topbar-child2">
-                @auth
-                    <span class="topbar-email">
-                        {!! Auth::user()->full_name !!}
-                    </span>
-                @endauth
-
-                <div class="topbar-language rs1-select2 ml-2">
-                    <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle"
-                                type="button"
-                                id="dropDownLanguage"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                        >
-                            {{ check_lang(app()->getLocale()) }}
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropDownLanguage">
-                            @foreach (config('translatable.locales') as $lang => $language)
-                                @if ($lang != app()->getLocale())
-                                    <a class="dropdown-item"
-                                       href="{{ route('lang.switch', $lang) }}">{{ $language }}</a>
-                                @endif
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-
-                @auth
-                    <a href="{!! route('customer.dashboard') !!}" class="header-wrapicon1 dis-block m-l-30">
-                        <img src="{{ asset('images/icons/icon-header-01.png') }}" class="header-icon1" alt="ICON">
-                    </a>
-                @else
-                    <a href="{!! route('login') !!}" class="header-wrapicon1 dis-block m-l-30">
-                        <img src="{{ asset('images/icons/icon-header-01.png') }}" class="header-icon1" alt="ICON">
-                    </a>
-                @endauth
-
-                <a href="{!! route('customer.wish-lists.index') !!}" class="header-wrapicon1 dis-block m-l-30">
-                    <i class="fa fa-heart-o"></i>
-                </a>
-
-                <span class="linedivide1"></span>
-
-                <div class="header-wrapicon2 m-r-13">
-                    <img src="{!! asset('images/icons/icon-header-02.png') !!}"
-                         class="header-icon1 js-show-header-dropdown" alt="ICON">
-                    <span class="header-icons-noti">{!! count(Cart::content()) !!}</span>
-
-                    @include('frontend.layouts.cart')
-                </div>
+                @include('frontend.layouts.header-sub')
             </div>
         </div>
 
