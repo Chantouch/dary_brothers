@@ -77,7 +77,7 @@
 
 <script type="text/javascript" src="{{ asset('vendor/animsition/js/animsition.min.js') }}"></script>
 
-<script type="text/javascript" src="{{ asset('vendor/bootstrap/js/popper.js') }}"></script>
+{{--<script type="text/javascript" src="{{ asset('vendor/bootstrap/js/popper.js') }}"></script>--}}
 {{--<script type="text/javascript" src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>--}}
 
 <script type="text/javascript" src="{{ asset('plugins/select2.js') }}"></script>
@@ -94,7 +94,7 @@
 
 @include('sweet::alert')
 @yield('scripts')
-<script src="{{ asset('js/main.js') }}"></script>
+<script src="{{ asset('js/main.js') }}" defer></script>
 <script src="{{ asset('js/plugins.js') }}"></script>
 <script src="{{ asset('js/frontend/cookie.js') }}"></script>
 <noscript>Your browser does not support JavaScript!</noscript>

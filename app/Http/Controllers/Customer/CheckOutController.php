@@ -34,23 +34,8 @@ class CheckOutController extends Controller
     {
         DB::beginTransaction();
 
-        $customer = '';
-
-        if ($this->auth->check()) {
-
-            $user_id = $this->auth->id();
-
-            $customer = Customer::find($user_id);
-        }
-
         $find_exist_customer = Customer::where('phone_number', '=', $request->input('phone_number'))
             ->orWhere('email', '=', $request->input('email'))->first();
-
-        if (!empty($find_exist_customer)) {
-            $customer = $find_exist_customer;
-
-            $this->auth->loginUsingId($customer->id, true);
-        }
 
         if (!$this->auth->check() && !$find_exist_customer) {
 
@@ -59,14 +44,14 @@ class CheckOutController extends Controller
             $customer->setPasswordAttribute($request->input('phone_number'));
 
             $customer->save();
-
-            $this->auth->loginUsingId($customer->id, true);
+        } else {
+            $customer = $find_exist_customer;
         }
 
         $user_id = $customer->id;
 
-        $total = Cart::total();
-        $products = Cart::content();
+        $total = Cart::instance('shopping')->total();
+        $products = Cart::instance('shopping')->content();
 
         $purchase = new Purchase($request->all());
         $purchase->total = str_replace(',', '', $total);
@@ -88,11 +73,11 @@ class CheckOutController extends Controller
             }
             dispatch(new SendNewOrderedEmail($customer, $products));
             dispatch(new SendOrderCompleteEmail($customer, $products));
-            Cart::destroy();
+            Cart::instance('shopping')->destroy();
         }
         DB::commit();
         alert()->success('Your order is completed!', 'Thanks!')->autoclose();
-        return redirect()->route('customer.dashboard');
+        return redirect()->route('customer.carts.index');
     }
 
     public function randomId()

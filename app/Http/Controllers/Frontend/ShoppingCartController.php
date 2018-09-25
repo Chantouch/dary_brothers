@@ -57,7 +57,8 @@ class ShoppingCartController extends Controller
                 return redirect()->back()->with($notification);
                 break;
             case "cart":
-                $duplicates = Cart::search(function ($cartItem, $rowId) use ($request) {
+                $duplicates = Cart::instance('shopping')
+                    ->search(function ($cartItem, $rowId) use ($request) {
                     return $cartItem->id === $request->id;
                 });
                 if (!$duplicates->isEmpty()) {
@@ -67,7 +68,9 @@ class ShoppingCartController extends Controller
                     ];
                     return redirect()->route('customer.dashboard')->with($notification);
                 }
-                Cart::add($request->id, $request->name, $request->qty, $request->price)->associate(Product::class);
+                Cart::instance('shopping')
+                    ->add($request->id, $request->name, $request->qty, $request->price)
+                    ->associate(Product::class);
                 $notification = [
                     'message' => 'Thanks! Item was added to your cart!',
                     'alert-type' => 'success'
@@ -98,7 +101,7 @@ class ShoppingCartController extends Controller
             session()->flash('error_message', 'Quantity must be between 1 and 5.');
             return response()->json(['success' => false]);
         }
-        Cart::update($id, $request->quantity);
+        Cart::instance('shopping')->update($id, $request->quantity);
         session()->flash('success_message', 'Quantity was updated successfully!');
         return response()->json(['success' => true]);
     }
@@ -111,7 +114,7 @@ class ShoppingCartController extends Controller
      */
     public function destroy($id)
     {
-        Cart::remove($id);
+        Cart::instance('shopping')->remove($id);
         $notification = [
             'message' => 'Thanks! Item has been removed!',
             'alert-type' => 'success'
@@ -127,7 +130,7 @@ class ShoppingCartController extends Controller
      */
     public function emptyCart()
     {
-        Cart::destroy();
+        Cart::instance('shopping')->destroy();
         $notification = [
             'message' => 'Thanks! Item was cleared from cart!',
             'alert-type' => 'success'
@@ -143,8 +146,8 @@ class ShoppingCartController extends Controller
      */
     public function switchToWishlist($id)
     {
-        $item = Cart::get($id);
-        Cart::remove($id);
+        $item = Cart::instance('shopping')->get($id);
+        Cart::instance('shopping')->remove($id);
         $duplicates = Cart::instance('wishlist')->search(function ($cartItem, $rowId) use ($id) {
             return $cartItem->id === $id;
         });
