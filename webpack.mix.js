@@ -56,3 +56,7 @@ mix.babel([
 mix.babel([
     'resources/assets/js/admin/chartjs.js'
 ], 'public/js/admin/chart.js');
+
+mix.babel([
+    'resources/assets/js/admin/dashboard.js'
+], 'public/js/admin/dashboard.js');
