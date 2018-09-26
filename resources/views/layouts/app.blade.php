@@ -72,10 +72,11 @@
 <script src="{{ asset('admin/js/pikeadmin.js') }}"></script>
 <script src="{{ asset('admin/js/custom.js') }}"></script>
 <!-- BEGIN Java Script for this page -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+{{--<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>--}}
+{{--<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>--}}
+{{--<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>--}}
 <!-- Counter-Up-->
+<script src="{{ asset('js/admin/chart.js') }}"></script>
 <script src="{{ asset('admin/plugins/waypoints/lib/jquery.waypoints.min.js') }}"></script>
 <script src="{{ asset('admin/plugins/counterup/jquery.counterup.min.js') }}"></script>
 @include('sweet::alert')
