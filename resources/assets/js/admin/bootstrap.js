@@ -31,7 +31,6 @@ try {
             return false;
         });
     });
-
 } catch (e) {
 }
 
