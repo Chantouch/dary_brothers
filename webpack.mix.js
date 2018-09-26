@@ -60,3 +60,7 @@ mix.babel([
 mix.babel([
     'resources/assets/js/admin/dashboard.js'
 ], 'public/js/admin/dashboard.js');
+// Order
+mix.babel([
+    'resources/assets/js/admin/order.js'
+], 'public/js/admin/order.js');

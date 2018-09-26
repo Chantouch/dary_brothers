@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin\Api;
 
+use App\Jobs\SendPaymentStatusEmail;
 use App\Models\Product;
 use App\Models\Purchase;
 use App\Models\PurchaseOrder;
@@ -19,7 +20,9 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $purchase = (new Purchase())->find($id);
+        $purchase = Purchase::with('customer')->find($id);
+
+        $customer = $purchase->customer;
 
         $purchase_items = PurchaseOrder::wherePurchaseId($purchase->id)->get();
 
@@ -36,6 +39,8 @@ class OrderController extends Controller
         }
 
         $purchase->update($request->all());
+
+        dispatch(new SendPaymentStatusEmail($customer, $purchase));
 
         return response()->json(['message' => 'Order has been updated.']);
     }
