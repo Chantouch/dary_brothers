@@ -33,7 +33,7 @@
                                 <td>{!! $order->payment_method !!}</td>
                                 <td>{!! $order->order_reference !!}</td>
                                 <td>
-                                    {!! Form::model($order, ['method' => 'PATCH','route' => ['admin.api.orders.update', $order->id]]) !!}
+                                    {!! Form::model($order, ['method' => 'PATCH','route' => ['admin.api.orders.update', $order->id], 'class' => 'payment']) !!}
                                     {{ Form::select('status', [
                                         1 => 'Awaiting payment',
                                         2 => 'Canceled',
@@ -58,59 +58,5 @@
 @endsection
 
 @section('scripts')
-    <script>
-        $(document).ready(function () {
-            const toast = swal.mixin({
-                toast: true,
-                position: 'bottom-end',
-                showConfirmButton: false,
-                timer: 3000
-            });
-            $('button.confirm').on('click', function (e) {
-                e.preventDefault();
-                var self = $(this);
-                swal({
-                    title: 'Are you sure?',
-                    text: 'Once deleted, you will not be able to recover this imaginary file!',
-                    icon: 'warning',
-                    buttons: true,
-                    dangerMode: true
-                })
-                    .then((willDelete) => {
-                        if (willDelete) {
-                            self.parents('.confirm').submit();
-                            return
-                        }
-                        swal('Your imaginary file is safe!');
-                    });
-            });
-
-            $('.payment_status').on('change', function () {
-                var url = $("form").attr('action');
-                $.ajax({
-                    type: "PUT",
-                    url: url,
-                    data: {
-                        'status': this.value,
-                    },
-                    beforeSend: function () {
-                        // swal('Updating....', 'success');
-                    },
-                    success(data) {
-                        console.log(data)
-                        // toast({
-                        //     type: 'success',
-                        //     title: data.message
-                        // })
-                    },
-                    error: function (data) {
-                        // var errors = data.responseJSON;
-                    },
-                    fail: function (xhr, textStatus, errorThrown) {
-                        alert('request failed');
-                    }
-                });
-            });
-        });
-    </script>
+    <script src="{{ asset('js/admin/order.js') }}"></script>
 @endsection

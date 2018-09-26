@@ -1,5 +1,34 @@
 <?php
 
+
+if (!function_exists("payment")) {
+    /**
+     * @param $input
+     * @return string
+     */
+    function payment($input)
+    {
+        switch ($input) {
+            case 1:
+                return 'Awaiting payment';
+            case 2:
+                return 'Canceled';
+            case 3:
+                return 'Delivered';
+            case 4:
+                return 'Payment accepted';
+            case 5:
+                return 'Processing in progress';
+            case 6:
+                return 'Shipped';
+            default:
+                return 'Default';
+                break;
+        }
+    }
+}
+
+
 if (!function_exists("payment_status")) {
     /**
      * @param $input
