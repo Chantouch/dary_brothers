@@ -58,6 +58,7 @@
     </main>
     @include('layouts.footer')
 </div>
+<script src="{{ asset('js/admin.js') }}"></script>
 <script src="{{ asset('admin/js/modernizr.min.js') }}"></script>
 <script src="{{ asset('admin/js/jquery.min.js') }}"></script>
 <script src="{{ asset('admin/js/moment.min.js') }}"></script>
@@ -77,24 +78,6 @@
 <!-- Counter-Up-->
 <script src="{{ asset('admin/plugins/waypoints/lib/jquery.waypoints.min.js') }}"></script>
 <script src="{{ asset('admin/plugins/counterup/jquery.counterup.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('vendor/sweetalert/sweetalert.min.js') }}"></script>
-<script>
-    (function () {
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-        // bind change event to select
-        $('#paginate').on('change', function () {
-            let url = $(this).val(); // get selected value
-            if (url) { // require a URL
-                window.location = url; // redirect
-            }
-            return false;
-        });
-    })();
-</script>
 @include('sweet::alert')
 @yield('scripts')
 </body>

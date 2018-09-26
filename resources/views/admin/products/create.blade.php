@@ -3,8 +3,9 @@
 @section('styles')
     <link rel="stylesheet" href="{{ asset('admin/plugins/trumbowyg/ui/trumbowyg.min.css') }}">
     <link href="{{ asset('admin/plugins/select2/css/select2.min.css') }}" rel="stylesheet" type="text/css"/>
-    <link href="{{ asset('admin/plugins/jquery.filer/css/jquery.filer.css') }}" rel="stylesheet" />
-    <link href="{{ asset('admin/plugins/jquery.filer/css/themes/jquery.filer-dragdropbox-theme.css') }}" rel="stylesheet" />
+    <link href="{{ asset('admin/plugins/jquery.filer/css/jquery.filer.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('admin/plugins/jquery.filer/css/themes/jquery.filer-dragdropbox-theme.css') }}"
+          rel="stylesheet"/>
 @endsection
 
 @section('content')
@@ -28,24 +29,5 @@
     <script src="{{ asset('admin/plugins/trumbowyg/trumbowyg.min.js') }}"></script>
     <script src="{{ asset('admin/plugins/select2/js/select2.min.js') }}"></script>
     <script src="{{ asset('admin/plugins/jquery.filer/js/jquery.filer.min.js') }}"></script>
-    <script>
-        $(document).ready(function () {
-
-            'use strict';
-
-            $('.editor').trumbowyg();
-
-            $('.select2').select2();
-
-            $('#image_uploads').filer({
-                limit: 30,
-                maxSize: 30,
-                extensions: ['jpg', 'jpeg', 'png', 'gif'],
-                changeInput: true,
-                showThumbs: true,
-                addMore: true
-            });
-
-        });
-    </script>
+    <script src="{{ asset('js/admin/product-editor.js') }}"></script>
 @endsection

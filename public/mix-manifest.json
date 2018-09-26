@@ -6,5 +6,7 @@
     "/js/plugins.js": "/js/plugins.js",
     "/plugins/select2.js": "/plugins/select2.js",
     "/plugins/parallax.js": "/plugins/parallax.js",
-    "/js/main.js": "/js/main.js"
+    "/js/main.js": "/js/main.js",
+    "/js/admin/product-editor.js": "/js/admin/product-editor.js",
+    "/js/admin/confirm-delete.js": "/js/admin/confirm-delete.js"
 }
