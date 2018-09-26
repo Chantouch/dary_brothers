@@ -29,25 +29,5 @@
     <script src="{{ asset('admin/plugins/trumbowyg/trumbowyg.min.js') }}"></script>
     <script src="{{ asset('admin/plugins/select2/js/select2.min.js') }}"></script>
     <script src="{{ asset('admin/plugins/jquery.filer/js/jquery.filer.min.js') }}"></script>
-
-    <script>
-        $(document).ready(function () {
-
-            'use strict';
-
-            $('.editor').trumbowyg();
-
-            $('.select2').select2();
-
-            $('#image_uploads').filer({
-                limit: 30,
-                maxSize: 30,
-                extensions: ['jpg', 'jpeg', 'png', 'gif'],
-                changeInput: true,
-                showThumbs: true,
-                addMore: true
-            });
-
-        });
-    </script>
+    <script src="{{ asset('js/admin/product-editor.js') }}"></script>
 @endsection

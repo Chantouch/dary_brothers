@@ -43,3 +43,13 @@ mix.scripts([
 // Admin resources
 mix.js('resources/assets/js/admin.js', 'public/js')
     .sass('resources/assets/sass/admin.scss', 'public/css');
+
+// Plugins
+mix.babel([
+    'resources/assets/js/admin/product-editor.js'
+], 'public/js/admin/product-editor.js');
+
+// Plugins
+mix.babel([
+    'resources/assets/js/admin/confirm-delete.js'
+], 'public/js/admin/confirm-delete.js');

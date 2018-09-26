@@ -93,25 +93,5 @@
 @endsection
 
 @section('scripts')
-    <script>
-        $(document).ready(function () {
-            $('button.confirm').on('click', function (e) {
-                e.preventDefault();
-                let self = $(this);
-                swal({
-                    title: 'Are you sure?',
-                    text: 'Once deleted, you will not be able to recover this imaginary file!',
-                    icon: 'warning',
-                    buttons: true,
-                    dangerMode: true
-                }).then((willDelete) => {
-                    if (willDelete) {
-                        self.parents('.confirm').submit();
-                        return
-                    }
-                    swal('Your imaginary file is safe!');
-                });
-            });
-        });
-    </script>
+    <script src="{{ asset('js/admin/confirm-delete.js') }}"></script>
 @endsection

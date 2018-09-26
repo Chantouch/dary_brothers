@@ -19,5 +19,8 @@
         "lodash": "^4.17.11",
         "popper.js": "^1.14.4",
         "vue": "^2.5.17"
+    },
+    "dependencies": {
+        "sweetalert2": "^7.28.2"
     }
 }
