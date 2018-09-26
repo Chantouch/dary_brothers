@@ -14,6 +14,8 @@ try {
 
     window.swal = window.Swal = require('sweetalert2');
 
+    require('./cookie')
+
     $(document).ready(function () {
         $.ajaxSetup({
             headers: {

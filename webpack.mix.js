@@ -49,7 +49,10 @@ mix.babel([
     'resources/assets/js/admin/product-editor.js'
 ], 'public/js/admin/product-editor.js');
 
-// Plugins
 mix.babel([
     'resources/assets/js/admin/confirm-delete.js'
 ], 'public/js/admin/confirm-delete.js');
+
+mix.babel([
+    'resources/assets/js/admin/chartjs.js'
+], 'public/js/admin/chart.js');
