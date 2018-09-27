@@ -17,21 +17,14 @@ Hello <i>{{ $customer->full_name }}</i>,
     </thead>
     <tbody>
     @if(isset($products) && count($products))
-        @foreach($products as $index => $product)
-            <tr>
-                <td>{!! $product->name !!}</td>
-                <td>
-                    {{--@if($product->model->hasMedia('product-images'))--}}
-                        {{--{{ Html::image($product->model->getMedia('product-images')->first()->getUrl(), $product->model->getMedia('product-images')->first()->name, ['width' => '30px']) }}--}}
-                    {{--@else--}}
-                        {{--<img src="{{ asset('images/item-02.jpg') }}" alt="{{ $product->name }}" width="30px">--}}
-                    {{--@endif--}}
-                    <img src="{{ asset('images/item-02.jpg') }}" alt="{{ $product->name }}" width="30px">
-                </td>
-                <td>{!! $product->price !!}</td>
-                <td>{!! $product->price * $product->qty !!}</td>
-            </tr>
-        @endforeach
+        <tr>
+            <td>Test product</td>
+            <td>
+                <img src="{{ asset('images/item-02.jpg') }}" alt="Test product" width="30px">
+            </td>
+            <td>32482$</td>
+            <td>32482</td>
+        </tr>
     @endif
     </tbody>
 </table>
