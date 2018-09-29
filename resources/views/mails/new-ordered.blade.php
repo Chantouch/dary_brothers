@@ -14,16 +14,16 @@ Hello <i>{{ $customer->full_name }}</i>,
     </tr>
     </thead>
     <tbody>
-    @if(isset($products) && count($products))
-        <tr>
-            <td>Test product</td>
-            <td>
-                <img src="{{ asset('images/item-02.jpg') }}" alt="Test product" width="30px">
-            </td>
-            <td>32482$</td>
-            <td>32482</td>
-        </tr>
-    @endif
+    {{--@if(isset($products) && count($products))--}}
+    <tr>
+        <td>Test product</td>
+        <td>
+            <img src="{{ asset('images/item-02.jpg') }}" alt="Test product" width="30px">
+        </td>
+        <td>32482$</td>
+        <td>32482</td>
+    </tr>
+    {{--@endif--}}
     </tbody>
 </table>
 
