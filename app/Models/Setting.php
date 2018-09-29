@@ -65,7 +65,7 @@ class Setting extends Model implements HasMedia
     */
     public function getValueAttribute($value)
     {
-        if (Request::segment(1) === 'admin' && !in_array(Request::segment(2), ['password', 'login'])) {
+        if (Request::segment(2) === 'admin' && !in_array(Request::segment(3), ['password', 'login'])) {
             $hiddenValues = [
                 'recaptcha_public_key',
                 'recaptcha_private_key',

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Frontend\Contact\StoreRequest;
+use App\Jobs\ContactEmailSent;
 use App\Mail\SendContactEmail;
 use App\Mail\SendThanksContactEmail;
 use App\Models\Contact;
@@ -46,10 +47,7 @@ class ContactController extends Controller
         ];
         $contact = new Contact(array_filter($object));
         $contact = $contact->save();
-        if ($contact) {
-            Mail::to(config('settings.app_email'))->send(new SendContactEmail($object));
-            Mail::to($object['email'])->send(new SendThanksContactEmail());
-        }
+        if ($contact) dispatch(new ContactEmailSent($object));
         DB::commit();
         return redirect()->back()->with('success', 'Thanks for contacting us!');
     }

@@ -22,7 +22,7 @@
                 </li>
 
                 <li>
-                    <a href="#">{{ __('app.menu.contact') }}</a>
+                    <a href="{!! route('contact.index') !!}">{{ __('app.menu.contact') }}</a>
                 </li>
             </ul>
         </nav>

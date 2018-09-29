@@ -2,7 +2,8 @@
 
 namespace App\Jobs;
 
-use App\Mail\NewOrdered;
+use App\Mail\SendContactEmail;
+use App\Mail\SendThanksContactEmail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
@@ -10,26 +11,20 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Support\Facades\Mail;
 
-class SendNewOrderedEmail implements ShouldQueue
+class ContactEmailSent implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    protected $customer;
-    /**
-     * @var array
-     */
-    protected $products;
+    protected $user;
 
     /**
      * Create a new job instance.
      *
-     * @param  $customer
-     * @param array $products
+     * @param $user
      */
-    public function __construct($customer, $products = [])
+    public function __construct($user)
     {
-        $this->customer = $customer;
-        $this->products = $products;
+        $this->user = $user;
     }
 
     /**
@@ -39,6 +34,7 @@ class SendNewOrderedEmail implements ShouldQueue
      */
     public function handle()
     {
-        Mail::send(new NewOrdered($this->customer, (array)$this->products));
+        Mail::to(config('settings.app_email'))->send(new SendContactEmail($this->user));
+        Mail::to($this->user['email'])->send(new SendThanksContactEmail());
     }
 }
