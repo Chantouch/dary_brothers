@@ -1,9 +1,9 @@
 @component('mail::message')
     #Thanks for Shopping with us
 
-    #Dear {{ $customer->fullname }}
+    #Dear User
 
-    Your payment status is {{ payment($payment->status) }}
+    Your payment status is Updated
 
     Thanks,
     {{ config('app.name') }}
