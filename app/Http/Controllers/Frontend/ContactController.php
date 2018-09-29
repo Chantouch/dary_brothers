@@ -47,7 +47,9 @@ class ContactController extends Controller
         ];
         $contact = new Contact(array_filter($object));
         $contact = $contact->save();
-        if ($contact) dispatch(new ContactEmailSent($object));
+        if ($contact) {
+            dispatch(new ContactEmailSent($object));
+        }
         DB::commit();
         return redirect()->back()->with('success', 'Thanks for contacting us!');
     }
