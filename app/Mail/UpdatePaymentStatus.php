@@ -42,10 +42,10 @@ class UpdatePaymentStatus extends Mailable implements ShouldQueue
         return $this->to($this->customer->email, $this->customer->full_name)
             ->from(config('settings.app_email_sender'), ['app_name' => config('settings.app_name')])
             ->subject('Payment status updated.')
-            ->with([
-                'payment' => $this->payment,
-                'customer' => $this->customer
-            ])
+//            ->with([
+//                'payment' => $this->payment,
+//                'customer' => $this->customer
+//            ])
             ->markdown('mails.payment-status');
     }
 }

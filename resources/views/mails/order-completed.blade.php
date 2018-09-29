@@ -16,7 +16,7 @@ Hello <i>{{ $customer->full_name }}</i>,
     </tr>
     </thead>
     <tbody>
-    @if(isset($products) && count($products))
+    {{--@if(isset($products) && count($products))--}}
         <tr>
             <td>Test product</td>
             <td>
@@ -25,7 +25,7 @@ Hello <i>{{ $customer->full_name }}</i>,
             <td>32482$</td>
             <td>32482</td>
         </tr>
-    @endif
+    {{--@endif--}}
     </tbody>
 </table>
 
