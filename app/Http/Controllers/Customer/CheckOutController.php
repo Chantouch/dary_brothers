@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Customer;
 use App\Http\Requests\CheckOut\StoreRequest;
 use App\Jobs\SendNewOrderedEmail;
 use App\Jobs\SendOrderCompleteEmail;
+use App\Mail\NewOrdered;
+use App\Mail\OrderCompleted;
 use App\Models\Customer;
 use App\Models\Purchase;
 use App\Models\PurchaseOrder;
@@ -12,6 +14,7 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class CheckOutController extends Controller
@@ -71,8 +74,10 @@ class CheckOutController extends Controller
                     return response()->json(['error' => 'Can not order now']);
                 }
             }
-            dispatch(new SendNewOrderedEmail($customer, $products));
-            dispatch(new SendOrderCompleteEmail($customer, $products));
+            //dispatch(new SendNewOrderedEmail($customer, $products));
+            Mail::send(new NewOrdered($customer, (array)$products));
+            //dispatch(new SendOrderCompleteEmail($customer, $products));
+            Mail::send(new OrderCompleted($customer, (array)$products));
             Cart::instance('shopping')->destroy();
         }
         DB::commit();
