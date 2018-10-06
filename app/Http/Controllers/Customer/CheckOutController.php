@@ -40,7 +40,7 @@ class CheckOutController extends Controller
         $find_exist_customer = Customer::where('phone_number', '=', $request->input('phone_number'))
             ->orWhere('email', '=', $request->input('email'))->first();
 
-        if (!$this->auth->check() && !$find_exist_customer) {
+        if (empty($find_exist_customer)) {
 
             $customer = new Customer(array_filter($request->all()));
 
@@ -50,7 +50,7 @@ class CheckOutController extends Controller
         } else {
             $customer = $find_exist_customer;
         }
-
+        
         $user_id = $customer->id;
 
         $total = Cart::instance('shopping')->total();
