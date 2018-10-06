@@ -1,4 +1,4 @@
-Hello <i>{{ $customer->full_name }}</i>,
+Hello <i>Test User</i>,
 <p>New order has been completed.</p>
 
 <p>Product summary:</p>

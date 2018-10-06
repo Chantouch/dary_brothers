@@ -61,25 +61,23 @@ class CheckOutController extends Controller
         $purchase->order_reference = $this->randomId();
         $purchase->status = 5;
         $purchase->customer()->associate($user_id);
-        if ($purchase->save()) {
-            $ids = [];
-            foreach ($products as $product) {
-                $purchase = PurchaseOrder::create([
-                    'purchase_id' => $purchase->id,
-                    'product_id' => $product->id,
-                    'qty' => $product->qty,
-                ]);
-                $ids[] = $product->id;
-                if (!$purchase) {
-                    return response()->json(['error' => 'Can not order now']);
-                }
+        $purchase->save();
+        foreach ($products as $product) {
+            $purchase = PurchaseOrder::create([
+                'purchase_id' => $purchase->id,
+                'product_id' => $product->id,
+                'qty' => $product->qty,
+            ]);
+            if (!$purchase) {
+                return response()->json(['error' => 'Can not order now']);
             }
-            //dispatch(new SendNewOrderedEmail($customer, $products));
-            Mail::send(new NewOrdered($customer, (array)$products));
-            //dispatch(new SendOrderCompleteEmail($customer, $products));
-            Mail::send(new OrderCompleted($customer, (array)$products));
-            Cart::instance('shopping')->destroy();
         }
+        dispatch(new SendNewOrderedEmail($customer, $products));
+//        Mail::send(new NewOrdered($customer, (array)$products));
+        dispatch(new SendOrderCompleteEmail($customer, $products));
+//        Mail::send(new OrderCompleted($customer, (array)$products));
+        Cart::instance('shopping')->destroy();
+
         DB::commit();
         alert()->success('Your order is completed!', 'Thanks!')->autoclose();
         return redirect()->route('customer.carts.index');
