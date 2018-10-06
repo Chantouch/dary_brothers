@@ -1,4 +1,4 @@
-Hello {{ $customer->full_name }},
+Hello Test,
 This is a demo email for testing purposes! Also, it's the HTML version.
 
 Demo object values:
