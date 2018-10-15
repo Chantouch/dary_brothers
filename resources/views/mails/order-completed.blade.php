@@ -1,4 +1,4 @@
-Hello <i>User</i>,
+Hello <i>{{ $customer->fullname }}</i>,
 <p>Thanks for order our product.</p>
 
 <p>Your product is processing to delivery soon.</p>
