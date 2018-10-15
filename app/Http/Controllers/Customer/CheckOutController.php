@@ -50,7 +50,7 @@ class CheckOutController extends Controller
         } else {
             $customer = $find_exist_customer;
         }
-        
+
         $user_id = $customer->id;
 
         $total = Cart::instance('shopping')->total();
