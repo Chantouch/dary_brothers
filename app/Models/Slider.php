@@ -33,6 +33,7 @@ class Slider extends Model implements HasMedia
         $this->addMediaConversion('sliders')
             ->width(1920)
             ->height(570)
-            ->sharpen(100);
+            ->sharpen(100)
+            ->nonQueued();
     }
 }

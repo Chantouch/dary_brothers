@@ -66,17 +66,20 @@ class Product extends Model implements HasMedia
         $this->addMediaConversion('feature-product')
             ->width(720)
             ->height(960)
-            ->sharpen(10);
+            ->sharpen(10)
+            ->nonQueued();
 
         $this->addMediaConversion('thumb')
             ->width(1200)
             ->height(630)
             ->sharpen(10)
-            ->performOnCollections('product-images');
+            ->performOnCollections('product-images')
+            ->nonQueued();
 
         $this->addMediaConversion('old-picture')
             ->sepia()
-            ->border(10, 'black', Manipulations::BORDER_OVERLAY);
+            ->border(10, 'black', Manipulations::BORDER_OVERLAY)
+            ->nonQueued();
     }
 
     /**
