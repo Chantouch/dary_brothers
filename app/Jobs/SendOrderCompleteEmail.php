@@ -38,6 +38,6 @@ class SendOrderCompleteEmail implements ShouldQueue
      */
     public function handle()
     {
-        Mail::send(new OrderCompleted($this->customer, (array)$this->products));
+        Mail::send(new OrderCompleted($this->customer, $this->products));
     }
 }

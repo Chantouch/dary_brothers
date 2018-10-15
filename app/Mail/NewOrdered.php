@@ -44,7 +44,6 @@ class NewOrdered extends Mailable implements ShouldQueue
         $address = $this->customer->email;
         $subject = 'An Order has been submitted to your store at: ' . Carbon::now();
         $name = $this->customer->full_name;
-
         return $this->to(config('settings.app_email'), config('settings.app_name'))
             ->view('mails.new-ordered')
             ->text('mails.ordered-plain')
