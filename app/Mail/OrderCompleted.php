@@ -53,11 +53,11 @@ class OrderCompleted extends Mailable implements ShouldQueue
             //->cc($address, $name)
             //->bcc($address, $name)
             //->replyTo($address, $name)
-            ->subject($subject);
-//            ->with([
-//                'products' => $this->products,
-//                'customer' => $this->customer
-//            ]);
+            ->subject($subject)
+            ->with([
+                'products' => $this->products,
+                'customer' => $this->customer
+            ]);
 //            ->attach(asset('images/shop-item-09.jpg'), [
 //                'as' => 'item.jpg',
 //                'mime' => 'image/jpeg',
