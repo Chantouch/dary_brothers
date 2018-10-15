@@ -45,7 +45,6 @@ class OrderCompleted extends Mailable implements ShouldQueue
         $address = $this->customer->email;
         $subject = 'Your order has been completed at: ' . Carbon::now();
         $name = config('settings.app_name');
-
         return $this->to($address, $this->customer->full_name)
             ->view('mails.order-completed')
             // ->text('mails.ordered-plain')

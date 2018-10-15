@@ -8,6 +8,7 @@ use App\Jobs\SendOrderCompleteEmail;
 use App\Mail\NewOrdered;
 use App\Mail\OrderCompleted;
 use App\Models\Customer;
+use App\Models\Product;
 use App\Models\Purchase;
 use App\Models\PurchaseOrder;
 use Gloudemans\Shoppingcart\Facades\Cart;
@@ -62,18 +63,22 @@ class CheckOutController extends Controller
         $purchase->status = 5;
         $purchase->customer()->associate($user_id);
         $purchase->save();
+        $product_array = collect();
         foreach ($products as $product) {
-            $purchase = PurchaseOrder::create([
-                'purchase_id' => $purchase->id,
-                'product_id' => $product->id,
-                'qty' => $product->qty,
-            ]);
+            $pro = Product::with(['type', 'translations'])->find($product->id);
+            $purchase = PurchaseOrder::with('products')
+                ->create([
+                    'purchase_id' => $purchase->id,
+                    'product_id' => $product->id,
+                    'qty' => $product->qty,
+                ]);
+            $product_array->push($pro);
             if (!$purchase) {
                 return response()->json(['error' => 'Can not order now']);
             }
         }
-        dispatch(new SendNewOrderedEmail($customer, $products));
-        dispatch(new SendOrderCompleteEmail($customer, $products));
+        dispatch(new SendNewOrderedEmail($customer, $product_array));
+        dispatch(new SendOrderCompleteEmail($customer, $product_array));
         Cart::instance('shopping')->destroy();
 
         DB::commit();
