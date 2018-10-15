@@ -42,8 +42,7 @@ class OrderController extends Controller
 
         $purchase->update($request->all());
 
-//        dispatch(new SendPaymentStatusEmail($customer, $purchase));
-        Mail::send(new UpdatePaymentStatus($customer, $purchase));
+        dispatch(new SendPaymentStatusEmail($customer, $purchase));
 
         return response()->json(['message' => 'Order has been updated.']);
     }

@@ -73,9 +73,7 @@ class CheckOutController extends Controller
             }
         }
         dispatch(new SendNewOrderedEmail($customer, $products));
-//        Mail::send(new NewOrdered($customer, (array)$products));
         dispatch(new SendOrderCompleteEmail($customer, $products));
-//        Mail::send(new OrderCompleted($customer, (array)$products));
         Cart::instance('shopping')->destroy();
 
         DB::commit();
