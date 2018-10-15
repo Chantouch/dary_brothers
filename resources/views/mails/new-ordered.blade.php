@@ -9,7 +9,6 @@
 <table class="table" id="customers">
     <thead>
     <tr>
-        <th>#</th>
         <th>Product name</th>
         <th>Image</th>
         <th>Price</th>
@@ -21,7 +20,6 @@
     @if(isset($products) && count($products))
         @foreach($products as $index => $product)
             <tr>
-                <td>{{ $index + 1 }}</td>
                 <td>{!! $product->model->name !!}</td>
                 <td>
                     @if($product->model->hasMedia('product-images'))
@@ -32,7 +30,7 @@
                 </td>
                 <td>{!! $product->model->price !!}</td>
                 <td>{!! $product->qty !!}</td>
-                <td>{!! $product->model->price * $product->qty !!}</td>
+                <td>{!! number_format($product->model->price * $product->qty, 2) !!}</td>
             </tr>
         @endforeach
     @endif
