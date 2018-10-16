@@ -109,7 +109,7 @@
 					</span>
 
                         <span class="m-text21 w-size20 w-full-sm" id="subtotal">
-						${!! Cart::instance('default')->subtotal() !!}
+                            ${!! Cart::instance('shopping')->subtotal() !!}
 					</span>
                     </div>
 
@@ -195,7 +195,7 @@
                         </span>
 
                         <span class="m-text21 w-size20 w-full-sm" id="total">
-                            ${!! Cart::total() !!}
+                            ${!! Cart::instance('shopping')->total() !!}
                         </span>
                     </div>
 

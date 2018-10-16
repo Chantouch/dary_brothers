@@ -176,13 +176,13 @@
                          class="avatar-rounded">
                 </a>
                 <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
-
-                    <div class="dropdown-item noti-title">
-                        <h5 class="text-overflow">
-                            <small>Hello, {{Auth::user()->name}}</small>
-                        </h5>
-                    </div>
-
+                    @auth
+                        <div class="dropdown-item noti-title">
+                            <h5 class="text-overflow">
+                                <small>Hello, {{Auth::user()->name}}</small>
+                            </h5>
+                        </div>
+                    @endauth
                     <a href="#" class="dropdown-item notify-item">
                         <i class="fa fa-user"></i> <span>Profile</span>
                     </a>
@@ -194,7 +194,8 @@
                             <i class="fa fa-power-off"></i> <span>{{ __('Logout') }}</span>
                         </a>
 
-                        <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
+                        <form id="logout-form" action="{{ route('admin.logout') }}" method="POST"
+                              style="display: none;">
                             @csrf
                         </form>
                     @endauth

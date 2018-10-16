@@ -82,7 +82,7 @@
              alt="Heart_corazon"
         >
     </a>
-    <span class="header-icons-noti">{{ Cart::instance('wishlist')->count() }}</span>
+    <span class="header-icons-noti">{{ Cart::instance('wishlist')->content()->groupBy('id')->count() }}</span>
 </div>
 
 <span class="linedivide1"></span>
@@ -90,7 +90,7 @@
 <div class="header-wrapicon2 m-r-13">
     <img src="{!! asset('images/icons/icon-header-02.png') !!}"
          class="header-icon1 js-show-header-dropdown" alt="ICON">
-    <span class="header-icons-noti">{!! Cart::instance('shopping')->count() !!}</span>
+    <span class="header-icons-noti">{!! Cart::instance('shopping')->content()->groupBy('id')->count() !!}</span>
 
     @include('frontend.layouts.cart')
 </div>
