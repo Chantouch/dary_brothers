@@ -43,3 +43,18 @@ try {
     });
 } catch (\DaveJamesMiller\Breadcrumbs\Exceptions\DuplicateBreadcrumbException $e) {
 }
+
+// Home > User > Request password
+try {
+    Breadcrumbs::for('password.request', function ($trail) {
+        $trail->push('Request reset password', route('password.request'));
+    });
+} catch (\DaveJamesMiller\Breadcrumbs\Exceptions\DuplicateBreadcrumbException $e) {
+}
+// Home > User > Reset password
+try {
+    Breadcrumbs::for('password.reset', function ($trail, $token) {
+        $trail->push('Reset password', route('password.reset', $token));
+    });
+} catch (\DaveJamesMiller\Breadcrumbs\Exceptions\DuplicateBreadcrumbException $e) {
+}

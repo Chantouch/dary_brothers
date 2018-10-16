@@ -1,5 +1,5 @@
 <h3>Customer Information</h3>
-<p>Username: {{ $customer->fullname }}</p>,
+<p>Username: {{ $customer->fullname }}</p>
 <p>Phone number: {{ $customer->phone_number }}</p>
 <p>Address: {{ $customer->address }}</p>
 <p>New order has been completed.</p>
