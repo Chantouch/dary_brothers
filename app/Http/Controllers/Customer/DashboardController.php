@@ -11,7 +11,7 @@ class DashboardController extends Controller
 {
     public function index(): View
     {
-        $productCarts = Cart::content();
+        $productCarts = Cart::instance('shopping')->content();
 
         // dd($productCarts);
 
