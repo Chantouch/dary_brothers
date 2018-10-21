@@ -47,7 +47,11 @@ class ContactController extends Controller
         ];
         $contact = new Contact(array_filter($object));
         $contact = $contact->save();
-        dispatch(new ContactEmailSent($object));
+        // dispatch(new ContactEmailSent($object));
+        if ($contact) {
+            Mail::to(config('settings.app_email'))->send(new SendContactEmail($object));
+            Mail::to($object['email'])->send(new SendThanksContactEmail());
+        }
         DB::commit();
         return redirect()->back()->with('success', 'Thanks for contacting us!');
     }

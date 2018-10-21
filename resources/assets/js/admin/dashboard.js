@@ -9,38 +9,51 @@ $(document).ready(function () {
     });
 });
 
-var ctx1 = document.getElementById('lineChart').getContext('2d');
-var lineChart = new Chart(ctx1, {
-    type: 'bar',
-    data: {
-        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-        datasets: [{
-            label: 'Dataset 1',
-            backgroundColor: '#3EB9DC',
-            data: [10, 14, 6, 7, 13, 9, 13, 16, 11, 8, 12, 9]
-        }, {
-            label: 'Dataset 2',
-            backgroundColor: '#EBEFF3',
-            data: [12, 14, 6, 7, 13, 6, 13, 16, 10, 8, 11, 12]
-        }]
+function drawLineChart() {
+    var jsonData = $.ajax({
+        url: 'en/admin/get-line-chart-data',
+        dataType: 'json',
+    }).done(function (results) {
+        // Split timestamp and data into separate arrays
+        var data = [];
+        results["sales"].forEach(function (packet) {
+            data.push(parseFloat(packet.sales));
+        });
 
-    },
-    options: {
-        tooltips: {
-            mode: 'index',
-            intersect: false
-        },
-        responsive: true,
-        scales: {
-            xAxes: [{
-                stacked: true
-            }],
-            yAxes: [{
-                stacked: true
-            }]
-        }
-    }
-});
+        // Get the context of the canvas element we want to select
+        var ctx = document.getElementById("lineChart").getContext("2d");
+
+        var lineChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                datasets: [{
+                    label: 'Sales',
+                    backgroundColor: '#3EB9DC',
+                    data: data
+                }]
+            },
+            options: {
+                tooltips: {
+                    mode: 'index',
+                    intersect: true
+                },
+                responsive: true,
+                scales: {
+                    xAxes: [{
+                        stacked: true
+                    }],
+                    yAxes: [{
+                        stacked: true
+                    }]
+                }
+            }
+        });
+
+    });
+}
+
+drawLineChart();
 
 
 var ctx2 = document.getElementById('pieChart').getContext('2d');

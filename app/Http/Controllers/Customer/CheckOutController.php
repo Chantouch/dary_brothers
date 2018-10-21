@@ -74,13 +74,16 @@ class CheckOutController extends Controller
                 return response()->json(['error' => 'Can not order now']);
             }
         }
-        dispatch(new SendNewOrderedEmail($customer, $products));
-        dispatch(new SendOrderCompleteEmail($customer, $products));
+        // dispatch(new SendNewOrderedEmail($customer, $products));
+        Mail::send(new NewOrdered($customer, $products));
+        // dispatch(new SendOrderCompleteEmail($customer, $products));
+        Mail::send(new OrderCompleted($customer, $products));
+
         Cart::instance('shopping')->destroy();
 
         DB::commit();
         alert()->success('Your order is completed!', 'Thanks!')->autoclose();
-        return redirect()->route('customer.carts.index');
+        return redirect()->route('customer.carts.index')->with('success', 'Your order has been complete.');
     }
 
     public function randomId()
