@@ -11,7 +11,7 @@ $(document).ready(function () {
 
 function drawLineChart() {
     var jsonData = $.ajax({
-        url: 'en/admin/get-line-chart-data',
+        url: 'https://darybrothers.biz/en/admin/get-line-chart-data',
         dataType: 'json',
     }).done(function (results) {
         // Split timestamp and data into separate arrays
