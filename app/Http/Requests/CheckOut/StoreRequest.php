@@ -25,12 +25,12 @@ class StoreRequest extends FormRequest
     {
         return [
             'address' => 'required|string|min:5',
-            'first_name' => 'required|string|min:3',
-            'last_name' => 'required|string|min:3',
-            'email' => 'required|email|min:4',
-            // 'email' => 'required|email|unique:customers,email,' . optional($this->user)->id,
-            'phone_number' => 'required',
-            'payment_method' => 'required|integer|in:1,2',
+            'first_name' => 'nullable|string|min:3',
+            'last_name' => 'nullable|string|min:3',
+            // 'email' => 'required|email|min:4',
+            'email' => 'nullable|email|unique:customers,email,' . optional($this->user)->id,
+            'phone_number' => 'required|min:8|numeric',
+            'payment_method' => 'nullable|integer|in:1,2',
             'date_of_birth' => 'nullable|date'
         ];
     }
