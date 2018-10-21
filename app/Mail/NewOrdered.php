@@ -41,7 +41,7 @@ class NewOrdered extends Mailable implements ShouldQueue
      */
     public function build()
     {
-        $address = isset($this->customer->email) ? $this->customer->email : config('settings.app_email');
+        $address = config('settings.app_email_sender');
         $subject = 'An Order has been submitted to your store at: ' . Carbon::now();
         $name = isset($this->customer->full_name) ? $this->customer->full_name : 'Customer';
         return $this->to(config('settings.app_email'), config('settings.app_name'))
