@@ -17,8 +17,6 @@ class CartController extends Controller
     {
         $productCarts = Cart::instance('shopping')->content();
 
-        // dd($productCarts);
-
         return view('customer.cart', [
             'carts' => $productCarts
         ]);

@@ -17,6 +17,8 @@ Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 
+Route::get('/get-line-chart-data', 'HomeController@getLineChart')->name('dashboard.getLineChart');
+
 Route::resource('categories', 'CategoryController');
 
 Route::resource('types', 'TypeController');

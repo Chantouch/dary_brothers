@@ -85,6 +85,6 @@
 @endsection
 
 @section('scripts')
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKFWBqlKAGCeS1rMVoaNlwyayu0e0YRes"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDc_erCbo17QtZUiw1Fcha9fIw0Pb4L-J0"></script>
     <script src="{{ asset('js/frontend/map-custom.js') }}"></script>
 @endsection
