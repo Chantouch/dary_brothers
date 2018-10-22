@@ -77,6 +77,7 @@ class SettingController extends Controller
             return back()->with('error', 'Unsuccessed');
         }
         Artisan::call('cache:clear');
+        Artisan::call('config:cache');
         return redirect()->route($this->route . 'edit', [$setting->id])->with('success', 'Settings updated');
     }
 
@@ -95,6 +96,7 @@ class SettingController extends Controller
             return response()->json(['value' => $ajax->value]);
         }
         Artisan::call('cache:clear');
+        Artisan::call('config:cache');
         return response()->json(['value' => $ajax->value]);
     }
 }

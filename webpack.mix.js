@@ -64,3 +64,8 @@ mix.babel([
 mix.babel([
     'resources/assets/js/admin/order.js'
 ], 'public/js/admin/order.js');
+
+// Settings
+mix.babel([
+    'resources/assets/js/admin/settings.js'
+], 'public/js/admin/settings.js');
