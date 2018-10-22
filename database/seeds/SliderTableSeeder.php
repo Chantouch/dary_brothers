@@ -17,6 +17,6 @@ class SliderTableSeeder extends Seeder
         (new Slider())->truncate();
         (new SliderTranslation())->truncate();
 
-        factory(Slider::class, 10)->create();
+        factory(Slider::class, 5)->create();
     }
 }

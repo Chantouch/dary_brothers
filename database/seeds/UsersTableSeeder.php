@@ -14,11 +14,11 @@ class UsersTableSeeder extends Seeder
     {
         (new User)->truncate();
         User::create([
-            'name' => 'Super Admin',
-            'email' => 'super.admin@example.com',
-            'password' => 'secret',
+            'name' => 'Admin',
+            'email' => 'admin@darybrothers.biz',
+            'password' => '@min123456',
             'remember_token' => str_random(10)
         ]);
-        factory(User::class, 10)->create();
+        factory(User::class, 1)->create();
     }
 }

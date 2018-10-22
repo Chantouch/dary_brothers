@@ -16,6 +16,6 @@ class TypeTableSeeder extends Seeder
         (new Type())->truncate();
         (new TypeTranslation())->truncate();
 
-        factory(Type::class, 50)->create();
+        factory(Type::class, 1)->create();
     }
 }

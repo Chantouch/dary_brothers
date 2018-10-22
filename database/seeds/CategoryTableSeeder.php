@@ -15,6 +15,6 @@ class CategoryTableSeeder extends Seeder
     {
         (new Category())->truncate();
         (new CategoryTranslation())->truncate();
-        factory(Category::class, 50)->create();
+        factory(Category::class, 1)->create();
     }
 }
