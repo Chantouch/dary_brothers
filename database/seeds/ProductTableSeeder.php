@@ -17,13 +17,13 @@ class ProductTableSeeder extends Seeder
         (new Product)->truncate();
         (new ProductTranslation)->truncate();
 
-        factory(Product::class, 500)->create();
+        factory(Product::class, 5)->create();
 
         $categories = Category::all();
 
         Product::all()->each(function ($product) use ($categories) {
             $product->categories()->attach(
-                $categories->random(rand(1, 50))->pluck('id')->toArray()
+                $categories->random(rand(1, 1))->pluck('id')->toArray()
             );
         });
     }
