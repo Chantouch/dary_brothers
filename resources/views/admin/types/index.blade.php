@@ -41,12 +41,12 @@
                                 <td>{!! status($type->status) !!}</td>
                                 <td>
                                     <div class='btn-group'>
-                                        <a href="{!! route('admin.types.edit', $type->id) !!}"
+                                        <a href="{!! route('admin.types.edit', $type->getRouteKey()) !!}"
                                            class='btn btn-primary btn-sm'
                                         >
                                             <i class="fa fa-edit"></i>
                                         </a>
-                                        {!! Form::open(['route' => ['admin.types.destroy', $type->id], 'method' => 'delete', 'class' => 'confirm']) !!}
+                                        {!! Form::open(['route' => ['admin.types.destroy', $type->getRouteKey()], 'method' => 'delete', 'class' => 'confirm']) !!}
                                         {!! Form::button('<i class="fa fa-trash-o"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm confirm']) !!}
                                         {!! Form::close() !!}
                                     </div>
