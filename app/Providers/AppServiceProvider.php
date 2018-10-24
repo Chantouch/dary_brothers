@@ -31,6 +31,9 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('*', function ($view) use ($request) {
             $view->with('lang', app()->getLocale() . '/');
         });
+        view()->composer('*', function ($view) use ($request) {
+            $view->with('check_lang', app()->getLocale());
+        });
     }
 
     /**

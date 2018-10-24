@@ -3,26 +3,36 @@
         <div class="topbar2">
             @if(config('settings.social_activated'))
                 <div class="topbar-social">
-                    <a target="_blank" href="{!! config('settings.facebook_page_url') !!}"
-                       class="topbar-social-item fa fa-facebook"
-                    ></a>
-                    <a target="_blank" href="{!! config('settings.instagram_url') !!}"
-                       class="topbar-social-item fa fa-instagram"
-                    ></a>
-                    <a target="_blank" href="{!! config('settings.vimeo_url') !!}"
-                       class="topbar-social-item fa fa-vimeo"
-                    ></a>
-                    <a target="_blank" href="{!! config('settings.g_plus_url') !!}"
-                       class="topbar-social-item fa fa-google-plus"
-                    ></a>
-                    <a target="_blank" href="{!! config('settings.youtube_url') !!}"
-                       class="topbar-social-item fa fa-youtube-play"
-                    ></a>
+                    @if(config('settings.facebook_page_url'))
+                        <a target="_blank" href="{!! config('settings.facebook_page_url') !!}"
+                           class="topbar-social-item fa fa-facebook"
+                        ></a>
+                    @endif
+                    @if(config('settings.instagram_url'))
+                        <a target="_blank" href="{!! config('settings.instagram_url') !!}"
+                           class="topbar-social-item fa fa-instagram"
+                        ></a>
+                    @endif
+                    @if(config('settings.vimeo_url'))
+                        <a target="_blank" href="{!! config('settings.vimeo_url') !!}"
+                           class="topbar-social-item fa fa-vimeo"
+                        ></a>
+                    @endif
+                    @if(config('settings.g_plus_url'))
+                        <a target="_blank" href="{!! config('settings.g_plus_url') !!}"
+                           class="topbar-social-item fa fa-google-plus"
+                        ></a>
+                    @endif
+                    @if(config('settings.youtube_url'))
+                        <a target="_blank" href="{!! config('settings.youtube_url') !!}"
+                           class="topbar-social-item fa fa-youtube-play"
+                        ></a>
+                    @endif
                 </div>
             @endif
             <a href="{{ route('frontend.home') }}" class="logo2">
                 <img src="{!! asset(config('settings.app_logo')) !!}"
-                     alt="{{ MetaTag::get('title') }} - {!! config('settings.app_name') !!}"
+                     alt="{{ MetaTag::get('title') }} {!! config('settings.app_name') !!}"
                 >
             </a>
             <div class="topbar-child2">
@@ -34,23 +44,19 @@
             <div class="wrap_menu">
                 <nav class="menu">
                     <ul class="main_menu">
-                        <li>
+                        <li class="{{ set_color($check_lang) }}">
                             <a href="{{ route('frontend.home') }}">{{ __('app.menu.home') }}</a>
                         </li>
 
-                        <li>
+                        <li class="{{ set_color($check_lang.'/products/list') }}">
                             <a href="{!! route('products.index') !!}">{{ __('app.menu.shop') }}</a>
                         </li>
 
-                        <li class="sale-noti">
-                            <a href="#">{{ __('app.menu.sale') }}</a>
-                        </li>
-
-                        <li>
+                        <li class="{{ set_color($check_lang.'/about') }}">
                             <a href="{!! route('about.index') !!}">{{ __('app.menu.about') }}</a>
                         </li>
 
-                        <li>
+                        <li class="{{ set_color($check_lang.'/contact') }}">
                             <a href="{!! route('contact.index') !!}">{{ __('app.menu.contact') }}</a>
                         </li>
                     </ul>
@@ -143,10 +149,6 @@
 
                 <li class="item-menu-mobile">
                     <a href="{!! route('products.index') !!}">{{ __('app.menu.shop') }}</a>
-                </li>
-
-                <li class="item-menu-mobile">
-                    <a href="#">{{ __('app.menu.sale') }}</a>
                 </li>
 
                 <li class="item-menu-mobile">
