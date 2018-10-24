@@ -2,9 +2,15 @@
 
 namespace App\Exceptions;
 
+use Dotenv\Exception\ValidationException;
 use Exception;
+use Http\Client\Exception\HttpException;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Auth\AuthenticationException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Http\Exceptions\HttpResponseException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class Handler extends ExceptionHandler
 {
@@ -53,7 +59,21 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-        return parent::render($request, $exception);
+        if ($exception instanceof HttpResponseException) {
+            return $exception->getResponse();
+        } elseif ($exception instanceof ModelNotFoundException) {
+            $exception = new NotFoundHttpException($exception->getMessage(), $exception);
+        } elseif ($exception instanceof AuthenticationException) {
+            return $this->unauthenticated($request, $exception);
+        } elseif ($exception instanceof ValidationException && $exception->getResponse()) {
+            return $exception->getResponse();
+        }
+
+        if ($this->isHttpException($exception)) {
+            return $this->toIlluminateResponse($this->renderHttpException($exception), $exception);
+        } else {
+            return $this->toIlluminateResponse($this->convertExceptionToResponse($exception), $exception);
+        }
     }
 
     /**

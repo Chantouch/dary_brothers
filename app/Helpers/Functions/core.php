@@ -113,6 +113,17 @@ if (!function_exists("set_active")) {
     }
 }
 
+
+if (!function_exists("set_color")) {
+    function set_color($route)
+    {
+        if (is_array($route)) {
+            return in_array(Request::path(), $route) ? 'sale-noti' : '';
+        }
+        return Request::path() == $route ? 'sale-noti' : '';
+    }
+}
+
 /**
  * Get image extension from base64 string
  *

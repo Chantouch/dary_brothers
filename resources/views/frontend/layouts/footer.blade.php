@@ -8,26 +8,35 @@
 
             <div>
                 <p class="s-text7 w-size27">
-                    Any questions? Let us know in store at 8th floor, 379 Hudson St, New York, NY 10018 or call us on
-                    (+1) 96 716 6879
+                    {{ config('settings.company_address') }}
                 </p>
                 @if(config('settings.social_activated'))
                     <div class="flex-m p-t-30">
-                        <a target="_blank" href="{!! config('settings.facebook_page_url') !!}"
-                           class="fs-18 color1 p-r-20 fa fa-facebook"
-                        ></a>
-                        <a target="_blank" href="{!! config('settings.instagram_url') !!}"
-                           class="fs-18 color1 p-r-20 fa fa-instagram"
-                        ></a>
-                        <a target="_blank" href="{!! config('settings.vimeo_url') !!}"
-                           class="fs-18 color1 p-r-20 fa fa-vimeo"
-                        ></a>
-                        <a target="_blank" href="{!! config('settings.g_plus_url') !!}"
-                           class="fs-18 color1 p-r-20 fa fa-google-plus"
-                        ></a>
-                        <a target="_blank" href="{!! config('settings.youtube_url') !!}"
-                           class="fs-18 color1 p-r-20 fa fa-youtube-play"
-                        ></a>
+                        @if(config('settings.facebook_page_url'))
+                            <a target="_blank" href="{!! config('settings.facebook_page_url') !!}"
+                               class="fs-18 color1 p-r-20 fa fa-facebook"
+                            ></a>
+                        @endif
+                        @if(config('settings.instagram_url'))
+                            <a target="_blank" href="{!! config('settings.instagram_url') !!}"
+                               class="fs-18 color1 p-r-20 fa fa-instagram"
+                            ></a>
+                        @endif
+                        @if(config('settings.vimeo_url'))
+                            <a target="_blank" href="{!! config('settings.vimeo_url') !!}"
+                               class="fs-18 color1 p-r-20 fa fa-vimeo"
+                            ></a>
+                        @endif
+                        @if(config('settings.g_plus_url'))
+                            <a target="_blank" href="{!! config('settings.g_plus_url') !!}"
+                               class="fs-18 color1 p-r-20 fa fa-google-plus"
+                            ></a>
+                        @endif
+                        @if(config('settings.youtube_url'))
+                            <a target="_blank" href="{!! config('settings.youtube_url') !!}"
+                               class="fs-18 color1 p-r-20 fa fa-youtube-play"
+                            ></a>
+                        @endif
                     </div>
                 @endif
             </div>
@@ -174,9 +183,9 @@
         </a>
 
         <div class="t-center s-text8 p-t-20">
-            Copyright © 2018 All rights reserved. | This template is made with
-            <i class="fa fa-heart-o" aria-hidden="true"></i> by
-            <a href="https://colorlib.com" target="_blank">BookingKH</a>
+            Copyright © {{ \Carbon\Carbon::now()->format('Y') }} All rights reserved. | This template is made with
+            <i class="fa fa-heart-o text-danger" aria-hidden="true"></i> by
+            <a href="https://bookingkh.com" target="_blank">BookingKH</a>
         </div>
     </div>
 </footer>
