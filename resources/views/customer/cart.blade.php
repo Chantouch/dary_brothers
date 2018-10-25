@@ -75,19 +75,6 @@
                 </div>
 
                 <div class="flex-w flex-sb-m p-t-25 p-b-25 bo8 p-l-35 p-r-60 p-lr-15-sm">
-                    <div class="flex-w flex-m w-full-sm">
-                        <div class="size11 bo4 m-r-10">
-                            <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="coupon-code"
-                                   placeholder="Coupon Code">
-                        </div>
-
-                        <div class="size12 trans-0-4 m-t-10 m-b-10 m-r-10">
-                            <button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
-                                {{ __('cart.coupon.apply') }}
-                            </button>
-                        </div>
-                    </div>
-
                     {!! Form::open(['route' => ['customer.carts.empty'], 'method' => 'DELETE']) !!}
                     <div class="size10 trans-0-4 m-t-10 m-b-10">
                         <button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
@@ -126,18 +113,10 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6{{ $errors->has('first_name') ? ' has-error' : '' }}">
                                     {!! Form::label('first_name', __('checkout.attributes.first_name')) !!}
-                                    {!! Form::text('first_name', null, ['class' => 'form-control' . ($errors->has('first_name') ? ' is-invalid' : ''), 'placeholder' => __('checkout.placeholder.first_name')]) !!}
+                                    {!! Form::text('first_name', null, ['class' => 'form-control' . ($errors->has('first_name') ? ' is-invalid' : '')]) !!}
 
                                     @if ($errors->has('first_name'))
                                         <span class="invalid-feedback">{{ $errors->first('first_name') }}</span>
-                                    @endif
-                                </div>
-                                <div class="form-group col-md-6{{ $errors->has('last_name') ? ' has-error' : '' }}">
-                                    {!! Form::label('last_name', __('checkout.attributes.last_name')) !!}
-                                    {!! Form::text('last_name', null, ['class' => 'form-control' . ($errors->has('last_name') ? ' is-invalid' : ''), 'placeholder' => __('checkout.placeholder.last_name')]) !!}
-
-                                    @if ($errors->has('last_name'))
-                                        <span class="invalid-feedback">{{ $errors->first('last_name') }}</span>
                                     @endif
                                 </div>
                                 <div class="form-group col-md-6{{ $errors->has('phone_number') ? ' has-error' : '' }}">
@@ -148,35 +127,15 @@
                                         <span class="invalid-feedback">{{ $errors->first('phone_number') }}</span>
                                     @endif
                                 </div>
-                                <div class="form-group col-md-6{{ $errors->has('email') ? ' has-error' : '' }}">
+                                <div class="form-group col-md-12{{ $errors->has('email') ? ' has-error' : '' }}">
                                     {!! Form::label('email', __('checkout.attributes.email')) !!}
-                                    {!! Form::email('email', null, ['class' => 'form-control' . ($errors->has('email') ? ' is-invalid' : ''), 'placeholder' => __('checkout.placeholder.email')]) !!}
+                                    {!! Form::email('email', null, ['class' => 'form-control' . ($errors->has('email') ? ' is-invalid' : '')]) !!}
 
                                     @if ($errors->has('email'))
                                         <span class="invalid-feedback">{{ $errors->first('email') }}</span>
                                     @endif
                                 </div>
-                                <div
-                                    class="form-group col-md-6{{ $errors->has('payment_method') ? ' has-error' : '' }}">
-                                    {!! Form::label('payment_method', __('checkout.attributes.payment_method')) !!}
-                                    {{ Form::select('payment_method', [
-                                    1 => 'Cash on delivery',
-                                    2 => 'Pay by electronic cash'
-                                    ], null, ['class' => 'form-control' . ($errors->has('payment_method') ? ' is-invalid' : ''), 'placeholder' => __('checkout.placeholder.payment_method')]) }}
 
-                                    @if ($errors->has('payment_method'))
-                                        <span class="invalid-feedback">{{ $errors->first('payment_method') }}</span>
-                                    @endif
-                                </div>
-
-                                <div class="form-group col-md-6{{ $errors->has('date_of_birth') ? ' has-error' : '' }}">
-                                    {!! Form::label('date_of_birth', __('checkout.attributes.date_of_birth')) !!}
-                                    {!! Form::date('date_of_birth', null, ['class' => 'form-control' . ($errors->has('date_of_birth') ? ' is-invalid' : ''), 'placeholder' => __('checkout.placeholder.date_of_birth')]) !!}
-
-                                    @if ($errors->has('date_of_birth'))
-                                        <span class="invalid-feedback">{{ $errors->first('date_of_birth') }}</span>
-                                    @endif
-                                </div>
                                 <div class="form-group col-md-12{{ $errors->has('address') ? ' has-error' : '' }}">
                                     {!! Form::label('address', __('checkout.attributes.address')) !!}
                                     {!! Form::textarea('address', null, ['class' => 'form-control' . ($errors->has('address') ? ' is-invalid' : ''), 'placeholder' => __('checkout.placeholder.address')]) !!}
