@@ -27,8 +27,9 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
-        $schedule->command('queue:checkup')->everyMinute()
-            ->withoutOverlapping();
+//        $schedule->command('queue:checkup')->everyMinute()
+//            ->withoutOverlapping();
+        $schedule->command('sitemap:generate')->daily();
     }
 
     /**
