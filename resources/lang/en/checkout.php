@@ -2,7 +2,7 @@
 
 return [
     'attributes' => [
-        'first_name' => 'First name',
+        'first_name' => 'Name',
         'last_name' => 'Last name',
         'email' => 'Email',
         'phone_number' => 'Phone number',

@@ -42,122 +42,39 @@
             </div>
         </div>
 
-        <div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
+        <div class="w-size6 p-t-30 p-l-15 p-r-15 respon3">
             <h4 class="s-text12 p-b-30">
                 Categories
             </h4>
 
             <ul>
-                <li class="p-b-9">
-                    <a href="#" class="s-text7">
-                        Men
-                    </a>
-                </li>
-
-                <li class="p-b-9">
-                    <a href="#" class="s-text7">
-                        Women
-                    </a>
-                </li>
-
-                <li class="p-b-9">
-                    <a href="#" class="s-text7">
-                        Dresses
-                    </a>
-                </li>
-
-                <li class="p-b-9">
-                    <a href="#" class="s-text7">
-                        Sunglasses
-                    </a>
-                </li>
+                @if(isset($shared_categories))
+                    @foreach($shared_categories as $index  => $category)
+                        <li class="p-b-9">
+                            <a href="{!! route('categories.show', $category->slug) !!}" class="s-text7">
+                                {!! $category->name !!}
+                            </a>
+                        </li>
+                    @endforeach
+                @endif
             </ul>
         </div>
 
-        <div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
+        <div class="w-size6 p-t-30 p-l-15 p-r-15 respon3">
             <h4 class="s-text12 p-b-30">
-                Links
+                {{ __('Links') }}
             </h4>
-
             <ul>
                 <li class="p-b-9">
-                    <a href="#" class="s-text7">
-                        Search
-                    </a>
+                    <a href="{!! route('products.index') !!}" class="s-text7">{{ __('app.menu.shop') }}</a>
                 </li>
-
                 <li class="p-b-9">
-                    <a href="#" class="s-text7">
-                        About Us
-                    </a>
+                    <a href="{!! route('about.index') !!}" class="s-text7">{{ __('app.menu.about') }}</a>
                 </li>
-
                 <li class="p-b-9">
-                    <a href="#" class="s-text7">
-                        Contact Us
-                    </a>
-                </li>
-
-                <li class="p-b-9">
-                    <a href="#" class="s-text7">
-                        Returns
-                    </a>
+                    <a href="{!! route('contact.index') !!}" class="s-text7">{{ __('app.menu.contact') }}</a>
                 </li>
             </ul>
-        </div>
-
-        <div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
-            <h4 class="s-text12 p-b-30">
-                Help
-            </h4>
-
-            <ul>
-                <li class="p-b-9">
-                    <a href="#" class="s-text7">
-                        Track Order
-                    </a>
-                </li>
-
-                <li class="p-b-9">
-                    <a href="#" class="s-text7">
-                        Returns
-                    </a>
-                </li>
-
-                <li class="p-b-9">
-                    <a href="#" class="s-text7">
-                        Shipping
-                    </a>
-                </li>
-
-                <li class="p-b-9">
-                    <a href="#" class="s-text7">
-                        FAQs
-                    </a>
-                </li>
-            </ul>
-        </div>
-
-        <div class="w-size8 p-t-30 p-l-15 p-r-15 respon3">
-            <h4 class="s-text12 p-b-30">
-                Newsletter
-            </h4>
-
-            <form>
-                <div class="effect1 w-size9">
-                    <input class="s-text7 bg6 w-full p-b-5 form-control" type="text" name="email"
-                           placeholder="email@example.com" autocomplete="off">
-                    <span class="effect1-line"></span>
-                </div>
-
-                <div class="w-size2 p-t-20">
-                    <!-- Button -->
-                    <button class="flex-c-m size2 bg4 bo-rad-23 hov1 m-text3 trans-0-4">
-                        Subscribe
-                    </button>
-                </div>
-
-            </form>
         </div>
     </div>
 

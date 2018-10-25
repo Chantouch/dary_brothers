@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Category;
 use Exception;
 use App\Models\Setting;
 use Illuminate\Http\Request;
@@ -33,6 +34,9 @@ class AppServiceProvider extends ServiceProvider
         });
         view()->composer('*', function ($view) use ($request) {
             $view->with('check_lang', app()->getLocale());
+        });
+        view()->composer('frontend.layouts.footer', function ($view) use ($request) {
+            $view->with('shared_categories', Category::with('products')->where('status', '=', 1)->get()->take(5));
         });
     }
 

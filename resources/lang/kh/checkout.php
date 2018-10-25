@@ -2,7 +2,7 @@
 
 return [
     'attributes' => [
-        'first_name' => 'នាមត្រកូល',
+        'first_name' => 'ឈ្មោះ',
         'last_name' => 'នាមខ្លូន',
         'email' => 'អ៊ីមែល',
         'phone_number' => 'លេខទូរសព្ទ',

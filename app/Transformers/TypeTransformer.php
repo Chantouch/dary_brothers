@@ -15,7 +15,7 @@ class TypeTransformer extends BaseTransformer
     public function transform($item): array
     {
         return [
-            'id' => (int)$item->id,
+            'id' => $item->getRouteKey(),
             'en_name' => (string)$item->translate('en')->name,
             'kh_name' => (string)$item->translate('kh')->name,
             'en_description' => (string)$item->translate('en')->description,
