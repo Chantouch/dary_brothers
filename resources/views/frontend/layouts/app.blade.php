@@ -36,6 +36,16 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
 
     @yield('style')
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-51288724-6"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-51288724-6');
+    </script>
+
 </head>
 <body>
 <div id="app" class="animsition">
