@@ -73,4 +73,4 @@ mix.babel([
 // Product filter
 mix.babel([
     'resources/assets/js/web/components/product-list.js'
-], 'public/js/js/frontend/product-list.js');
+], 'public/js/frontend/product-list.js');
