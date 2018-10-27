@@ -7,7 +7,7 @@
     <link rel="shortcut icon" type="image/png" sizes="16x16" href="{!! asset(config('settings.app_favicon')) !!}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com ">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://www.googletagmanager.com; object-src 'self' 'sha256-qznLcsROx4GACP2dm0UCKCzCG+HiZ1guq6ZZDob/Tng='; object-src 'self'">
 
     <title>{{ MetaTag::get('title') }} - {!! config('settings.app_name') !!}</title>
     {!! MetaTag::tag('description') !!}{!! MetaTag::tag('keywords') !!}
