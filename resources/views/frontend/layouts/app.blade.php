@@ -7,8 +7,6 @@
     <link rel="shortcut icon" type="image/png" sizes="16x16" href="{!! asset(config('settings.app_favicon')) !!}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'unsafe-inline' 'unsafe-eval'">
-
     <title>{{ MetaTag::get('title') }} - {!! config('settings.app_name') !!}</title>
     {!! MetaTag::tag('description') !!}{!! MetaTag::tag('keywords') !!}
     {!! MetaTag::tag('canonical', Request::url()) !!}
