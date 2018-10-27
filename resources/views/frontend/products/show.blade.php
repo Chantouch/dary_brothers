@@ -58,21 +58,16 @@
                 </h4>
 
                 <span class="m-text17">
-					${!! $product->price !!}
+				{{ __('app.fields.price') }}:	${!! $product->price !!}
 				</span>
-
-                <p class="s-text8 p-t-10">
-                    Nulla eget sem vitae eros pharetra viverra. Nam vitae luctus ligula. Mauris consequat ornare
-                    feugiat.
-                </p>
 
                 <div class="p-t-33 p-b-60">
                     <div class="flex-m flex-w p-b-10">
                         <div class="s-text15 w-size15 t-center">
-                            Qty
+                            {{ __('app.fields.qty') }}:
                         </div>
                         <div class="rs2-select2 rs3-select2 of-hidden w-size16">
-                            <span>{!! $product->qty !!} item(s) left</span>
+                            <span>{!! $product->qty !!} {{ __('app.fields.item_left') }}</span>
                         </div>
                     </div>
                     {!! Form::open(['route' => ['carts.store'], 'method' => 'POST']) !!}
@@ -102,7 +97,7 @@
                                         type="submit"
                                         value="cart"
                                 >
-                                    Add to Cart
+                                    {{ __('cart.add_cart') }}
                                 </button>
                             </div>
                         </div>
@@ -112,7 +107,7 @@
 
                 <div class="p-b-45">
                     <div class="s-text8">
-                        <span class="category-title">Categories:</span>
+                        <span class="category-title">{{ __('app.fields.categories') }}:</span>
                         @foreach ($product->categories as $index => $category)
                             {{ $loop->first ? '' : ', ' }}
                             <a href="{!! route('categories.show', $category->slug) !!}" title="{!! $category->name !!}">
@@ -124,7 +119,7 @@
 
                 <div class="p-b-45">
                     <div class="s-text8">
-                        <span class="type-title">Type:</span>
+                        <span class="type-title">{{ __('app.fields.type') }}:</span>
                         <a href="{{ route('types.show', $product->type->getRouteKey()) }}"
                            title="{!! $product->type->name !!}">
                             {!! $product->type->name !!}
@@ -134,7 +129,7 @@
 
                 <div class="wrap-dropdown-content bo6 p-t-15 p-b-14 active-dropdown-content">
                     <h5 class="js-toggle-dropdown-content flex-sb-m cs-pointer m-text19 color0-hov trans-0-4">
-                        Description
+                        {{ __('app.fields.description') }}
                         <i class="down-mark fs-12 color1 fa fa-minus dis-none" aria-hidden="true"></i>
                         <i class="up-mark fs-12 color1 fa fa-plus" aria-hidden="true"></i>
                     </h5>
@@ -142,36 +137,6 @@
                     <div class="dropdown-content dis-none p-t-15 p-b-23">
                         <p class="s-text8">
                             {!! $product->description !!}
-                        </p>
-                    </div>
-                </div>
-
-                <div class="wrap-dropdown-content bo7 p-t-15 p-b-14">
-                    <h5 class="js-toggle-dropdown-content flex-sb-m cs-pointer m-text19 color0-hov trans-0-4">
-                        Additional information
-                        <i class="down-mark fs-12 color1 fa fa-minus dis-none" aria-hidden="true"></i>
-                        <i class="up-mark fs-12 color1 fa fa-plus" aria-hidden="true"></i>
-                    </h5>
-
-                    <div class="dropdown-content dis-none p-t-15 p-b-23">
-                        <p class="s-text8">
-                            Fusce ornare mi vel risus porttitor dignissim. Nunc eget risus at ipsum blandit ornare vel
-                            sed velit. Proin gravida arcu nisl, a dignissim mauris placerat
-                        </p>
-                    </div>
-                </div>
-
-                <div class="wrap-dropdown-content bo7 p-t-15 p-b-14">
-                    <h5 class="js-toggle-dropdown-content flex-sb-m cs-pointer m-text19 color0-hov trans-0-4">
-                        Reviews (0)
-                        <i class="down-mark fs-12 color1 fa fa-minus dis-none" aria-hidden="true"></i>
-                        <i class="up-mark fs-12 color1 fa fa-plus" aria-hidden="true"></i>
-                    </h5>
-
-                    <div class="dropdown-content dis-none p-t-15 p-b-23">
-                        <p class="s-text8">
-                            Fusce ornare mi vel risus porttitor dignissim. Nunc eget risus at ipsum blandit ornare vel
-                            sed velit. Proin gravida arcu nisl, a dignissim mauris placerat
                         </p>
                     </div>
                 </div>
@@ -184,7 +149,7 @@
             <div class="container">
                 <div class="sec-title p-b-60">
                     <h3 class="m-text5 t-center">
-                        Related Products
+                        {{ __('app.fields.related_product') }}
                     </h3>
                 </div>
                 <div class="wrap-slick2">

@@ -32,17 +32,17 @@
             <div class="header-cart-wrapbtn">
                 <a href="{!! route('customer.carts.index') !!}"
                    class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
-                    View Cart
+                    {{ __('app.fields.view_cart') }}
                 </a>
             </div>
 
             <div class="header-cart-wrapbtn">
                 <a href="{!! route('customer.carts.index') !!}" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
-                    Check Out
+                    {{ __('app.fields.checkout') }}
                 </a>
             </div>
         </div>
     @else
-        <p>There is no item in cart</p>
+        <p>{{ __('app.fields.no_item_in_cart') }}</p>
     @endif
 </div>

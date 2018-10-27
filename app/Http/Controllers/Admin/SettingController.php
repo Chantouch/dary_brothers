@@ -22,7 +22,6 @@ class SettingController extends Controller
      */
     public function index(Request $request)
     {
-        $limit = $request->input('limit', 20);
         $settings = (new Setting())->newQuery();
         $name = $request->input('name');
         if ($request->has('name')) {
@@ -35,15 +34,10 @@ class SettingController extends Controller
 
         $settings = $settings->sortable()
             ->orderBy('name', 'ASC')
-            ->paginate($limit)
-            ->appends([
-                'name' => $name,
-                'description' => $description
-            ]);
+            ->get();
         Session::flash('_old_input', $request->all());
         return view('admin.settings.index', [
-            'settings' => $settings,
-            'limit' => $limit
+            'settings' => $settings
         ]);
     }
 

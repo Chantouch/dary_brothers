@@ -12,5 +12,6 @@
     "/js/admin/chart.js": "/js/admin/chart.js",
     "/js/admin/dashboard.js": "/js/admin/dashboard.js",
     "/js/admin/order.js": "/js/admin/order.js",
-    "/js/admin/settings.js": "/js/admin/settings.js"
+    "/js/admin/settings.js": "/js/admin/settings.js",
+    "/js/js/frontend/product-list.js": "/js/js/frontend/product-list.js"
 }
