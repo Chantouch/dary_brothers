@@ -69,3 +69,8 @@ mix.babel([
 mix.babel([
     'resources/assets/js/admin/settings.js'
 ], 'public/js/admin/settings.js');
+
+// Product filter
+mix.babel([
+    'resources/assets/js/web/components/product-list.js'
+], 'public/js/frontend/product-list.js');

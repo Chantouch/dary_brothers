@@ -105,12 +105,22 @@ class Setting extends Model implements HasMedia
     public function setValueAttribute($value)
     {
         // Set logo
-        if ($this->attributes['key'] == 'app_logo') {
-            return $this->setLogo($value);
-        } else if ($this->attributes['key'] == 'app_favicon') {
-            return $this->setFavicon($value);
-        } else {
-            $this->attributes['value'] = $value;
+        switch ($this->attributes['key']) {
+            case 'app_logo';
+                return $this->setLogo($value);
+            case 'app_favicon':
+                return $this->setFavicon($value);
+            case 'about_background':
+                return $this->setBackground($value);
+            case 'category_list_background':
+                return $this->setBackground($value);
+            case 'contact_page_background':
+                return $this->setBackground($value);
+            case 'product_list_background':
+                return $this->setBackground($value);
+            default:
+                $this->attributes['value'] = $value;
+                break;
         }
     }
 
@@ -162,6 +172,54 @@ class Setting extends Model implements HasMedia
         // Save the path to the database
         $this->attributes[$attribute_name] = 'storage/' . $destination_path . '/' . $filename;
 //        }
+    }
+
+    // Set Logo
+    public function setBackground($value)
+    {
+        $attribute_name = 'value';
+        $destination_path = 'background';
+        // if the image was erased
+        if ($value == null) {
+            // delete the image from disk
+            $old_path = [
+                'public/background/' . str_replace('storage/background/', '', $this->value),
+            ];
+            if (!str_contains($this->value, config('settings.product_list_background')) || !str_contains($this->value, config('settings.contact_page_background')) || !str_contains($this->value, config('settings.category_list_background')) || !str_contains($this->value, config('settings.about_background'))) {
+                Storage::delete($old_path);
+            }
+            // set null in the database column
+            $this->attributes[$attribute_name] = null;
+        }
+
+        try {
+            // Get file extention
+            $extension = (is_png($value)) ? 'jpg' : 'png';
+            // Make the image (Size: 454x80)
+            $image = Image::make($value)
+                ->resize(1920, 240, function ($constraint) {
+                    $constraint->aspectRatio();
+                    $constraint->upsize();
+                })->encode($extension, 100);
+        } catch (\Exception $e) {
+            $this->attributes[$attribute_name] = null;
+            return false;
+        }
+        if (!empty($this->value)) {
+            //Delete file if exist on serve
+            $old_path = [
+                'public/background/' . str_replace('storage/background/', '', $this->value),
+            ];
+            if (File::exists(storage_path('app/public/background'))) {
+                Storage::delete($old_path);
+            }
+        }
+        // Generate a filename.
+        $filename = uniqid('background-') . '.' . $extension;
+        // Store the image on disk.
+        Storage::put('public/' . $destination_path . '/' . $filename, $image->stream());
+        // Save the path to the database
+        $this->attributes[$attribute_name] = 'storage/' . $destination_path . '/' . $filename;
     }
 
     // Set Favicon

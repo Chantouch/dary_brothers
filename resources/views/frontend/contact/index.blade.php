@@ -2,7 +2,7 @@
 
 @section('content')
     <section class="bg-title-page p-t-40 p-b-50 flex-col-c-m"
-             style="background-image: url({!! asset('images/heading-pages-06.jpg') !!});">
+             style="background-image: url({!! asset(config('settings.category_list_background')) !!});">
         <h2 class="l-text2 t-center">
             {{ __('app.menu.contact') }}
         </h2>

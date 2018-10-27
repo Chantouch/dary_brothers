@@ -49,20 +49,6 @@
             @endforeach
             </tbody>
         </table>
-        <div class="row">
-            <div class="col-md-8">
-                {!! $settings->appends(Request::except('page'))->render() !!}
-            </div>
-            <div class="col-md-4">
-                {!! Form::select('limit', [
-                    '?limit=5' => 5,
-                    '?limit=20' => 20,
-                    '?limit=50' => 50,
-                    '?limit=100' => 100,
-                    '?limit=500' => 500,
-                ], '?limit='.$limit, ['class' => 'form-control', 'id' => 'paginate']) !!}
-            </div>
-        </div>
     @else
         <p>There is no data here.</p>
     @endif

@@ -1,9 +1,8 @@
-<!-- Footer -->
 <footer class="bg6 p-t-45 p-b-43 p-l-45 p-r-45">
     <div class="flex-w p-b-90">
         <div class="w-size6 p-t-30 p-l-15 p-r-15 respon3">
             <h4 class="s-text12 p-b-30">
-                GET IN TOUCH
+                {{ __('app.fields.get_in_touch') }}
             </h4>
 
             <div>
@@ -44,7 +43,7 @@
 
         <div class="w-size6 p-t-30 p-l-15 p-r-15 respon3">
             <h4 class="s-text12 p-b-30">
-                Categories
+                {{ __('app.fields.categories') }}
             </h4>
 
             <ul>
@@ -62,7 +61,7 @@
 
         <div class="w-size6 p-t-30 p-l-15 p-r-15 respon3">
             <h4 class="s-text12 p-b-30">
-                {{ __('Links') }}
+                {{ __('app.fields.links') }}
             </h4>
             <ul>
                 <li class="p-b-9">
@@ -100,7 +99,7 @@
         </a>
 
         <div class="t-center s-text8 p-t-20">
-            Copyright © {{ \Carbon\Carbon::now()->format('Y') }} All rights reserved. | This template is made with
+            {{ __('app.fields.copy_right') }} © {{ \Carbon\Carbon::now()->format('Y') }} All rights reserved. | This template is made with
             <i class="fa fa-heart-o text-danger" aria-hidden="true"></i> by
             <a href="https://bookingkh.com" target="_blank">BookingKH</a>
         </div>

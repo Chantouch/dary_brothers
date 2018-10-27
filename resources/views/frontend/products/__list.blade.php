@@ -29,7 +29,7 @@
                                         type="submit"
                                         value="cart"
                                 >
-                                    <span>Add to cart</span>
+                                    <span>{{ __('cart.add_cart') }}</span>
                                 </button>
                             </div>
                         </div>
