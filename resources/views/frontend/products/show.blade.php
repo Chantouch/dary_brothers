@@ -23,9 +23,9 @@
                     @if($product->hasMedia('product-images'))
                         <div class="slick3">
                             @foreach($product->getMedia('product-images') as $media)
-                                <div class="item-slick3" data-thumb="{!! asset($media->getUrl('feature-product')) !!}">
+                                <div class="item-slick3" data-thumb="{!! asset($media->getUrl()) !!}">
                                     <div class="wrap-pic-w">
-                                        {{ Html::image($media->getUrl('feature-product'), $media->name) }}
+                                        {{ Html::image($media->getUrl(), $media->name) }}
                                     </div>
                                 </div>
                             @endforeach

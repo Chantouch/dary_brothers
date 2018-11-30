@@ -70,7 +70,7 @@
     <div class="wrap_header_mobile">
         <!-- Logo moblie -->
         <a href="{{ route('frontend.home') }}" class="logo-mobile">
-            <img src="{!! asset('images/icons/logo.png') !!}" alt="IMG-LOGO">
+            <img src="{!! asset(config('settings.app_logo')) !!}" alt="{{ MetaTag::get('title') }} - {!! config('settings.app_name') !!}">
         </a>
 
         <!-- Button show menu -->
