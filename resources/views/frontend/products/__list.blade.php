@@ -4,10 +4,12 @@
             <div class="col-sm-6 col-md-4 col-lg-3 p-b-50">
                 <div class="block2">
                     <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
+
                         @if($product->hasMedia('product-images'))
-                            {{ Html::image($product->getMedia('product-images')->first()->getUrl('feature-product'), $product->getMedia('product-images')->first()->name, ['class' => 'card-img-top']) }}
+                            {{ Html::image($product->getMedia('product-images')->first()->getUrl(), $product->getMedia('product-images')->first()->name, ['class' => 'img-thumbnail', 'width' => '40px']) }}
                         @else
-                            <img src="{{ asset('images/item-02.jpg') }}" alt="{{ $product->name }}">
+                            <img src="{{ asset('images/item-02.jpg') }}" alt="{{ $product->name }}"
+                                 class="img-thumbnail" width="40px">
                         @endif
 
                         {!! Form::open(['route' => ['carts.store'], 'method' => 'POST']) !!}
