@@ -29,7 +29,7 @@
         @elseif($json->type =='select_from_array')
             {!! Form::select('value', $json->options, null, ['class' => 'form-control']) !!}
         @else
-            {!! Form::text('value',null , ['class' => 'form-control', 'placeholder' => 'Enter value']) !!}
+            {!! Form::textarea('value', null, ['class' => 'form-control' . ($errors->has('value') ? ' is-invalid' : ''), 'placeholder' => __('settings.placeholder.description')]) !!}
         @endif
 
         @if ($errors->has('value'))
