@@ -20,11 +20,7 @@
             <div class="modal-body">
                 <div class="popup-start-page">
                     @if(isset($popUpVideo))
-                        <iframe src="{!! $popUpVideo->link !!}"
-                                allowfullscreen allowusermedia
-                                frameborder="0"
-                        >
-                        </iframe>
+                        {{ $popUpVideo->link  }}
                     @else
                         <iframe src="https://www.youtube.com/embed/3BX-uBxG4jI?autoplay=1"
                                 frameborder="0"
