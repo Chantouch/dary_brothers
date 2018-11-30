@@ -60,6 +60,10 @@ class SliderController extends Controller
     {
         DB::beginTransaction();
         $slider = new Slider($request->all());
+        $slider->{'name:en'} = $request->input('en_name');
+        $slider->{'name:kh'} = $request->input('kh_name');
+        $slider->{'description:en'} = $request->input('en_description');
+        $slider->{'description:kh'} = $request->input('kh_description');
         $slider->save();
         DB::commit();
         return redirect()->route('admin.sliders.index');
@@ -106,6 +110,10 @@ class SliderController extends Controller
     public function update(UpdateRequest $request, Slider $slider)
     {
         $slider->fill($request->all());
+        $slider->{'name:en'} = $request->input('en_name');
+        $slider->{'name:kh'} = $request->input('kh_name');
+        $slider->{'description:en'} = $request->input('en_description');
+        $slider->{'description:kh'} = $request->input('kh_description');
         if ($request->hasFile('image')) {
             $slider->addMedia($request->file('image'))->toMediaCollection('sliders');
         }
