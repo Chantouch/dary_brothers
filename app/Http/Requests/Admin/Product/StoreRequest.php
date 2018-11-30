@@ -25,15 +25,11 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'images.*' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:20480',
+            'images.*' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
             'en_name' => 'required|min:2|max:255|string',
             'price' => 'required|regex:/^\d*(\.\d{1,2})?$/',
             'cost' => 'required|regex:/^\d*(\.\d{1,2})?$/',
-            'type_id' => [
-                'required',
-                Rule::exists('types', 'id')
-            ],
-            'qty' => 'required|numeric|min:1'
+            'qty' => 'numeric|min:1'
         ];
     }
 }

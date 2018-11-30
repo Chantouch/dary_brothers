@@ -13,8 +13,6 @@ class RolesAndPermissionsSeeder extends Seeder
      */
     public function run()
     {
-        (new Permission)->truncate();
-        (new Role)->truncate();
         // Reset cached roles and permissions
         app()['cache']->forget('spatie.permission.cache');
 

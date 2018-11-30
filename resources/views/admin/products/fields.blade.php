@@ -47,23 +47,6 @@
             @endif
         </div>
 
-        <div class="form-group col-md-7">
-            {!! Form::label('type_id', __('forms.products.labels.type')) !!}
-            {!! Form::select('type_id', $types, null, ['class' => 'form-control' . ($errors->has('type_id') ? ' is-invalid' : ''), 'placeholder' => __('products.placeholder.type')]) !!}
-
-            @if ($errors->has('type_id'))
-                <span class="invalid-feedback">{{ $errors->first('type_id') }}</span>
-            @endif
-        </div>
-        <div class="form-group col-md-5">
-            {!! Form::label('qty', __('products.labels.qty')) !!}
-            {!! Form::number('qty', null, ['class' => 'form-control' . ($errors->has('qty') ? ' is-invalid' : ''), 'placeholder' => __('products.placeholder.qty')]) !!}
-
-            @if ($errors->has('qty'))
-                <span class="invalid-feedback">{{ $errors->first('qty') }}</span>
-            @endif
-        </div>
-
         <div class="form-group col-md-12">
             {!! Form::label('categories', __('forms.products.labels.categories')) !!}
             @if(isset($product_categories))

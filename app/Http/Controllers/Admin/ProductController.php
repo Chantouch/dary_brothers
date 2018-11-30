@@ -79,10 +79,13 @@ class ProductController extends Controller
         $product = new Product($request->all());
         $product->{'name:en'} = $request->input('en_name');
         $product->{'description:en'} = $request->input('en_description');
-        $product->{'name:kh'} = $request->input('kh_name');
-        $product->{'description:kh'} = $request->input('kh_description');
 
-        $product->type()->associate($request->input(('type_id')));
+        if (empty($request->get('kh_name')) || empty($request->get('kh_description'))) {
+
+            $product->{'name:kh'} = $request->input('kh_name');
+
+            $product->{'description:kh'} = $request->input('kh_description');
+        }
 
         $saved = $product->save();
 
@@ -151,9 +154,13 @@ class ProductController extends Controller
         $product->fill(array_filter($request->all()));
         $product->{'name:en'} = $request->input('en_name');
         $product->{'description:en'} = $request->input('en_description');
-        $product->{'name:kh'} = $request->input('kh_name');
-        $product->{'description:kh'} = $request->input('kh_description');
-        $product->type()->associate($request->input(('type_id')));
+
+        if (empty($request->get('kh_name')) || empty($request->get('kh_description'))) {
+
+            $product->{'name:kh'} = $request->input('kh_name');
+
+            $product->{'description:kh'} = $request->input('kh_description');
+        }
         $product->categories()->sync($request->get('categories'));
 
         if ($request->hasFile('images')) {
