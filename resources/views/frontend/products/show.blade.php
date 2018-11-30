@@ -6,10 +6,10 @@
             <i class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>
         </a>
 
-        <a href="{{ route('types.show', $product->type->getRouteKey()) }}" class="s-text16">
-            {!! $product->type->name !!}
-            <i class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>
-        </a>
+        {{--<a href="{{ route('types.show', $product->type->getRouteKey()) }}" class="s-text16">--}}
+            {{--{!! $product->type->name !!}--}}
+            {{--<i class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>--}}
+        {{--</a>--}}
 
         <span class="s-text17">
 			{!! $product->name !!}
@@ -117,15 +117,15 @@
                     </div>
                 </div>
 
-                <div class="p-b-45">
-                    <div class="s-text8">
-                        <span class="type-title">{{ __('app.fields.type') }}:</span>
-                        <a href="{{ route('types.show', $product->type->getRouteKey()) }}"
-                           title="{!! $product->type->name !!}">
-                            {!! $product->type->name !!}
-                        </a>
-                    </div>
-                </div>
+                {{--<div class="p-b-45">--}}
+                    {{--<div class="s-text8">--}}
+                        {{--<span class="type-title">{{ __('app.fields.type') }}:</span>--}}
+                        {{--<a href="{{ route('types.show', $product->type->getRouteKey()) }}"--}}
+                           {{--title="{!! $product->type->name !!}">--}}
+                            {{--{!! $product->type->name !!}--}}
+                        {{--</a>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
 
                 <div class="wrap-dropdown-content bo6 p-t-15 p-b-14 active-dropdown-content">
                     <h5 class="js-toggle-dropdown-content flex-sb-m cs-pointer m-text19 color0-hov trans-0-4">
