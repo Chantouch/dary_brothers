@@ -64,7 +64,7 @@ class ProductController extends Controller
         $product = (new Product())->newQuery()->where('slug', $slug)->first();
         $categories = (new Category())->newQuery()->where('status', 1)->get();
         $types = (new Type())->newQuery()->where('status', 1)->get();
-        $related_products = (new Product())->newQuery()->where('type_id', $product->type->id)->get();
+        $related_products = [];
         return view('frontend.products.show', [
             'product' => $product,
             'categories' => $categories,
