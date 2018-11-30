@@ -111,9 +111,9 @@
 <script type="text/javascript" src="{{ asset('vendor/parallax100/parallax100.js') }}"></script>
 
 @include('sweet::alert')
-@yield('scripts')
 <script src="{{ asset('js/main.js') }}" defer></script>
 <script src="{{ asset('js/plugins.js') }}"></script>
 <script src="{{ asset('js/frontend/cookie.js') }}"></script>
+@yield('scripts')
 <noscript>Your browser does not support JavaScript!</noscript>
 </html>
