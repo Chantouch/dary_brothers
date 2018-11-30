@@ -7,7 +7,7 @@
 
             <div>
                 <p class="s-text7 w-size27">
-                    {{ config('settings.company_address') }}
+                    {!! config('settings.company_address') !!}
                 </p>
                 @if(config('settings.social_activated'))
                     <div class="flex-m p-t-30">
