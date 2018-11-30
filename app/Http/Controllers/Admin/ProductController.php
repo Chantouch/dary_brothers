@@ -85,6 +85,10 @@ class ProductController extends Controller
             $product->{'name:kh'} = $request->input('kh_name');
 
             $product->{'description:kh'} = $request->input('kh_description');
+        } else {
+            $product->{'name:kh'} = $request->input('kh_name');
+
+            $product->{'description:kh'} = $request->input('kh_description');
         }
 
         $saved = $product->save();
@@ -160,7 +164,12 @@ class ProductController extends Controller
             $product->{'name:kh'} = $request->input('kh_name');
 
             $product->{'description:kh'} = $request->input('kh_description');
+        } else {
+            $product->{'name:kh'} = $request->input('kh_name');
+
+            $product->{'description:kh'} = $request->input('kh_description');
         }
+
         $product->categories()->sync($request->get('categories'));
 
         if ($request->hasFile('images')) {
