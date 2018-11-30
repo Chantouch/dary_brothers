@@ -36,7 +36,7 @@ return [
     ],
 
     'instagram' => [
-        'access-token' => '6722907826.1677ed0.a0fe593ad1c74b44b463f7e6a91156c2'
+        'access-token' => env('INSTAGRAM_ACCESS_TOKEN')
     ],
 
 ];
