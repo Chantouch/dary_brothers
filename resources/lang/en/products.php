@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 return [
     'placeholder' => [
@@ -14,7 +14,7 @@ return [
         'kh_name' => '',
     ],
     'labels' => [
-        'name' => 'Name',
+        'name' => 'Product name',
         'description' => 'Description',
         'price' => 'Price',
         'cost' => 'Cost',
@@ -33,6 +33,6 @@ return [
         'cost' => 'Cost',
         'price' => 'Price',
         'qty' => 'Quantity',
-        'discount' => '',
+        'discount' => 'Discount',
     ],
 ];

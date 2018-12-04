@@ -20,7 +20,7 @@
         </li>
     </ul>
     <div class="form-row">
-        <div class="form-group col-md-4">
+        <div class="form-group col-md-3 col-sm-3">
             {!! Form::label('price', __('forms.products.labels.price')) !!}
             {!! Form::number('price', null, ['class' => 'form-control' . ($errors->has('price') ? ' is-invalid' : ''), 'placeholder' => __('products.placeholder.price'), 'step' => '0.01']) !!}
 
@@ -29,7 +29,7 @@
             @endif
         </div>
 
-        <div class="form-group col-md-4">
+        <div class="form-group col-md-3 col-sm-3">
             {!! Form::label('cost', __('forms.products.labels.cost')) !!}
             {!! Form::number('cost', null, ['class' => 'form-control' . ($errors->has('cost') ? ' is-invalid' : ''), 'placeholder' => __('products.placeholder.cost'), 'step' => '0.01']) !!}
 
@@ -38,7 +38,7 @@
             @endif
         </div>
 
-        <div class="form-group col-md-4">
+        <div class="form-group col-md-3 col-sm-3">
             {!! Form::label('discount', __('forms.products.labels.discount')) !!}
             {!! Form::number('discount', null, ['class' => 'form-control' . ($errors->has('discount') ? ' is-invalid' : ''), 'placeholder' => __('products.placeholder.discount'), 'step' => '0.01']) !!}
 
@@ -47,13 +47,23 @@
             @endif
         </div>
 
+        <div class="form-group col-md-3 col-sm-3">
+            {!! Form::label('qty', __('products.labels.qty')) !!}
+            {!! Form::number('qty', null, ['class' => 'form-control' . ($errors->has('qty') ? ' is-invalid' : ''), 'placeholder' => __('products.placeholder.qty')]) !!}
+
+            @if ($errors->has('qty'))
+                <span class="invalid-feedback">{{ $errors->first('qty') }}</span>
+            @endif
+        </div>
+
+
         <div class="form-group col-md-12">
             {!! Form::label('categories', __('forms.products.labels.categories')) !!}
             @if(isset($product_categories))
-                {!! Form::select('categories[]', $categories, $product_categories, ['class' => 'form-control select2' . ($errors->has('categories') ? ' is-invalid' : ''), 'multiple']) !!}
+                {!! Form::select('categories[]', $categories, $product_categories, ['class' => 'form-control select2' . ($errors->has('categories') ? ' is-invalid' : ''), 'multiple', 'required']) !!}
             @else
                 {{ Form::select('categories[]', $categories, [], [
-                 'class' => 'form-control select2',
+                 'class' => 'form-control select2' . ($errors->has('categories') ? ' is-invalid' : ''),
                  'multiple'
                 ]) }}
             @endif
@@ -114,7 +124,9 @@
                 <div class="card-body">
 
                     <div class="row"><input type="file" name="images[]" id="image_uploads" multiple="multiple"></div>
-
+                    @if ($errors->has('images'))
+                        <span class="invalid-feedback d-block">{{ $errors->first('images') }}</span>
+                    @endif
                     @include('admin.products._images')
 
                 </div>

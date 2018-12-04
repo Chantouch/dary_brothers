@@ -16,7 +16,7 @@ Route::get('lang/{language}', 'LanguageController@switchLang')->name('lang.switc
 Auth::routes();
 
 
-Route::middleware('web')->namespace('Frontend')->group(function () {
+Route::middleware(['web'])->namespace('Frontend')->group(function () {
 
     Route::get('/', 'HomeController@index')->name('frontend.home');
 

@@ -25,14 +25,13 @@ class UpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'images.*' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'en_name' => 'required|min:2|max:255|string',
             'kh_name' => 'required|min:2|max:255|string',
             'price' => 'required|regex:/^\d*(\.\d{1,2})?$/',
             'cost' => 'required|regex:/^\d*(\.\d{1,2})?$/',
-            'qty' => 'numeric|min:1',
-            'categories.*' => [
-                'required', Rule::exists('categories', 'id'), 'array'
+            'categories' => [
+                'required', Rule::exists('categories', 'id')
             ]
         ];
     }
