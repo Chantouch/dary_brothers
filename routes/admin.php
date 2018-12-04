@@ -27,9 +27,13 @@ Route::middleware(['optimizeImages'])->group(function () {
 
     Route::resource('products', 'ProductController');
 
-});
+    Route::resource('settings', 'SettingController', ['only' => ['index', 'edit', 'update']]);
 
-Route::resource('media', 'MediaLibraryController')->only(['index', 'show', 'create', 'store', 'destroy']);
+    Route::resource('sliders', 'SliderController');
+
+    Route::resource('media', 'MediaLibraryController')->only(['index', 'show', 'create', 'store', 'destroy']);
+
+});
 
 Route::get('orders', 'OrderController@index')->name('orders.index');
 
@@ -37,10 +41,6 @@ Route::resource('users', 'UserController');
 
 Route::resource('customers', 'CustomerController');
 
-Route::resource('sliders', 'SliderController');
-
 Route::put('settings/ajax/{id}', 'SettingController@ajaxUpdate')->name('settings.ajax-update');
-
-Route::resource('settings', 'SettingController', ['only' => ['index', 'edit', 'update']]);
 
 Route::resource('contacts', 'ContactController', ['only' => ['index', 'destroy']]);
