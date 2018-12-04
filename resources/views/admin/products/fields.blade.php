@@ -108,8 +108,7 @@
             <div class="card mb-3">
                 <div class="card-header">
                     <h3><i class="fa fa-file"></i> {!! __('forms.products.labels.images') !!}</h3>
-                    Maximum 30 files, all files together must have maximal 30MB and the extensions must be matched in
-                    the array ['jpg', 'png', 'gif'].
+                    {{ __('products.labels.max_files') }}
                 </div>
 
                 <div class="card-body">
@@ -126,7 +125,7 @@
     <hr>
     <div class="custom-control custom-checkbox mb-3">
         {!! Form::hidden('status','0', false) !!}
-        {!! Form::checkbox('status', '1', null,['class' => 'custom-control-input', 'id' => 'status']) !!}
+        {!! Form::checkbox('status', '1', true,['class' => 'custom-control-input', 'id' => 'status']) !!}
         {!! Form::label('status', __('forms.products.labels.status'), ['class' => 'custom-control-label']) !!}
     </div>
 </div>

@@ -6,5 +6,9 @@ return [
     'types' => 'Types',
     'products' => 'Products',
     'orders' => 'Orders',
-    'contacts' => 'Contacts'
+    'contacts' => 'Contacts',
+    'sliders' => 'Sliders',
+    'settings' => 'Settings',
+    'customers' => 'Customers',
+    'users' => 'Users'
 ];

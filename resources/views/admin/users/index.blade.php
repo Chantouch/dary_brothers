@@ -19,7 +19,7 @@
                             <th scope="col">#</th>
                             <th scope="col">{!! __('forms.users.labels.name') !!}</th>
                             <th scope="col">{!! __('forms.users.labels.email') !!}</th>
-                            <th scope="col">{!! __('forms.users.labels.dob') !!}</th>
+                            <th scope="col">{!! __('forms.users.labels.date_of_birth') !!}</th>
                             <th scope="col">{!! __('users.attributes.last_login_at') !!}</th>
                             <th scope="col" class="text-center">{!! __('forms.users.labels.status') !!}</th>
                             <th scope="col" class="text-center">{!! __('fields.attributes.actions.action') !!}</th>

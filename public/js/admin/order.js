@@ -1,1 +1,38 @@
-$(document).ready(function(){var t=swal.mixin({toast:!0,position:"bottom-end",showConfirmButton:!1,timer:3e3});$("form.payment").on("change",function(){var e=$(this).attr("action");$.ajax({type:"PUT",headers:{"X-CSRF-TOKEN":$('meta[name="csrf-token"]').attr("content")},url:e,data:{status:$(this).children(".payment_status").val()},beforeSend:function(){swal("Updating....","success")},success:function(e){t({type:"success",title:e.message})},error:function(t){},fail:function(t,e,n){alert("request failed")}})})});
+$(document).ready(function () {
+    var toast = swal.mixin({
+        toast: true,
+        position: 'bottom-end',
+        showConfirmButton: false,
+        timer: 3000
+    });
+
+    $('form.payment').on('change', function () {
+        var url = $(this).attr('action');
+        $.ajax({
+            type: "PUT",
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            url: url,
+            data: {
+                status: $(this).children('.payment_status').val()
+            },
+            beforeSend: function beforeSend() {
+                swal('Updating....', 'success');
+            },
+            success: function success(data) {
+                toast({
+                    type: 'success',
+                    title: data.message
+                });
+            },
+
+            error: function error(data) {
+                // var errors = data.responseJSON;
+            },
+            fail: function fail(xhr, textStatus, errorThrown) {
+                alert('request failed');
+            }
+        });
+    });
+});

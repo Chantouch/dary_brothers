@@ -3,7 +3,7 @@
 return [
     'profile' => '',
     'public_profile' => '',
-    'settings' => '',    
+    'settings' => '',
     'edit' => '',
     'show' => '',
     'create' => '',
@@ -43,4 +43,6 @@ return [
         'verification_success' => '',
         'verification_verified' => '',
     ],
+    'nb_of_posts' => '',
+    'nb_of_comments' => '',
 ];

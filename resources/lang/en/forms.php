@@ -19,6 +19,9 @@ return [
             'type' => 'Select product type',
             'categories' => 'Select categories',
             'description' => 'Product description',
+            'images' => '',
+            'status' => '',
+            'qty' => '',
         ],
         'labels' => [
             'name' => 'Name',
@@ -77,6 +80,7 @@ return [
             'email' => 'Email',
             'last_login' => 'Last login',
             'date_of_birth' => '',
+            'address' => '',
         ],
         'placeholder' => [
             'email' => '',

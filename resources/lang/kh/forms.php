@@ -1,14 +1,14 @@
-<?php 
+<?php
 
 return [
     'buttons' => [
-        'submit' => 'ដាក់ស្នើ',
+        'submit' => 'រក្សាទុក',
         'back' => 'ថយក្រោយ',
         'cancel' => 'បោះបង់',
         'reset' => 'កំណត់ឡើងវិញ',
     ],
     'products' => [
-        'create' => 'បង្កើតផលិតផល',
+        'create' => 'បន្ថែមផលិតផល',
         'edit' => 'កែសម្រួលផលិតផល',
         'list' => 'រាយផលិតផល',
         'labels' => [
@@ -84,21 +84,27 @@ return [
     ],
     'users' => [
         'list' => 'រាយ អ្នកប្រើប្រាស់',
-        'labels' => [            
+        'labels' => [
             'date_of_birth' => 'ថ្ងៃខែ​ឆ្នាំ​កំណើត',
-			'name' => 'ឈ្មោះ',
-            'email' => 'អ៊ីមែល',           
+            'name' => 'ឈ្មោះ',
+            'email' => 'អ៊ីមែល',
             'address' => 'អាសយដ្ឋាន',
             'status' => 'ស្ថានភាព',
             'last_login' => 'ចូលចុងក្រោយ',
+            'dob' => '',
         ],
         'create' => 'បង្កើត',
         'edit' => 'កែប្រែ',
-        'placeholders' => [            
-			'name' => 'សូមបញ្ចូល ឈ្មោះ',
+        'placeholders' => [
+            'name' => 'សូមបញ្ចូល ឈ្មោះ',
             'email' => 'សូមបញ្ចូល អ៊ីមែល',
             'dob' => 'សូមបញ្ចូល ថ្ងៃខែ​ឆ្នាំ​កំណើត',
-        ]      
+        ],
+        'placeholder' => [
+            'email' => '',
+            'name' => '',
+            'date_of_birth' => '',
+        ],
     ],
     'sliders' => [
         'create' => 'បង្កើត',

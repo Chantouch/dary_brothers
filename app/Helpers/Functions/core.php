@@ -113,6 +113,13 @@ if (!function_exists("set_active")) {
     }
 }
 
+if (!function_exists("set_lang_active")) {
+    function set_lang_active($lang)
+    {
+        return $lang === app()->getLocale() ? 'active_lang' : '';
+    }
+}
+
 
 if (!function_exists("set_color")) {
     function set_color($route)

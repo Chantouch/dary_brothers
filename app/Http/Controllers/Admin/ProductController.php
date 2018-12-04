@@ -76,6 +76,8 @@ class ProductController extends Controller
     {
         DB::beginTransaction();
 
+        dd($request->all());
+
         $product = new Product($request->all());
 
         $product->{'name:en'} = $request->input('en_name');

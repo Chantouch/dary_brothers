@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 return [
     'placeholder' => [
@@ -10,7 +10,8 @@ return [
         'type' => 'Product type',
         'qty' => 'Product qty',
         'en_description' => 'English description',
-        'kh_description' => 'Khmer description'
+        'kh_description' => 'Khmer description',
+        'kh_name' => '',
     ],
     'labels' => [
         'name' => 'Name',
@@ -19,7 +20,8 @@ return [
         'cost' => 'Cost',
         'discount' => 'Discount',
         'type' => 'Type',
-        'qty' => 'Qty'
+        'qty' => 'Qty',
+        'max_files' => 'Maximum 5 files, all files together must have maximal 3MB and the extensions must be matched in the array [\'jpg\', \'png\', \'gif\'].',
     ],
     'search' => 'Search',
     'attributes' => [
@@ -30,6 +32,7 @@ return [
         'en_description' => 'English description',
         'cost' => 'Cost',
         'price' => 'Price',
-        'qty' => 'Quantity'
-    ]
+        'qty' => 'Quantity',
+        'discount' => '',
+    ],
 ];

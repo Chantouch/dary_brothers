@@ -6,7 +6,7 @@
                     <a class="{{ set_active($lang.'admin/dashboard') }}"
                        href="{!! route('admin.dashboard') !!}"
                     >
-                        <i class="fa fa-fw fa-bars"></i><span> {!! __('menu.dashboard') !!} </span>
+                        <i class="fa fa-fw fa-dashboard"></i><span> {!! __('menu.dashboard') !!} </span>
                     </a>
                 </li>
                 <li class="submenu">
@@ -15,14 +15,6 @@
                     >
                         <i class="fa fa-fw fa-area-chart"> </i>
                         <span> {!! __('menu.categories') !!} </span>
-                    </a>
-                </li>
-                <li class="submenu">
-                    <a class="{{ set_active([$lang.'admin/types', Request::is($lang.'admin/types/*'), $lang.'admin/types']) }}"
-                       href="{!! route('admin.types.index') !!}"
-                    >
-                        <i class="fa fa-fw fa-file-text-o"> </i>
-                        <span> {!! __('menu.types') !!} </span>
                     </a>
                 </li>
                 <li class="submenu">
@@ -50,51 +42,36 @@
                     </a>
                 </li>
                 <li class="submenu">
-                    <a href="javascript: void (0)"><i class="fa fa-fw fa-user-circle-o"></i>
-                        <span> User Management </span>
-                        <span class="menu-arrow"></span>
+                    <a class="{{ set_active([$lang.'admin/users', Request::is($lang.'admin/users/*'), $lang.'admin/users']) }}"
+                       href="{!! route('admin.users.index') !!}"
+                    >
+                        <i class="fa fa-fw fa-user-circle-o"> </i>
+                        <span> {!! __('menu.users') !!} </span>
                     </a>
-                    <ul class="list-unstyled">
-                        <li>
-                            <a class="{{ set_active([$lang.'admin/users', Request::is($lang.'admin/users/*'), $lang.'admin/users']) }}"
-                               href="{{ route('admin.users.index') }}"
-                            >
-                                Users
-                            </a>
-                        </li>
-                        <li>
-                            <a class="{{ set_active([$lang.'admin/customers', Request::is($lang.'admin/customers/*'), $lang.'admin/customers']) }}"
-                               href="{{ route('admin.customers.index') }}"
-                            >
-                                Customers
-                            </a>
-                        </li>
-                    </ul>
                 </li>
                 <li class="submenu">
-                    <a href="javascript: void (0)" class="pro"><i class="fa fa-fw fa-tv"></i>
-                        <span> System Management </span>
-                        <span class="menu-arrow"></span>
+                    <a class="{{ set_active([$lang.'admin/customers', Request::is($lang.'admin/customers/*'), $lang.'admin/customers']) }}"
+                       href="{!! route('admin.customers.index') !!}"
+                    >
+                        <i class="fa fa-fw fa-users"> </i>
+                        <span> {!! __('menu.customers') !!} </span>
                     </a>
-                    <ul class="list-unstyled">
-                        <li>
-                            <a class="{{ set_active([$lang.'admin/sliders', Request::is($lang.'admin/sliders/*'), $lang.'admin/sliders']) }}"
-                               href="{!! route('admin.sliders.index') !!}"
-                            >
-                                Sliders
-                            </a>
-                        </li>
-                        <li>
-                            <a class="{{ set_active([$lang.'admin/settings', Request::is($lang.'admin/settings/*'), $lang.'admin/settings']) }}"
-                               href="{{ route('admin.settings.index') }}">{{ __('admin_menu.settings') }}</a>
-                        </li>
-                        <li>
-                            <a href="#">Permission</a>
-                        </li>
-                        <li>
-                            <a href="#">Permission</a>
-                        </li>
-                    </ul>
+                </li>
+                <li class="submenu">
+                    <a class="{{ set_active([$lang.'admin/sliders', Request::is($lang.'admin/sliders/*'), $lang.'admin/sliders']) }}"
+                       href="{!! route('admin.sliders.index') !!}"
+                    >
+                        <i class="fa fa-fw fa-sliders"> </i>
+                        <span> {!! __('menu.sliders') !!} </span>
+                    </a>
+                </li>
+                <li class="submenu">
+                    <a class="{{ set_active([$lang.'admin/settings', Request::is($lang.'admin/settings/*'), $lang.'admin/settings']) }}"
+                       href="{!! route('admin.settings.index') !!}"
+                    >
+                        <i class="fa fa-fw fa-cogs"> </i>
+                        <span> {!! __('menu.settings') !!} </span>
+                    </a>
                 </li>
             </ul>
             <div class="clearfix"></div>

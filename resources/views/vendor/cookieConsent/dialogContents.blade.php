@@ -1,13 +1,11 @@
-<div id="cookieConsent" class="js-cookie-consent cookie-consent">
-
-    <div id="closeCookieConsent">x</div>
+<div class="js-cookie-consent cookie-consent">
 
     <span class="cookie-consent__message">
-        {!! trans('cookieConsent::texts.message') !!} <a href="#" target="_blank">More info</a>.
+        {!! trans('cookieConsent::texts.message') !!}
     </span>
 
-    <span class="js-cookie-consent-agree cookie-consent__agree cookieConsentOK">
+    <button class="js-cookie-consent-agree cookie-consent__agree">
         {{ trans('cookieConsent::texts.agree') }}
-    </span>
+    </button>
 
 </div>

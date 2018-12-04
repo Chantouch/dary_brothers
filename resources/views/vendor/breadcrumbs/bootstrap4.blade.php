@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-xl-12">
         <div class="breadcrumb-holder">
-            <h1 class="main-title float-left">Dashboard</h1>
+            <h1 class="main-title float-left">{{ __('menu.dashboard') }}</h1>
             @if (count($breadcrumbs))
                 <ol class="breadcrumb float-right">
                     @foreach ($breadcrumbs as $breadcrumb)
@@ -17,4 +17,3 @@
         </div>
     </div>
 </div>
-<!-- end row -->

@@ -10,7 +10,7 @@
                         <strong>{!! __('forms.products.list') !!}</strong>
                         <div class="card-actions">
                             <a href="{!! route('admin.products.create') !!}">
-                                <small class="text-muted">{!! __('fields.attributes.types.new') !!}</small>
+                             <i class="fa fa-fw fa-plus-square-o"></i>   <small class="text-muted">{!! __('fields.attributes.types.new') !!}</small>
                             </a>
                         </div>
                     </div>

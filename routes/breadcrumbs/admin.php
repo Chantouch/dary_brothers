@@ -9,7 +9,7 @@ use App\Models\Type;
 // Admin > Home
 try {
     Breadcrumbs::register('admin.home', function (BreadcrumbsGenerator $breadcrumbs) {
-        $breadcrumbs->push('Dashboard', route('admin.dashboard'));
+        $breadcrumbs->push(trans('menu.dashboard'), route('admin.dashboard'));
     });
 } catch (DuplicateBreadcrumbException $e) {
     throw new $e;
@@ -17,7 +17,7 @@ try {
 // Admin > Dashboard
 try {
     Breadcrumbs::register('admin.dashboard', function (BreadcrumbsGenerator $breadcrumbs) {
-        $breadcrumbs->push('Dashboard', route('admin.dashboard'));
+        $breadcrumbs->push(trans('menu.dashboard'), route('admin.dashboard'));
     });
 } catch (DuplicateBreadcrumbException $e) {
     throw new $e;

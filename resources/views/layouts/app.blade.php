@@ -81,5 +81,14 @@
 <script src="{{ asset('admin/plugins/counterup/jquery.counterup.min.js') }}"></script>
 @include('sweet::alert')
 @yield('scripts')
+<script>
+    (function ($) {
+        $('form').submit(function () {
+            $(this).find("button[type='submit']").prop('disabled', true);
+            $(this).find("a.btn").addClass('disabled');
+            $(this).find("button[type='submit']").append(' <i class="fa fa-spinner fa-spin"></i>');
+        });
+    })(jQuery);
+</script>
 </body>
 </html>
