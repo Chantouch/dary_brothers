@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 use Spatie\MediaLibrary\Models\Media;
 
@@ -54,7 +55,7 @@ class MediaLibraryController extends Controller
         if ($request->filled('name')) {
             $name = $request->input('name');
         }
-        MediaLibrary::first()
+        Media::first()
             ->addMedia($image)
             ->usingName($name)
             ->toMediaCollection();
@@ -63,13 +64,25 @@ class MediaLibraryController extends Controller
 
     /**
      * Remove the specified resource from storage.
-     * @param Media $medium
-     * @return RedirectResponse
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
      * @throws \Exception
      */
-    public function destroy(Media $medium): RedirectResponse
+    public function destroy($id)
     {
-        $medium->delete();
-        return redirect()->back()->withSuccess(__('media.deleted'));
+        $media = Media::find($id);
+        if (empty($media)) {
+            return response()->json(['message' => 'Sorry file does not exist.']);
+        }
+
+        $file_path = 'public/' . $id . '/' . $media->file_name;
+
+        if (Storage::disk($media->disk)->exists($file_path)) {
+            Storage::disk($media->disk)->delete($file_path);
+        }
+
+        $media->delete();
+
+        return response()->json(['success' => 'Media deleted.']);
     }
 }

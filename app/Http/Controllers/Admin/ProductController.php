@@ -93,6 +93,12 @@ class ProductController extends Controller
         if ($saved && $request->hasFile('images')) {
             foreach ($request->file('images') as $photo) {
                 $product->addMedia($photo)
+                    ->sanitizingFileName(function ($fileName) {
+                        return strtolower(str_replace(['#', '/', '\\', ' '], '-', $fileName));
+                    })
+                    ->withManipulations([
+                        '*' => ['orientation' => '90'],
+                    ])
                     ->toMediaCollection('product-images');
             }
 
@@ -160,6 +166,12 @@ class ProductController extends Controller
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $photo) {
                 $product->addMedia($photo)
+                    ->sanitizingFileName(function ($fileName) {
+                        return strtolower(str_replace(['#', '/', '\\', ' '], '-', $fileName));
+                    })
+                    ->withManipulations([
+                        '*' => ['orientation' => '90'],
+                    ])
                     ->toMediaCollection('product-images');
             }
         }

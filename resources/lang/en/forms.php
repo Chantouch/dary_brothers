@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 return [
     'buttons' => [
@@ -125,4 +125,6 @@ return [
             'description' => 'Description',
         ],
     ],
+    'confirm' => 'Are you sure to delete this image?',
+    'max_files' => 'Maximum 5 files, all files together must have maximal 3MB and the extensions must be matched in the array [jpg, png, gif].',
 ];

@@ -54,14 +54,13 @@
 
     <div class="form-group">
         <label for="type" class="control-label">Type</label>
-        {!! Form::select('type', ['banner' => 'Banner', 'slider' => 'Slider', 'video' => 'Video', 'popup' => 'Popup'], null, ['placeholder' => __('forms.categories.placeholders.description'),'class' => 'form-control']) !!}
+        {!! Form::select('type', ['banner' => 'Banner', 'slider' => 'Slider', 'video' => 'Video', 'popup' => 'Popup'], null, ['placeholder' => __('forms.categories.placeholders.description'),'class' => 'form-control slider-type']) !!}
     </div>
 
-    <div class="card mb-3">
+    <div class="card mb-3" id="slider-image">
         <div class="card-header">
             <h3><i class="fa fa-file"></i> {!! __('forms.products.labels.images') !!}</h3>
-            Maximum 30 files, all files together must have maximal 30MB and the extensions must be matched in
-            the array ['jpg', 'png', 'gif'].
+            {{ __('forms.max_files') }}
         </div>
 
         <div class="card-body">
@@ -99,7 +98,8 @@
                                             </ul>
                                             <ul class="list-inline pull-right">
                                                 <li>
-                                                    <a class="icon-jfi-trash jFiler-item-trash-action"></a>
+                                                    <a class="icon-jfi-trash jFiler-item-trash-action delete-image"
+                                                       data-url="{{ route('admin.media.destroy', $image) }}"></a>
                                                 </li>
                                             </ul>
                                         </div>

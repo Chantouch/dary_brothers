@@ -30,4 +30,23 @@
     <script src="{{ asset('admin/plugins/select2/js/select2.min.js') }}"></script>
     <script src="{{ asset('admin/plugins/jquery.filer/js/jquery.filer.min.js') }}"></script>
     <script src="{{ asset('js/admin/product-editor.js') }}"></script>
+    <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $('a.delete-image').click(function (e) {
+            e.preventDefault()
+            let con = confirm("{{ __('forms.confirm') }}")
+            if (!con) return
+            $.ajax({
+                url: $(this).data("url"),
+                type: 'DELETE',
+                success: function (result) {
+                    location.reload();
+                }
+            })
+        })
+    </script>
 @endsection

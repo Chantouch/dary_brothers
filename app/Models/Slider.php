@@ -23,17 +23,4 @@ class Slider extends Model implements HasMedia
         'status' => 'boolean',
         'link' => 'text'
     ];
-
-    /**
-     * @param Media|null $media
-     * @throws \Spatie\Image\Exceptions\InvalidManipulation
-     */
-    public function registerMediaConversions(Media $media = null)
-    {
-        $this->addMediaConversion('sliders')
-            ->width(1920)
-            ->height(570)
-            ->sharpen(100)
-            ->nonQueued();
-    }
 }

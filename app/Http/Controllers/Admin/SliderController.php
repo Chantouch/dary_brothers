@@ -10,6 +10,7 @@ use App\Transformers\SliderTransformer;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class SliderController extends Controller
 {
@@ -114,8 +115,30 @@ class SliderController extends Controller
         $slider->{'name:kh'} = $request->input('kh_name');
         $slider->{'description:en'} = $request->input('en_description');
         $slider->{'description:kh'} = $request->input('kh_description');
+        $media = $slider->media()->first();
         if ($request->hasFile('image')) {
-            $slider->addMedia($request->file('image'))->toMediaCollection('sliders');
+            if (!empty($media)) {
+                $file_path = 'public/' . $media->id . '/' . $media->file_name;
+                if (Storage::disk($media->disk)->exists($file_path)) {
+                    Storage::disk($media->disk)->delete($file_path);
+                }
+                $media->delete();
+            }
+            $slider->addMedia($request->file('image'))
+                ->sanitizingFileName(function ($fileName) {
+                    return strtolower(str_replace(['#', '/', '\\', ' '], '-', $fileName));
+                })
+                ->withManipulations([
+                    '*' => ['orientation' => '90'],
+                ])
+                ->toMediaCollection('sliders');
+        }
+        if (($slider->type !== 'slider' && !empty($media)) || ($slider->type !== 'banner' && !empty($media))) {
+            $file_path = 'public/' . $media->id . '/' . $media->file_name;
+            if (Storage::disk($media->disk)->exists($file_path)) {
+                Storage::disk($media->disk)->delete($file_path);
+            }
+            $media->delete();
         }
         $slider->save();
         return redirect()->route('admin.sliders.index');

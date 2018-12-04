@@ -1,7 +1,7 @@
 @if (isset($product) && isset($images))
     <div class="row">
         @foreach($images as $image)
-            <div class="jFiler-items jFiler-row">
+            <div class="jFiler-items jFiler-row remove-image-header" data-id="{{ $image->id }}">
                 <ul class="jFiler-items-list jFiler-items-grid">
                     <li class="jFiler-item" data-jfiler-index="1">
                         <div class="jFiler-item-container">
@@ -30,7 +30,8 @@
                                     </ul>
                                     <ul class="list-inline pull-right">
                                         <li>
-                                            <a class="icon-jfi-trash jFiler-item-trash-action"></a>
+                                            <a class="icon-jfi-trash jFiler-item-trash-action delete-image"
+                                               data-url="{{ route('admin.media.destroy', $image) }}"></a>
                                         </li>
                                     </ul>
                                 </div>

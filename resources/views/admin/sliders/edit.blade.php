@@ -1,7 +1,8 @@
 @extends('layouts.app')
 @section('styles')
-    <link href="{{ asset('admin/plugins/jquery.filer/css/jquery.filer.css') }}" rel="stylesheet" />
-    <link href="{{ asset('admin/plugins/jquery.filer/css/themes/jquery.filer-dragdropbox-theme.css') }}" rel="stylesheet" />
+    <link href="{{ asset('admin/plugins/jquery.filer/css/jquery.filer.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('admin/plugins/jquery.filer/css/themes/jquery.filer-dragdropbox-theme.css') }}"
+          rel="stylesheet"/>
 @endsection
 @section('content')
     <div class="row">
@@ -22,19 +23,55 @@
 
 @section('scripts')
     <script src="{{ asset('admin/plugins/jquery.filer/js/jquery.filer.min.js') }}"></script>
-
     <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
         $(document).ready(function () {
             'use strict';
             $('#image_uploads').filer({
                 limit: 1,
-                maxSize: 30,
+                maxSize: 2,
                 extensions: ['jpg', 'jpeg', 'png', 'gif'],
                 changeInput: true,
                 showThumbs: true,
                 addMore: false
             });
+            let $slider_type = $('.slider-type').val()
+            $('.slider-type').change(function (e) {
+                e.preventDefault()
+                if ($(this).val() === 'slider') {
+                    $('#slider-image').removeClass('d-none')
+                } else if ($(this).val() === 'banner') {
+                    $('#slider-image').removeClass('d-none')
+                } else {
+                    $('#slider-image').addClass('d-none')
+                }
+            })
+
+            if ($slider_type === 'slider') {
+                $('#slider-image').removeClass('d-none')
+            } else if ($slider_type === 'banner') {
+                $('#slider-image').removeClass('d-none')
+            } else {
+                $('#slider-image').addClass('d-none')
+            }
 
         });
+
+        $('a.delete-image').click(function (e) {
+            e.preventDefault()
+            let con = confirm("{{ __('forms.confirm') }}")
+            if (!con) return
+            $.ajax({
+                url: $(this).data("url"),
+                type: 'DELETE',
+                success: function (result) {
+                    location.reload();
+                }
+            })
+        })
     </script>
 @endsection
