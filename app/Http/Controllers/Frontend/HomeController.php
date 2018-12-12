@@ -53,7 +53,7 @@ class HomeController extends Controller
             $instagram = new Instagram(config('services.instagram.access-token'));
 
             $instagrams = collect($instagram->get())->map(function ($each) {
-                return $each;
+                dd($each);
             });
         }
 
