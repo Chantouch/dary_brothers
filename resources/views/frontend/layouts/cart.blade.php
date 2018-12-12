@@ -5,7 +5,7 @@
                 <li class="header-cart-item">
                     <div class="header-cart-item-img">
                         @if($product->model->hasMedia('product-images'))
-                            {{ Html::image($product->model->getMedia('product-images')->first()->getUrl('feature-product'), $product->model->getMedia('product-images')->first()->name) }}
+                            {{ Html::image($product->model->getMedia('product-images')->first()->getUrl(), $product->model->getMedia('product-images')->first()->name) }}
                         @else
                             <img src="{{ asset('images/item-cart-01.jpg') }}"
                                  alt="{{ $product->model->name }}"
