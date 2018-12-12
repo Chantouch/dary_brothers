@@ -53,6 +53,8 @@ class HomeController extends Controller
             $instagram = new Instagram(config('services.instagram.access-token'));
 
             $instagrams = collect($instagram->get());
+
+            dd($instagram);
         }
 
         return view('frontend.home', [
