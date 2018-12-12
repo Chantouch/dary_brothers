@@ -81,7 +81,7 @@
                 @foreach($instagrams as  $key => $instagram)
                     <div class="block4 wrap-pic-w">
                         <img src="{!! asset($instagram->images->standard_resolution->url) !!}" alt="IMG-INSTAGRAM">
-                        <a href="#" class="block4-overlay sizefull ab-t-l trans-0-4">
+                        <a href="{!! $instagram->link !!}" class="block4-overlay sizefull ab-t-l trans-0-4" target="_blank">
                         <span class="block4-overlay-heart s-text9 flex-m trans-0-4 p-l-40 p-t-25">
                             <i class="icon_heart_alt fs-20 p-r-12" aria-hidden="true"></i>
                             <span class="p-t-2">{{ $instagram->likes->count }}</span>
