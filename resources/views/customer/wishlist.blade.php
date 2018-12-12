@@ -28,7 +28,7 @@
                                     <td class="column-1">
                                         <div class="cart-img-product b-rad-4 o-f-hidden">
                                             @if($product->model->hasMedia('product-images'))
-                                                {{ Html::image($product->model->getMedia('product-images')->first()->getUrl('feature-product'), $product->model->getMedia('product-images')->first()->name, ['class' => 'img-thumbnail', 'width' => '40px']) }}
+                                                {{ Html::image($product->model->getMedia('product-images')->first()->getUrl(), $product->model->getMedia('product-images')->first()->name, ['class' => 'img-thumbnail', 'width' => '40px']) }}
                                             @else
                                                 <img src="{{ asset('images/item-10.jpg') }}"
                                                      alt="{{ $product->model->name }}" class="img-thumbnail"
