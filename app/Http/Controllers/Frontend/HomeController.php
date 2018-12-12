@@ -52,9 +52,9 @@ class HomeController extends Controller
         if (config('app.env') === 'production') {
             $instagram = new Instagram(config('services.instagram.access-token'));
 
-            $instagrams = collect($instagram->get());
-
-            dd($instagram);
+            $instagrams = collect($instagram->get())->map(function ($each) {
+                return $each->images;
+            });
         }
 
         return view('frontend.home', [
