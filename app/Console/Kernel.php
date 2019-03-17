@@ -26,7 +26,7 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
-        $schedule->command('queue:listen --timeout=60 --sleep=5 --tries=3')
+        $schedule->command('queue:listen --timeout=60 --sleep=3 --tries=3')
             ->cron('* * * * *')
             ->withoutOverlapping();
     }
